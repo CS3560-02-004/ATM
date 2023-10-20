@@ -1,12 +1,14 @@
 package ATM;
 public abstract class Card {
     protected int cardNumber;
+    protected int withdrawAmount; 
     protected String expirationDate;
     protected int ccvNumber;
 
     // constructor
     public Card(int cardNumber, String expirationDate, int ccvNumber) {
         this.cardNumber = cardNumber;
+        this.withdrawAmount = 0;
         this.expirationDate = expirationDate;
         this.ccvNumber = ccvNumber;
     }
@@ -25,6 +27,12 @@ public abstract class Card {
     public void setCardNumber(int number) {
         cardNumber = number;
     }
+
+    // Increment how much has been withdrawn from the card in one day
+    public void incrementWithdrawAmount(int withdrawAmount)
+
+    // Reset withdraw amount at the end of the day
+    public void resetWithdrawAmount()
 
     // expirationDate getter
     public String getExpirationDate() {
