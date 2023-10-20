@@ -3,9 +3,10 @@ public class SavingsAccount extends Account {
     private double savingsBalance;
     private double interestRate;
 
+    // Constructor
     public SavingsAccount(int accountID, String dateCreated, double savingsBalance, double interestRate) {
-        this.accountID = accountID;
-        this.dateCreated = dateCreated;
+        super(accountID, dateCreated);
+
         this.savingsBalance = savingsBalance;
         this.interestRate = interestRate;
     }

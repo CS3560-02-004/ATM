@@ -2,9 +2,10 @@ package ATM;
 public class CheckingAccount extends Account {
     private double checkingBalance;
 
+    // Constructor
     public CheckingAccount(int accountID, String dateCreated, double checkingBalance) {
-        this.accountID = accountID;
-        this.dateCreated = dateCreated;
+        super(accountID, dateCreated);
+
         this.checkingBalance = checkingBalance;
     }
 
