@@ -4,6 +4,13 @@ public abstract class Card {
     protected String expirationDate;
     protected int ccvNumber;
 
+    // constructor
+    public Card(int cardNumber, String expirationDate, int ccvNumber) {
+        this.cardNumber = cardNumber;
+        this.expirationDate = expirationDate;
+        this.ccvNumber = ccvNumber;
+    }
+
     // cardNumber getter
     public int getCardNumber() {
         return cardNumber;
