@@ -30,7 +30,8 @@ public class CashStorage extends ATM
 	//			specific type of denomination
 	//						- ie: denominationArray[0] == num of 1 dollar bills
 	//									and denominationArray[1] == num of 5 dollar bills
-	public void addDenominations(int[] denominationArray)
+	//	if the number of a certain denomination gets too high, return true to notify admin
+	public boolean addDenominations(int[] denominationArray)
 
 	// remove certain number of each type of dollar denomination
 	//		- uses same array concept as method above
