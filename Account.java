@@ -9,6 +9,16 @@ public abstract class Account {
         this.dateCreated = dateCreated;
     }
 
+    // deposits funds into the account
+    public void depositFunds(double amount) {
+
+    }
+
+    // withdraws funds from the account
+    public void withdrawFunds(double amount) {
+
+    }
+
     // accountID getter
     public int getAccountID() {
         return accountID;
