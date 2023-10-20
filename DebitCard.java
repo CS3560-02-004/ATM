@@ -9,6 +9,12 @@ public class DebitCard extends Card {
         this.pin = pin;
     }
 
+    // withdraw's the funds from the correspondings checkings account.
+    // The checkings account will be looked up based on the card number
+    public void withdrawFunds() {
+
+    }
+
     // returns true if the pin is valid, false otherwise
     public boolean verifyPIN(int attemptedPIN) {
         return true;
@@ -27,7 +33,7 @@ public class DebitCard extends Card {
     // notifies the user of an invalid card
     private void displayCardInvalidity() {
 
-    }
+    }    
 
     // pin getter
     public int getPin() {
