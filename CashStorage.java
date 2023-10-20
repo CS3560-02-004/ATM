@@ -23,14 +23,21 @@ public class CashStorage extends ATM
 
 	// Setters --------------------------------------------------------
 
-	// add certain number of a type of dollar denomination
-	public void addDenomination(int denominationValue, int amount)
+	// add certain number of each type of dollar denomination
+	// the array parameter will be an int array of 6 elements
+	//		- each element = number of denominations for a 
+	//			specific type of denomination
+	//						- ie: denominationArray[0] == num of 1 dollar bills
+	//									and denominationArray[1] == num of 5 dollar bills
+	public void addDenominations(int[] denominationArray)
 
-	// remove certain number of a type of dollar denomination
+	// remove certain number of each type of dollar denomination
+	//		- uses same array concept as method above
 	// return true if successful, return false if too many dollars being removed
-	public boolean removeDenomination(int denominationValue, int amount)
+	public boolean removeDenominations(int[] denominationArray)
 
+	// first check to see if cashAmount >= withdrawAmount, return false if not true
 	// check to see if a withdraw amount can be converted to cash given the number of denominations available
-	// return true if the withdraw amount can be converted to cash
-	public boolean checkDenomination(int withdraw)
+	// 	- return true if the withdraw amount can be converted to cash
+	public boolean checkDenomination(int withdrawAmount)
 }
