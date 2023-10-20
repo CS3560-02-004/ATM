@@ -11,6 +11,11 @@ public abstract class Card {
         this.ccvNumber = ccvNumber;
     }
 
+    // authenticates the given card, via PIN for debit cards or automatically for credit cards
+    public void authenticateCard(Card card) {
+
+    }
+
     // cardNumber getter
     public int getCardNumber() {
         return cardNumber;
