@@ -10,8 +10,23 @@ public class DebitCard extends Card {
     }
 
     // returns true if the pin is valid, false otherwise
-    public boolean verifyPin(int attemptedPIN) {
+    public boolean verifyPIN(int attemptedPIN) {
         return true;
+    }
+
+    // displays the transaction window
+    private void displayTransactionWindow(){
+
+    }
+
+    // notifies the user of an invalid pin
+    private void notifyInvalidPIN() {
+
+    }
+
+    // notifies the user of an invalid card
+    private void displayCardInvalidity() {
+
     }
 
     // pin getter
