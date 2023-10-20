@@ -1,6 +1,14 @@
+package ATM;
 public class SavingsAccount extends Account {
     private double savingsBalance;
     private double interestRate;
+
+    public SavingsAccount(int accountID, String dateCreated, double savingsBalance, double interestRate) {
+        this.accountID = accountID;
+        this.dateCreated = dateCreated;
+        this.savingsBalance = savingsBalance;
+        this.interestRate = interestRate;
+    }
 
     // savingsBalance getter
     public double getSavingsBalance() {
