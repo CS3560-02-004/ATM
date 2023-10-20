@@ -20,7 +20,7 @@ public abstract class Account {
     }
 
     // transfers funds from this account to the other account
-    public void transferFunds(Account toAccount) {
+    public void transferFunds(Account toAccount, double amount) {
 
     }
 

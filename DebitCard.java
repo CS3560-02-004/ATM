@@ -11,7 +11,7 @@ public class DebitCard extends Card {
 
     // withdraw's the funds from the correspondings checkings account.
     // The checkings account will be looked up based on the card number
-    public void withdrawFunds() {
+    public void withdrawFunds(double amount) {
 
     }
 
