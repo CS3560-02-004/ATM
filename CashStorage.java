@@ -13,6 +13,7 @@ public class CashStorage extends ATM
 											int twentyDollarQuantity, int fiftyDollarQuantity, int hundredDollarQuantity)
 
 	// Getters -----------------------------------------------
+	public int getCashAmount()
 	public int getOneDollarQuantity()
 	public int getFiveDollarQuantity()
 	public int getTenDollarQuantity()
