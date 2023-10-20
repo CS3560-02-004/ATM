@@ -19,6 +19,11 @@ public abstract class Account {
 
     }
 
+    // transfers funds from this account to the other account
+    public void transferFunds(Account toAccount) {
+
+    }
+
     // accountID getter
     public int getAccountID() {
         return accountID;
