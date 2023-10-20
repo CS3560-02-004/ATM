@@ -1,3 +1,4 @@
+package ATM;
 public class Customer {
     private int customerID;
     private String customerName;
@@ -12,6 +13,11 @@ public class Customer {
         this.phoneNumber = phoneNumber;
         this.emailAddress = emailAddress;
         this.billingAddress = billingAddress;
+    }
+
+    // insertCard takes a Card as a parameter an inserts it into the ATM based on the cards type
+    public void insertCard(Card card) {
+        
     }
 
     // customer id getter

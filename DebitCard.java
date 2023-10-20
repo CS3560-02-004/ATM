@@ -9,6 +9,11 @@ public class DebitCard extends Card {
         this.pin = pin;
     }
 
+    // returns true if the pin is valid, false otherwise
+    public boolean verifyPin(int attemptedPIN) {
+        return true;
+    }
+
     // pin getter
     public int getPin() {
         return pin;
