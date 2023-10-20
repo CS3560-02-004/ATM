@@ -6,7 +6,7 @@ public class Transaction {
     private String transactionStatus;
 
     // Constructor
-    public Transaction(int transactionID, String transationDate, String transactionType, String transactionStatus) {
+    public Transaction(int transactionID, String transactionDate, String transactionType, String transactionStatus) {
         this.transactionID = transactionID;
         this.transactionDate = transactionDate;
         this.transactionType = transactionType;
