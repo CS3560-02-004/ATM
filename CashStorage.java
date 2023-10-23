@@ -1,3 +1,4 @@
+package ATM;
 public class CashStorage extends ATM
 {
 	private int cashAmount;
@@ -10,7 +11,7 @@ public class CashStorage extends ATM
 
 	// CashStorage constructor that also contains constructor values for ATM super class
 	public CashStorage(int atmID, String branchName, int, cashAmount, int oneDollarQuantity, int fiveDollarQuantity, int tenDollarQuantity, 
-											int twentyDollarQuantity, int fiftyDollarQuantity, int hundredDollarQuantity)
+	int twentyDollarQuantity, int fiftyDollarQuantity, int hundredDollarQuantity)
 
 	// Getters -----------------------------------------------
 	public int getCashAmount()
