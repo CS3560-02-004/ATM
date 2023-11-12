@@ -8,11 +8,15 @@ package com.cs3560.atm_project;
  *
  * @author gippy
  */
+import javax.swing.JOptionPane;
+
 public class Insert_Pin_GUI extends javax.swing.JFrame {
 
     /**
      * Creates new form Insert_Pin_GUI
      */
+    private byte retry_counter = 3;
+    
     public Insert_Pin_GUI() {
         initComponents();
         setSize(600, 500);
@@ -33,6 +37,7 @@ public class Insert_Pin_GUI extends javax.swing.JFrame {
         enterPinField = new javax.swing.JPasswordField();
         jLabel3 = new javax.swing.JLabel();
         enterPinButton = new javax.swing.JButton();
+        insertPinReturnButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -66,6 +71,13 @@ public class Insert_Pin_GUI extends javax.swing.JFrame {
             }
         });
 
+        insertPinReturnButton.setText("Return");
+        insertPinReturnButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                insertPinReturnButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -85,14 +97,15 @@ public class Insert_Pin_GUI extends javax.swing.JFrame {
                                 .addGap(28, 28, 28)
                                 .addComponent(enterPinField, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(261, 261, 261)
+                                .addComponent(jLabel2))
+                            .addGroup(layout.createSequentialGroup()
                                 .addGap(263, 263, 263)
-                                .addComponent(enterPinButton)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(insertPinReturnButton)
+                                    .addComponent(enterPinButton))))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(layout.createSequentialGroup()
-                .addGap(261, 261, 261)
-                .addComponent(jLabel2)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -108,7 +121,9 @@ public class Insert_Pin_GUI extends javax.swing.JFrame {
                     .addComponent(enterPinField, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(enterPinButton)
-                .addGap(0, 241, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
+                .addComponent(insertPinReturnButton)
+                .addGap(34, 34, 34))
         );
 
         pack();
@@ -120,7 +135,13 @@ public class Insert_Pin_GUI extends javax.swing.JFrame {
 
     private void enterPinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterPinButtonActionPerformed
         // TODO add your handling code here:
+        String retry_message = "Your PIN is incorrect, you have " + retry_counter + " attempts left";
+        JOptionPane.showMessageDialog(this, retry_message);
     }//GEN-LAST:event_enterPinButtonActionPerformed
+
+    private void insertPinReturnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertPinReturnButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_insertPinReturnButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -160,6 +181,7 @@ public class Insert_Pin_GUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton enterPinButton;
     private javax.swing.JPasswordField enterPinField;
+    private javax.swing.JButton insertPinReturnButton;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
