@@ -1,11 +1,11 @@
 CREATE database ATMSYSTEM;
 USE ATMSYSTEM;
 
- DROP database atmsystem;
- 
- 
+ --DROP database atmsystem;
+
+
  create table Customer (
-	customerID INT(11) not null,
+	customerID INT(11) not null auto_increment,
     firstName VARCHAR(45),
     middleName VARCHAR(45),
     lastName VARCHAR(45),
@@ -14,15 +14,15 @@ USE ATMSYSTEM;
     billingAddress VARCHAR(100),
     primary key(customerID)
  );
- 
+
  create table AccountTable (
-	accountID INT(11) not null,
+	accountID INT(11) not null auto_increment,
     customerID INT(11) not null,
     dateCreated DATE,
     foreign key(customerID) references Customer(customerID),
     primary key(accountID, customerID)
  );
- 
+
  create table Saving (
 	accountID INT(11),
     savingBalance DECIMAL(65,2),
@@ -30,14 +30,14 @@ USE ATMSYSTEM;
     foreign key(accountID) references AccountTable(accountID),
     primary key(accountID)
  );
- 
+
  create table Checking (
 	accountID INT(11),
     checkingBalance DECIMAL(65,2),
     foreign key(accountID) references AccountTable(accountID),
     primary key(accountID)
  );
- 
+
  create table Credit (
 	accountID INT(11),
 	creditLimit DECIMAL(65,2),
@@ -46,7 +46,7 @@ USE ATMSYSTEM;
     foreign key(accountID) references AccountTable(accountID),
     primary key(accountID)
  );
- 
+
  create table Card (
 	cardNumber INT(16),
     accountID INT(11),
@@ -57,9 +57,9 @@ USE ATMSYSTEM;
     foreign key(accountID) references AccountTable(accountID),
     primary key(cardNumber)
  );
- 
+
  create table ATMMachine (
-	atmID INT(6),
+	atmID INT(6) not null auto_increment,
     branch VARCHAR(45),
     oneDollarQuantity INT(10),
     twoDollarQuantity INT(10),
@@ -70,9 +70,9 @@ USE ATMSYSTEM;
     hundredDollarQuantity INT(10),
     primary key(atmID)
  );
- 
+
  create table TransactionTable (
-	transactionID INT(10),
+	transactionID INT(10) not null auto_increment,
     accountID INT(11),
     atmID INT(6),
     transactionDate DATETIME,
@@ -82,4 +82,3 @@ USE ATMSYSTEM;
     foreign key(atmID) references ATMMachine(atmID),
     primary key(transactionID)
  );
- 
