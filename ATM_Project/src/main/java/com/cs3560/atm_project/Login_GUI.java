@@ -112,12 +112,33 @@ public class Login_GUI extends javax.swing.JFrame {
 
     private void cardNumberInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNumberInputActionPerformed
         // TODO add your handling code here:
+        System.out.println("card input");
     }//GEN-LAST:event_cardNumberInputActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
+        System.out.println("login");
+        
+        String cardNumber = cardNumberInput.getText();          
+        
+        boolean isValid = (cardNumber.length() == 12 && validateCardNumber(cardNumber));
+        
+        System.out.println("Valid card: " + isValid);
+        
+        if (isValid) {
+            ATM_Project.goToHomeScreen();
+            this.setVisible(false);
+//            Home_Screen homeScreen = new Home_Screen();
+//            homeScreen.setVisible(true);
+//            this.setVisible(false);
+        }
     }//GEN-LAST:event_loginButtonActionPerformed
 
+    private boolean validateCardNumber(String cardNumber) {
+        // TODO - check database for card
+        return true;
+    }
+    
     /**
      * @param args the command line arguments
      */
