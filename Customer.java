@@ -1,10 +1,14 @@
 package ATM;
+
+import java.lang.reflect.Constructor;
+
 public class Customer {
     private int customerID;
     private String customerName;
     private int phoneNumber;
     private String emailAddress;
     private String billingAddress;
+
 
     // Customer constructor
     public Customer(int customerID, String customerName, int phoneNumber, String emailAddress, String billingAddress) {
@@ -13,15 +17,17 @@ public class Customer {
         this.phoneNumber = phoneNumber;
         this.emailAddress = emailAddress;
         this.billingAddress = billingAddress;
+
     }
 
     // insertCard takes a Card as a parameter an inserts it into the ATM based on the cards type
     public void insertCard(Card card) {
-        
+
     }
 
     // customer id getter
     public int getCustomerID() {
+        
         return customerID;
     }
 
