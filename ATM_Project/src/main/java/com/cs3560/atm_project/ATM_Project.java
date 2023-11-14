@@ -13,6 +13,7 @@ import java.awt.CardLayout;
 public class ATM_Project {
     private static LoginGUI loginGui;
     private static HomeScreen homeGui;
+    private static InsertPinGUI pinGui;
     private static StackPanel stackPanel;
     
     public static void main(String[] args) {
@@ -23,13 +24,15 @@ public class ATM_Project {
         
         loginGui = new LoginGUI();
         homeGui = new HomeScreen();
+        pinGui = new InsertPinGUI();
         
         stackPanel.setVisible(true);
         
         stackPanel.addStack("login", loginGui);
-        loginGui.setVisible(true);
-        stackPanel.showStack("login");
         stackPanel.addStack("home", homeGui);
+        stackPanel.addStack("pin", pinGui);
+        stackPanel.showStack("login");
+//        loginGui.setVisible(true);
     }
     
     public static void goToScreen(String screen) {

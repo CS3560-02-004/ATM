@@ -106,8 +106,6 @@ public class LoginGUI extends javax.swing.JPanel {
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
-        System.out.println("login");
-
         String cardNumber = cardNumberInput.getText();
 
         boolean isValid = (cardNumber.length() == 12 && validateCardNumber(cardNumber));

@@ -6,7 +6,7 @@ package com.cs3560.atm_project;
 
 /**
  *
- * @author joseph
+ * @author joseph   
  */
 public class HomeScreen extends javax.swing.JPanel {
 
