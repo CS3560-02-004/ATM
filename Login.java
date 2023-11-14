@@ -1,5 +1,6 @@
 
 import java.sql.ResultSet;
+import java.sql.SQLException;
 
 /*
  * Input card number to compare against database
@@ -16,23 +17,24 @@ public class Login {
     private boolean cardLock;
 
     public Login(String cardNumber) {
-        this.cardNumber = cardNumber;
-        pin = null;
+        this.cardNumber = null;
         lockCounter = 0;
+
         db = new DatabaseConnection();
-        rs = db.getQuery(String.format(searchCard + cardNumber));
-        // do found cardNumber in database
-        if (rs == null) {
-            System.err.out("Card not found in database.");
-        // found in database, load in necessary result
-        } else {
+        rs = db.getQuery(String.format(SEARCH_CARD + cardNumber));
+
+        try {
             while (rs.next()) {
+                this.cardNumber = rs.getString("CardNumber");
                 pin = rs.getInt("fourDigitPin");
                 cardLock = rs.getBoolean("lockStatus");
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
         }
 
     }
+
 
 
     // Loop for pin input, if fail 3 times, lock the card
@@ -42,7 +44,7 @@ public class Login {
             correctPIN = pinVerification(pin);
             lockCounter++;
         }
-        if (lockCounter = 3) {
+        if (lockCounter == 3) {
             lockCard();
         }
         return correctPIN;
@@ -56,11 +58,18 @@ public class Login {
         }
         return result;
     }
+
     // Lock card
     private void lockCard() {
         rs = db.getQuery(String.format(LOCK_CARD + cardNumber));
     }
+
     private boolean isLocked() {
         return cardLock;
     }
+
+    protected String getCardNumber() {
+        return cardNumber;
+    }
+
 }
