@@ -23,10 +23,10 @@ public class LoginGUI extends javax.swing.JPanel {
         jPanel2 = new javax.swing.JPanel();
         HEADER = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        LoginHeader = new javax.swing.JTextField();
-        CardNumberPrompt = new javax.swing.JTextField();
-        CardNumberTextfield = new javax.swing.JTextField();
-        LoginEnterButton = new javax.swing.JButton();
+        DepositHeader = new javax.swing.JTextField();
+        Amount = new javax.swing.JTextField();
+        jTextField1 = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -73,39 +73,39 @@ public class LoginGUI extends javax.swing.JPanel {
             .addGap(0, 9, Short.MAX_VALUE)
         );
 
-        LoginHeader.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        LoginHeader.setForeground(new java.awt.Color(0, 0, 255));
-        LoginHeader.setText("LOGIN");
-        LoginHeader.setBorder(null);
-        LoginHeader.addActionListener(new java.awt.event.ActionListener() {
+        DepositHeader.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        DepositHeader.setForeground(new java.awt.Color(0, 0, 255));
+        DepositHeader.setText("LOGIN");
+        DepositHeader.setBorder(null);
+        DepositHeader.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginHeaderActionPerformed(evt);
+                DepositHeaderActionPerformed(evt);
             }
         });
 
-        CardNumberPrompt.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        CardNumberPrompt.setForeground(new java.awt.Color(0, 0, 255));
-        CardNumberPrompt.setText("Card Number");
-        CardNumberPrompt.setBorder(null);
-        CardNumberPrompt.addActionListener(new java.awt.event.ActionListener() {
+        Amount.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        Amount.setForeground(new java.awt.Color(0, 0, 255));
+        Amount.setText("Card Number");
+        Amount.setBorder(null);
+        Amount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CardNumberPromptActionPerformed(evt);
+                AmountActionPerformed(evt);
             }
         });
 
-        CardNumberTextfield.addActionListener(new java.awt.event.ActionListener() {
+        jTextField1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CardNumberTextfieldActionPerformed(evt);
+                jTextField1ActionPerformed(evt);
             }
         });
 
-        LoginEnterButton.setBackground(new java.awt.Color(240, 240, 240));
-        LoginEnterButton.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        LoginEnterButton.setForeground(new java.awt.Color(51, 51, 255));
-        LoginEnterButton.setText("Enter");
-        LoginEnterButton.addActionListener(new java.awt.event.ActionListener() {
+        jButton1.setBackground(new java.awt.Color(240, 240, 240));
+        jButton1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        jButton1.setForeground(new java.awt.Color(51, 51, 255));
+        jButton1.setText("DEPOSIT");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LoginEnterButtonActionPerformed(evt);
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -117,18 +117,18 @@ public class LoginGUI extends javax.swing.JPanel {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(159, 159, 159)
-                .addComponent(CardNumberPrompt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(CardNumberTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 135, Short.MAX_VALUE))
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 137, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(LoginHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(DepositHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(251, 251, 251))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(LoginEnterButton)
+                        .addComponent(jButton1)
                         .addGap(235, 235, 235))))
         );
         jPanel1Layout.setVerticalGroup(
@@ -136,13 +136,13 @@ public class LoginGUI extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(LoginHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(DepositHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CardNumberPrompt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CardNumberTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(Amount, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 39, Short.MAX_VALUE)
-                .addComponent(LoginEnterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(65, 65, 65)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -163,31 +163,31 @@ public class LoginGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_HEADERActionPerformed
 
-    private void LoginHeaderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginHeaderActionPerformed
+    private void DepositHeaderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepositHeaderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_LoginHeaderActionPerformed
+    }//GEN-LAST:event_DepositHeaderActionPerformed
 
-    private void CardNumberPromptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CardNumberPromptActionPerformed
+    private void AmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CardNumberPromptActionPerformed
+    }//GEN-LAST:event_AmountActionPerformed
 
-    private void CardNumberTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CardNumberTextfieldActionPerformed
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_CardNumberTextfieldActionPerformed
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
-    private void LoginEnterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginEnterButtonActionPerformed
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_LoginEnterButtonActionPerformed
+    }//GEN-LAST:event_jButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CardNumberPrompt;
-    private javax.swing.JTextField CardNumberTextfield;
+    private javax.swing.JTextField Amount;
+    private javax.swing.JTextField DepositHeader;
     private javax.swing.JTextField HEADER;
-    private javax.swing.JButton LoginEnterButton;
-    private javax.swing.JTextField LoginHeader;
+    private javax.swing.JButton jButton1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
