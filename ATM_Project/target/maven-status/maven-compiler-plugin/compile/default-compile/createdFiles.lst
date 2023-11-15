@@ -15,6 +15,7 @@ com\cs3560\atm_project\StackPanel.class
 com\cs3560\atm_project\TransferGUI$2.class
 Login_GUI.class
 com\cs3560\atm_project\InsertPinGUI$1.class
+com\cs3560\atm_project\BalanceGUI$5.class
 com\cs3560\atm_project\DepositWindowGUI$5.class
 com\cs3560\atm_project\ATMMenuGUI$6.class
 Login_GUI$1.class
