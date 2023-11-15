@@ -176,9 +176,19 @@ public class LoginGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_CardNumberTextfieldActionPerformed
 
     private void LoginEnterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LoginEnterButtonActionPerformed
-        // TODO add your handling code here:
+        String cardNumber = CardNumberTextfield.getText();
+
+        boolean isValid = (cardNumber.length() == 12 && validateCardNumber(cardNumber));
+        System.out.println("Valid card: " + isValid);
+        if (isValid) {
+            ATM_Project.goToScreen("home");
+        }
     }//GEN-LAST:event_LoginEnterButtonActionPerformed
 
+    private boolean validateCardNumber(String cardNumber) {
+        // TODO - check database for card
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CardNumberPrompt;
