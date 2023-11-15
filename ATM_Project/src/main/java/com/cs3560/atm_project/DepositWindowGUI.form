@@ -44,17 +44,12 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Component id="jPanel2" max="32767" attributes="0"/>
               <Component id="jPanel3" alignment="0" max="32767" attributes="0"/>
-              <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="255" max="32767" attributes="0"/>
-                  <Component id="depositHeader" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="251" max="-2" attributes="0"/>
-              </Group>
               <Group type="102" attributes="0">
                   <EmptySpace min="-2" pref="172" max="-2" attributes="0"/>
                   <Component id="depositAmountTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="depositAmount" min="-2" pref="169" max="-2" attributes="0"/>
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="163" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
@@ -64,52 +59,66 @@
                   <EmptySpace min="-2" pref="67" max="-2" attributes="0"/>
               </Group>
               <Group type="102" attributes="0">
-                  <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="fiveDollarTitle" min="-2" pref="21" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="fiveDollarAmount1" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="twoDollarTitle" min="-2" pref="21" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="twoDollarAmount" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="oneDollarTitle" min="-2" pref="21" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="oneDollarAmount" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="145" max="-2" attributes="0"/>
+                  <Component id="depositTenDollarTitle" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Component id="tenDollarAmount1" min="-2" pref="64" max="-2" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" attributes="0">
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <EmptySpace min="-2" pref="151" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Component id="depositTwoDollarTitle" min="-2" max="-2" attributes="0"/>
+                              <Component id="depositFiveDollarTitle" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="tenDollarTitle" min="-2" pref="23" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="tenDollarAmount1" min="-2" max="-2" attributes="0"/>
+                          <Component id="depositOneDollarTitle" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace min="-2" pref="86" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="103" alignment="1" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="twentyDollarTitle" min="-2" pref="24" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="twentyDollarAmount" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" attributes="0">
-                              <Component id="fiftyDollarTitle" min="-2" pref="24" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="fiftyDollarAmount" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="0" attributes="0">
+                      <Group type="102" attributes="0">
+                          <Component id="fiveDollarAmount1" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="depositOneHundredDollarTitle" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="twentyDollarAmount" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Group type="102" alignment="1" attributes="0">
-                          <Component id="oneHundredDollarTitle" min="-2" pref="27" max="-2" attributes="0"/>
-                          <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="oneHundredDollarAmount" min="-2" max="-2" attributes="0"/>
+                      <Group type="102" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="twoDollarAmount" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="oneDollarAmount" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
+                              </Group>
+                          </Group>
+                          <Group type="103" groupAlignment="1" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <Component id="depositFiftyDollarTitle" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="oneHundredDollarAmount" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" attributes="0">
+                                  <Component id="depositTwentyDollarTitle" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="fiftyDollarAmount" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace max="32767" attributes="0"/>
+              </Group>
+              <Group type="102" alignment="1" attributes="0">
+                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="depositHeader" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="255" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -117,58 +126,47 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="depositHeader" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="depositAmountTitle" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
-                      <Component id="depositAmount" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="oneDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="twentyDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="twentyDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="oneDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="twoDollarTitle" min="-2" max="-2" attributes="0"/>
-                              <Component id="twoDollarAmount" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="10" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="depositAmountTitle" alignment="3" min="-2" pref="39" max="-2" attributes="0"/>
+                              <Component id="depositAmount" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="fiveDollarTitle" min="-2" max="-2" attributes="0"/>
-                                      <Component id="fiveDollarAmount1" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="tenDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="tenDollarAmount1" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="3" attributes="0">
-                                      <Component id="oneHundredDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                                      <Component id="oneHundredDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
+                          <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="oneDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="fiftyDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="depositTwentyDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="fiftyDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="fiftyDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="depositOneDollarTitle" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="12" max="32767" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="oneHundredDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="depositFiftyDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="twoDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="depositTwoDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="twentyDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="depositOneHundredDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="fiveDollarAmount1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="depositFiveDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="tenDollarAmount1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="depositTenDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace pref="15" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="backButton" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
                       <Component id="depositButton" alignment="3" min="-2" pref="37" max="-2" attributes="0"/>
@@ -191,7 +189,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace pref="241" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="depositWindowTitle" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
                   </Group>
@@ -331,78 +329,54 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="oneDollarTitle">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="$1"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="oneDollarTitleActionPerformed"/>
-          </Events>
-        </Component>
         <Component class="javax.swing.JTextField" name="oneDollarAmount">
-        </Component>
-        <Component class="javax.swing.JTextField" name="twoDollarTitle">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="$2"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="twoDollarAmount">
         </Component>
-        <Component class="javax.swing.JTextField" name="fiveDollarTitle">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="$5"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JTextField" name="fiveDollarAmount1">
-        </Component>
-        <Component class="javax.swing.JTextField" name="tenDollarTitle">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="$10"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="tenDollarAmount1">
         </Component>
-        <Component class="javax.swing.JTextField" name="twentyDollarTitle">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="$20"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-          </Properties>
-        </Component>
         <Component class="javax.swing.JTextField" name="twentyDollarAmount">
-        </Component>
-        <Component class="javax.swing.JTextField" name="fiftyDollarTitle">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="$50"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
-          </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="fiftyDollarAmount">
         </Component>
-        <Component class="javax.swing.JTextField" name="oneHundredDollarTitle">
+        <Component class="javax.swing.JTextField" name="oneHundredDollarAmount">
+        </Component>
+        <Component class="javax.swing.JLabel" name="depositOneDollarTitle">
           <Properties>
-            <Property name="text" type="java.lang.String" value="$100"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="null"/>
-            </Property>
+            <Property name="text" type="java.lang.String" value="$1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="oneHundredDollarAmount">
+        <Component class="javax.swing.JLabel" name="depositTwoDollarTitle">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="$2"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="depositFiveDollarTitle">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="$5"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="depositTenDollarTitle">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="$10"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="depositTwentyDollarTitle">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="$20"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="depositFiftyDollarTitle">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="$50"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="depositOneHundredDollarTitle">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="$100"/>
+          </Properties>
         </Component>
       </SubComponents>
     </Container>
