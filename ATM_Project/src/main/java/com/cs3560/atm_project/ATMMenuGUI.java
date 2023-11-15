@@ -202,20 +202,19 @@ public class ATMMenuGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_SUBHEADERActionPerformed
 
     private void DEPOSITBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DEPOSITBTNActionPerformed
-        // TODO add your handling code here:
         ATM_Project.goToScreen("deposit");
     }//GEN-LAST:event_DEPOSITBTNActionPerformed
 
     private void TRANSFERBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TRANSFERBTNActionPerformed
-        // TODO add your handling code here:
+        ATM_Project.goToScreen("transfer");
     }//GEN-LAST:event_TRANSFERBTNActionPerformed
 
     private void WITHDRAWBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WITHDRAWBTNActionPerformed
-        // TODO add your handling code here:
+        ATM_Project.goToScreen("withdraw");
     }//GEN-LAST:event_WITHDRAWBTNActionPerformed
 
     private void LOGOUTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGOUTActionPerformed
-        // TODO add your handling code here:
+        ATM_Project.goToScreen("login");
     }//GEN-LAST:event_LOGOUTActionPerformed
 
     private void FOOTERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FOOTERActionPerformed
@@ -223,7 +222,7 @@ public class ATMMenuGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_FOOTERActionPerformed
 
     private void BALANCEBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BALANCEBTNActionPerformed
-        // TODO add your handling code here:
+        ATM_Project.goToScreen("balance");
     }//GEN-LAST:event_BALANCEBTNActionPerformed
 
 

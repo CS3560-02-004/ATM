@@ -101,6 +101,11 @@ public class BalanceGUI extends javax.swing.JPanel {
         balanceBackButton.setForeground(new java.awt.Color(51, 51, 255));
         balanceBackButton.setText("BACK");
         balanceBackButton.setBorder(null);
+        balanceBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                balanceBackButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -152,6 +157,10 @@ public class BalanceGUI extends javax.swing.JPanel {
     private void availableBalancesTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_availableBalancesTitleActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_availableBalancesTitleActionPerformed
+
+    private void balanceBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_balanceBackButtonActionPerformed
+        ATM_Project.goToScreen("home");
+    }//GEN-LAST:event_balanceBackButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
