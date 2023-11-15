@@ -11,9 +11,9 @@ import java.awt.CardLayout;
  * @author gippy
  */
 public class ATM_Project {
-    private static LoginGUI loginGui;
+   // private static LoginGUI loginGui;
     private static HomeScreen homeGui;
-    private static InsertPinGUI pinGui;
+   // private static InsertPinGUI pinGui;
     private static StackPanel stackPanel;
     
     public static void main(String[] args) {
@@ -22,15 +22,15 @@ public class ATM_Project {
         
         stackPanel = new StackPanel();
         
-        loginGui = new LoginGUI();
+       // loginGui = new LoginGUI();
         homeGui = new HomeScreen();
-        pinGui = new InsertPinGUI();
+       // pinGui = new InsertPinGUI();
         
         stackPanel.setVisible(true);
         
-        stackPanel.addStack("login", loginGui);
+       // stackPanel.addStack("login", loginGui);
         stackPanel.addStack("home", homeGui);
-        stackPanel.addStack("pin", pinGui);
+       // stackPanel.addStack("pin", pinGui);
         stackPanel.showStack("login");
 //        loginGui.setVisible(true);
     }

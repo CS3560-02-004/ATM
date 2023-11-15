@@ -4,8 +4,6 @@
  */
 package com.cs3560.atm_project;
 
-import javax.swing.JOptionPane;
-
 /**
  *
  * @author gippy
@@ -13,16 +11,10 @@ import javax.swing.JOptionPane;
 public class InsertPinGUI extends javax.swing.JPanel {
 
     /**
-     * Creates new form Insert_Pin_GUI
-     */
-    private byte retry_counter = 3;
-    
-    /**
      * Creates new form InsertPinGUI
      */
     public InsertPinGUI() {
         initComponents();
-        setSize(600, 500);
     }
 
     /**
@@ -34,124 +26,216 @@ public class InsertPinGUI extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel4 = new javax.swing.JLabel();
-        jSeparator2 = new javax.swing.JSeparator();
-        jLabel5 = new javax.swing.JLabel();
-        enterPinField = new javax.swing.JPasswordField();
-        jLabel6 = new javax.swing.JLabel();
-        enterPinButton = new javax.swing.JButton();
-        insertPinReturnButton = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
+        HEADER = new javax.swing.JTextField();
+        jPanel4 = new javax.swing.JPanel();
+        InsertPinPrompt = new javax.swing.JTextField();
+        InsertPinPinPrompt = new javax.swing.JTextField();
+        InsertPinTextfield = new javax.swing.JTextField();
+        InsertPinBackButton = new javax.swing.JButton();
+        InsertPinEnterButton = new javax.swing.JButton();
 
-        setPreferredSize(new java.awt.Dimension(600, 500));
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        jLabel4.setBackground(new java.awt.Color(102, 204, 255));
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setText("CPP ATM System");
+        jPanel3.setBackground(new java.awt.Color(0, 0, 255));
 
-        jSeparator2.setForeground(new java.awt.Color(0, 0, 0));
-
-        jLabel5.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel5.setText("Insert Pin");
-
-        enterPinField.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        enterPinField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        enterPinField.addActionListener(new java.awt.event.ActionListener() {
+        HEADER.setBackground(new java.awt.Color(0, 0, 255));
+        HEADER.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        HEADER.setForeground(new java.awt.Color(255, 255, 255));
+        HEADER.setText("MyCPP Bank");
+        HEADER.setBorder(null);
+        HEADER.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enterPinFieldActionPerformed(evt);
+                HEADERActionPerformed(evt);
             }
         });
 
-        jLabel6.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel6.setText("PIN");
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(HEADER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(236, 236, 236))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addComponent(HEADER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
 
-        enterPinButton.setText("Enter");
-        enterPinButton.addActionListener(new java.awt.event.ActionListener() {
+        jPanel4.setBackground(new java.awt.Color(0, 0, 255));
+
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 9, Short.MAX_VALUE)
+        );
+
+        InsertPinPrompt.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        InsertPinPrompt.setForeground(new java.awt.Color(0, 0, 255));
+        InsertPinPrompt.setText("Insert Pin");
+        InsertPinPrompt.setBorder(null);
+        InsertPinPrompt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                enterPinButtonActionPerformed(evt);
+                InsertPinPromptActionPerformed(evt);
             }
         });
 
-        insertPinReturnButton.setText("Return");
-        insertPinReturnButton.addActionListener(new java.awt.event.ActionListener() {
+        InsertPinPinPrompt.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        InsertPinPinPrompt.setForeground(new java.awt.Color(0, 0, 255));
+        InsertPinPinPrompt.setText("PIN");
+        InsertPinPinPrompt.setBorder(null);
+        InsertPinPinPrompt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                insertPinReturnButtonActionPerformed(evt);
+                InsertPinPinPromptActionPerformed(evt);
             }
         });
+
+        InsertPinTextfield.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InsertPinTextfieldActionPerformed(evt);
+            }
+        });
+
+        InsertPinBackButton.setBackground(new java.awt.Color(240, 240, 240));
+        InsertPinBackButton.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        InsertPinBackButton.setForeground(new java.awt.Color(51, 51, 255));
+        InsertPinBackButton.setText("Back");
+        InsertPinBackButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InsertPinBackButtonActionPerformed(evt);
+            }
+        });
+
+        InsertPinEnterButton.setBackground(new java.awt.Color(240, 240, 240));
+        InsertPinEnterButton.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        InsertPinEnterButton.setForeground(new java.awt.Color(51, 51, 255));
+        InsertPinEnterButton.setText("Enter");
+        InsertPinEnterButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                InsertPinEnterButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(149, 149, 149)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(InsertPinBackButton)
+                    .addComponent(InsertPinPinPrompt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(InsertPinPrompt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(95, 95, 95)
+                        .addComponent(InsertPinEnterButton))
+                    .addComponent(InsertPinTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 180, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(InsertPinPrompt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(39, 39, 39)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InsertPinPinPrompt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InsertPinTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InsertPinBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(InsertPinEnterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
-                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(177, 177, 177)
-                                .addComponent(jLabel6)
-                                .addGap(28, 28, 28)
-                                .addComponent(enterPinField, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(261, 261, 261)
-                                .addComponent(jLabel5))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(263, 263, 263)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(insertPinReturnButton)
-                                    .addComponent(enterPinButton))))
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+            .addGap(0, 576, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(79, 79, 79)
-                .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(enterPinField, javax.swing.GroupLayout.DEFAULT_SIZE, 56, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(enterPinButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(insertPinReturnButton)
-                .addGap(34, 34, 34))
+            .addGap(0, 338, Short.MAX_VALUE)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(0, 0, Short.MAX_VALUE)))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void enterPinFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterPinFieldActionPerformed
+    private void HEADERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HEADERActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_enterPinFieldActionPerformed
+    }//GEN-LAST:event_HEADERActionPerformed
 
-    private void enterPinButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterPinButtonActionPerformed
+    private void InsertPinPromptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinPromptActionPerformed
         // TODO add your handling code here:
-        String retry_message = "Your PIN is incorrect, you have " + retry_counter + " attempts left";
-        JOptionPane.showMessageDialog(this, retry_message);
-    }//GEN-LAST:event_enterPinButtonActionPerformed
+    }//GEN-LAST:event_InsertPinPromptActionPerformed
 
-    private void insertPinReturnButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_insertPinReturnButtonActionPerformed
+    private void InsertPinPinPromptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinPinPromptActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_insertPinReturnButtonActionPerformed
+    }//GEN-LAST:event_InsertPinPinPromptActionPerformed
+
+    private void InsertPinTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinTextfieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InsertPinTextfieldActionPerformed
+
+    private void InsertPinBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinBackButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InsertPinBackButtonActionPerformed
+
+    private void InsertPinEnterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinEnterButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_InsertPinEnterButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton enterPinButton;
-    private javax.swing.JPasswordField enterPinField;
-    private javax.swing.JButton insertPinReturnButton;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextField HEADER;
+    private javax.swing.JButton InsertPinBackButton;
+    private javax.swing.JButton InsertPinEnterButton;
+    private javax.swing.JTextField InsertPinPinPrompt;
+    private javax.swing.JTextField InsertPinPrompt;
+    private javax.swing.JTextField InsertPinTextfield;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables
 }
