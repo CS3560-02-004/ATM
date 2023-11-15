@@ -18,6 +18,7 @@ public class StackPanel extends javax.swing.JFrame {
         super();
         setLayout( layout );
         setSize(600, 500);
+        setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
 //        setVisible(true);
     }
     
