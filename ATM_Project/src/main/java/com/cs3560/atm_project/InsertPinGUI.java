@@ -225,6 +225,7 @@ public class InsertPinGUI extends javax.swing.JPanel {
 
     private void InsertPinBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinBackButtonActionPerformed
         // TODO add your handling code here:
+        ATM_Project.goToPreviousScreen();
     }//GEN-LAST:event_InsertPinBackButtonActionPerformed
 
     private void InsertPinEnterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinEnterButtonActionPerformed
