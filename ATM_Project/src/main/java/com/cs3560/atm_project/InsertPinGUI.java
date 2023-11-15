@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.cs3560.atm_project;
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author gippy
@@ -13,6 +13,8 @@ public class InsertPinGUI extends javax.swing.JPanel {
     /**
      * Creates new form InsertPinGUI
      */
+    private byte attempts_left = 3;
+    
     public InsertPinGUI() {
         initComponents();
     }
@@ -230,6 +232,9 @@ public class InsertPinGUI extends javax.swing.JPanel {
 
     private void InsertPinEnterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinEnterButtonActionPerformed
         // TODO add your handling code here:
+        String message = "The PIN you inserted is incorrect.\nYou have " + attempts_left + " attempts left"
+                            + " before your account is locked for 24 hours.";
+        JOptionPane.showMessageDialog(this, message);
     }//GEN-LAST:event_InsertPinEnterButtonActionPerformed
 
 
