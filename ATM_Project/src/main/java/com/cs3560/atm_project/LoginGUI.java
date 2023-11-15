@@ -179,6 +179,10 @@ public class LoginGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private boolean validateCardNumber(String cardNumber) {
+        // TODO - check database for card
+        return true;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Amount;
