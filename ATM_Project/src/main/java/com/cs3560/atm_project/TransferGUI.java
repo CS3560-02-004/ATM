@@ -29,13 +29,13 @@ public class TransferGUI extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         jPanel4 = new javax.swing.JPanel();
         HEADER = new javax.swing.JTextField();
-        InsertPinPrompt = new javax.swing.JTextField();
-        InsertPinPinPrompt = new javax.swing.JTextField();
         InsertPinTextfield = new javax.swing.JTextField();
         backButton = new javax.swing.JButton();
         enterButton = new javax.swing.JButton();
-        InsertPinPinPrompt1 = new javax.swing.JTextField();
         InsertPinTextfield1 = new javax.swing.JTextField();
+        titleLabel = new javax.swing.JLabel();
+        accountNumberLabel = new javax.swing.JLabel();
+        amountLabel = new javax.swing.JLabel();
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -69,26 +69,6 @@ public class TransferGUI extends javax.swing.JPanel {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
-        InsertPinPrompt.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        InsertPinPrompt.setForeground(new java.awt.Color(0, 0, 255));
-        InsertPinPrompt.setText("Transfer Amount to Different Account");
-        InsertPinPrompt.setBorder(null);
-        InsertPinPrompt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InsertPinPromptActionPerformed(evt);
-            }
-        });
-
-        InsertPinPinPrompt.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        InsertPinPinPrompt.setForeground(new java.awt.Color(0, 0, 255));
-        InsertPinPinPrompt.setText("Account Number");
-        InsertPinPinPrompt.setBorder(null);
-        InsertPinPinPrompt.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InsertPinPinPromptActionPerformed(evt);
-            }
-        });
-
         InsertPinTextfield.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InsertPinTextfieldActionPerformed(evt);
@@ -115,21 +95,23 @@ public class TransferGUI extends javax.swing.JPanel {
             }
         });
 
-        InsertPinPinPrompt1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        InsertPinPinPrompt1.setForeground(new java.awt.Color(0, 0, 255));
-        InsertPinPinPrompt1.setText("Amount");
-        InsertPinPinPrompt1.setBorder(null);
-        InsertPinPinPrompt1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InsertPinPinPrompt1ActionPerformed(evt);
-            }
-        });
-
         InsertPinTextfield1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 InsertPinTextfield1ActionPerformed(evt);
             }
         });
+
+        titleLabel.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        titleLabel.setForeground(new java.awt.Color(0, 0, 255));
+        titleLabel.setText("Transfer Amount to Different Account");
+
+        accountNumberLabel.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        accountNumberLabel.setForeground(new java.awt.Color(0, 0, 255));
+        accountNumberLabel.setText("Account Number");
+
+        amountLabel.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        amountLabel.setForeground(new java.awt.Color(0, 0, 255));
+        amountLabel.setText("Amount");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -137,50 +119,49 @@ public class TransferGUI extends javax.swing.JPanel {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(88, 88, 88)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(87, 87, 87)
-                        .addComponent(InsertPinPinPrompt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(accountNumberLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(InsertPinTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(157, 157, 157)
-                        .addComponent(InsertPinPinPrompt1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(amountLabel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(InsertPinTextfield1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addGap(184, 184, 184)
                 .addComponent(enterButton)
-                .addContainerGap(82, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(InsertPinPrompt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(122, 122, 122))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                         .addComponent(backButton)
-                        .addGap(232, 232, 232))))
+                        .addGap(232, 232, 232))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                        .addComponent(titleLabel)
+                        .addGap(145, 145, 145))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(13, 13, 13)
-                .addComponent(InsertPinPrompt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
+                        .addComponent(titleLabel)
+                        .addGap(32, 32, 32)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(InsertPinTextfield, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(InsertPinPinPrompt, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(13, 13, 13)
-                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(InsertPinTextfield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(InsertPinPinPrompt1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(accountNumberLabel)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
+                        .addGap(80, 80, 80)
                         .addComponent(enterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(InsertPinTextfield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(amountLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
                 .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
         );
@@ -203,14 +184,6 @@ public class TransferGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_HEADERActionPerformed
 
-    private void InsertPinPromptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinPromptActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InsertPinPromptActionPerformed
-
-    private void InsertPinPinPromptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinPinPromptActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InsertPinPinPromptActionPerformed
-
     private void InsertPinTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinTextfieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_InsertPinTextfieldActionPerformed
@@ -223,10 +196,6 @@ public class TransferGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_enterButtonActionPerformed
 
-    private void InsertPinPinPrompt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinPinPrompt1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InsertPinPinPrompt1ActionPerformed
-
     private void InsertPinTextfield1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinTextfield1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_InsertPinTextfield1ActionPerformed
@@ -234,14 +203,14 @@ public class TransferGUI extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField HEADER;
-    private javax.swing.JTextField InsertPinPinPrompt;
-    private javax.swing.JTextField InsertPinPinPrompt1;
-    private javax.swing.JTextField InsertPinPrompt;
     private javax.swing.JTextField InsertPinTextfield;
     private javax.swing.JTextField InsertPinTextfield1;
+    private javax.swing.JLabel accountNumberLabel;
+    private javax.swing.JLabel amountLabel;
     private javax.swing.JButton backButton;
     private javax.swing.JButton enterButton;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JLabel titleLabel;
     // End of variables declaration//GEN-END:variables
 }
