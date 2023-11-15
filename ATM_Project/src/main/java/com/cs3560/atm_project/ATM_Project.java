@@ -39,5 +39,9 @@ public class ATM_Project {
     public static void goToScreen(String screen) {
         System.out.println("going to " + screen);
         stackPanel.showStack(screen);
-    }    
+    }
+    
+    public static void goToPreviousScreen() {
+        stackPanel.showPrevious();
+    }
 }
