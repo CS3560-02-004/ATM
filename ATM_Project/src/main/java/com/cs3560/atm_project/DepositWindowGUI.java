@@ -29,11 +29,11 @@ public class DepositWindowGUI extends javax.swing.JPanel {
 
         jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        HEADER = new javax.swing.JTextField();
+        depositWindowTitle = new javax.swing.JTextField();
         jPanel3 = new javax.swing.JPanel();
-        DepositHeader = new javax.swing.JTextField();
-        Amount = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        depositHeader = new javax.swing.JTextField();
+        depositAmountTitle = new javax.swing.JTextField();
+        depositAmount = new javax.swing.JTextField();
         depositButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
 
@@ -41,14 +41,14 @@ public class DepositWindowGUI extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 255));
 
-        HEADER.setBackground(new java.awt.Color(0, 0, 255));
-        HEADER.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        HEADER.setForeground(new java.awt.Color(255, 255, 255));
-        HEADER.setText("MyCPP Bank");
-        HEADER.setBorder(null);
-        HEADER.addActionListener(new java.awt.event.ActionListener() {
+        depositWindowTitle.setBackground(new java.awt.Color(0, 0, 255));
+        depositWindowTitle.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        depositWindowTitle.setForeground(new java.awt.Color(255, 255, 255));
+        depositWindowTitle.setText("MyCPP Bank");
+        depositWindowTitle.setBorder(null);
+        depositWindowTitle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HEADERActionPerformed(evt);
+                depositWindowTitleActionPerformed(evt);
             }
         });
 
@@ -58,14 +58,14 @@ public class DepositWindowGUI extends javax.swing.JPanel {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(HEADER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(depositWindowTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(236, 236, 236))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(HEADER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(depositWindowTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
@@ -82,29 +82,29 @@ public class DepositWindowGUI extends javax.swing.JPanel {
             .addGap(0, 9, Short.MAX_VALUE)
         );
 
-        DepositHeader.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        DepositHeader.setForeground(new java.awt.Color(0, 0, 255));
-        DepositHeader.setText("DEPOSIT");
-        DepositHeader.setBorder(null);
-        DepositHeader.addActionListener(new java.awt.event.ActionListener() {
+        depositHeader.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        depositHeader.setForeground(new java.awt.Color(0, 0, 255));
+        depositHeader.setText("DEPOSIT");
+        depositHeader.setBorder(null);
+        depositHeader.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DepositHeaderActionPerformed(evt);
+                depositHeaderActionPerformed(evt);
             }
         });
 
-        Amount.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        Amount.setForeground(new java.awt.Color(0, 0, 255));
-        Amount.setText("AMOUNT:");
-        Amount.setBorder(null);
-        Amount.addActionListener(new java.awt.event.ActionListener() {
+        depositAmountTitle.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        depositAmountTitle.setForeground(new java.awt.Color(0, 0, 255));
+        depositAmountTitle.setText("AMOUNT:");
+        depositAmountTitle.setBorder(null);
+        depositAmountTitle.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AmountActionPerformed(evt);
+                depositAmountTitleActionPerformed(evt);
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        depositAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                depositAmountActionPerformed(evt);
             }
         });
 
@@ -136,39 +136,38 @@ public class DepositWindowGUI extends javax.swing.JPanel {
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(159, 159, 159)
-                .addComponent(Amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(depositAmountTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(depositAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 163, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                            .addComponent(DepositHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(251, 251, 251))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addComponent(depositButton)
-                            .addContainerGap()))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(depositHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(251, 251, 251))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(depositButton)
+                        .addGap(233, 233, 233))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(backButton)
-                        .addGap(233, 233, 233))))
+                        .addGap(244, 244, 244))))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(DepositHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(depositHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Amount, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
+                    .addComponent(depositAmountTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(depositAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
                 .addComponent(depositButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(12, 12, 12)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
@@ -184,21 +183,21 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void HEADERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HEADERActionPerformed
+    private void depositWindowTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositWindowTitleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_HEADERActionPerformed
+    }//GEN-LAST:event_depositWindowTitleActionPerformed
 
-    private void DepositHeaderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepositHeaderActionPerformed
+    private void depositHeaderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositHeaderActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_DepositHeaderActionPerformed
+    }//GEN-LAST:event_depositHeaderActionPerformed
 
-    private void AmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmountActionPerformed
+    private void depositAmountTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositAmountTitleActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_AmountActionPerformed
+    }//GEN-LAST:event_depositAmountTitleActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void depositAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositAmountActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_depositAmountActionPerformed
 
     private void depositButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositButtonActionPerformed
         // TODO add your handling code here:
@@ -211,15 +210,15 @@ public class DepositWindowGUI extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Amount;
-    private javax.swing.JTextField DepositHeader;
-    private javax.swing.JTextField HEADER;
     private javax.swing.JButton backButton;
+    private javax.swing.JTextField depositAmount;
+    private javax.swing.JTextField depositAmountTitle;
     private javax.swing.JButton depositButton;
+    private javax.swing.JTextField depositHeader;
+    private javax.swing.JTextField depositWindowTitle;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
 }
