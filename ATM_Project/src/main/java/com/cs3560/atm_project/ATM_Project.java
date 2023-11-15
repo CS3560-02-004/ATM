@@ -12,31 +12,36 @@ import java.awt.CardLayout;
  */
 public class ATM_Project {
     private static LoginGUI loginGui;
-    private static HomeScreen homeGui;
+    private static ATMMenuGUI homeGui;
     private static InsertPinGUI pinGui;
+    private static DepositWindowGUI depositGui;
     private static StackPanel stackPanel;
     
     public static void main(String[] args) {
         System.out.println("HELLO");
-//        Login_GUI loginGui = new Login_GUI();
         
         stackPanel = new StackPanel();
         
         loginGui = new LoginGUI();
-        homeGui = new HomeScreen();
+        homeGui = new ATMMenuGUI();
         pinGui = new InsertPinGUI();
+        depositGui = new DepositWindowGUI();
         
         stackPanel.setVisible(true);
         
         stackPanel.addStack("login", loginGui);
-        stackPanel.addStack("home", homeGui);
+        stackPanel.addStack("home", homeGui);        
         stackPanel.addStack("pin", pinGui);
+        stackPanel.addStack("deposit", depositGui);
         stackPanel.showStack("login");
-//        loginGui.setVisible(true);
     }
     
     public static void goToScreen(String screen) {
         System.out.println("going to " + screen);
         stackPanel.showStack(screen);
-    }    
+    }
+    
+    public static void goToPreviousScreen() {
+        stackPanel.showPrevious();
+    }
 }

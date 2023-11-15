@@ -18,6 +18,7 @@ public class StackPanel extends javax.swing.JFrame {
         super();
         setLayout( layout );
         setSize(600, 500);
+        setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
 //        setVisible(true);
     }
     
@@ -27,6 +28,10 @@ public class StackPanel extends javax.swing.JFrame {
     
     public void showStack(String name) {
         System.out.println("going to " + name);
-        layout.show(getContentPane(), name);
+        layout.show(getContentPane(), name);        
+    }
+    
+    public void showPrevious() {
+        layout.previous(getContentPane());
     }
 }
