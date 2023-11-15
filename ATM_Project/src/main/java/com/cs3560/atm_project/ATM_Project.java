@@ -15,6 +15,8 @@ public class ATM_Project {
     private static ATMMenuGUI homeGui;
     private static InsertPinGUI pinGui;
     private static DepositWindowGUI depositGui;
+    private static WithdrawWindowGUI withdrawGui;
+    private static TransferGUI transferGui;
     private static StackPanel stackPanel;
     
     public static void main(String[] args) {
@@ -26,6 +28,8 @@ public class ATM_Project {
         homeGui = new ATMMenuGUI();
         pinGui = new InsertPinGUI();
         depositGui = new DepositWindowGUI();
+        withdrawGui = new WithdrawWindowGUI();
+        transferGui = new TransferGUI();
         
         stackPanel.setVisible(true);
         
@@ -33,6 +37,8 @@ public class ATM_Project {
         stackPanel.addStack("home", homeGui);        
         stackPanel.addStack("pin", pinGui);
         stackPanel.addStack("deposit", depositGui);
+        stackPanel.addStack("withdraw", withdrawGui);
+        stackPanel.addStack("transfer", transferGui);
         stackPanel.showStack("login");
     }
     

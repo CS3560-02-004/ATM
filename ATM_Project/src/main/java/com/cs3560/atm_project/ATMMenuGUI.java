@@ -208,14 +208,17 @@ public class ATMMenuGUI extends javax.swing.JPanel {
 
     private void TRANSFERBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TRANSFERBTNActionPerformed
         // TODO add your handling code here:
+        ATM_Project.goToScreen("transfer");
     }//GEN-LAST:event_TRANSFERBTNActionPerformed
 
     private void WITHDRAWBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WITHDRAWBTNActionPerformed
         // TODO add your handling code here:
+        ATM_Project.goToScreen("withdraw");
     }//GEN-LAST:event_WITHDRAWBTNActionPerformed
 
     private void LOGOUTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGOUTActionPerformed
         // TODO add your handling code here:
+        ATM_Project.goToScreen("login");
     }//GEN-LAST:event_LOGOUTActionPerformed
 
     private void FOOTERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FOOTERActionPerformed

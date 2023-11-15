@@ -32,8 +32,8 @@ public class TransferGUI extends javax.swing.JPanel {
         InsertPinPrompt = new javax.swing.JTextField();
         InsertPinPinPrompt = new javax.swing.JTextField();
         InsertPinTextfield = new javax.swing.JTextField();
-        InsertPinBackButton = new javax.swing.JButton();
-        InsertPinEnterButton = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
+        enterButton = new javax.swing.JButton();
         InsertPinPinPrompt1 = new javax.swing.JTextField();
         InsertPinTextfield1 = new javax.swing.JTextField();
 
@@ -95,23 +95,23 @@ public class TransferGUI extends javax.swing.JPanel {
             }
         });
 
-        InsertPinBackButton.setBackground(new java.awt.Color(240, 240, 240));
-        InsertPinBackButton.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        InsertPinBackButton.setForeground(new java.awt.Color(51, 51, 255));
-        InsertPinBackButton.setText("Back");
-        InsertPinBackButton.addActionListener(new java.awt.event.ActionListener() {
+        backButton.setBackground(new java.awt.Color(240, 240, 240));
+        backButton.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        backButton.setForeground(new java.awt.Color(51, 51, 255));
+        backButton.setText("Back");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InsertPinBackButtonActionPerformed(evt);
+                backButtonActionPerformed(evt);
             }
         });
 
-        InsertPinEnterButton.setBackground(new java.awt.Color(240, 240, 240));
-        InsertPinEnterButton.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        InsertPinEnterButton.setForeground(new java.awt.Color(51, 51, 255));
-        InsertPinEnterButton.setText("Enter");
-        InsertPinEnterButton.addActionListener(new java.awt.event.ActionListener() {
+        enterButton.setBackground(new java.awt.Color(240, 240, 240));
+        enterButton.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        enterButton.setForeground(new java.awt.Color(51, 51, 255));
+        enterButton.setText("Enter");
+        enterButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InsertPinEnterButtonActionPerformed(evt);
+                enterButtonActionPerformed(evt);
             }
         });
 
@@ -149,7 +149,7 @@ public class TransferGUI extends javax.swing.JPanel {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(InsertPinTextfield1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
-                .addComponent(InsertPinEnterButton)
+                .addComponent(enterButton)
                 .addContainerGap(82, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -158,7 +158,7 @@ public class TransferGUI extends javax.swing.JPanel {
                         .addComponent(InsertPinPrompt, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(122, 122, 122))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
-                        .addComponent(InsertPinBackButton)
+                        .addComponent(backButton)
                         .addGap(232, 232, 232))))
         );
         jPanel3Layout.setVerticalGroup(
@@ -179,9 +179,9 @@ public class TransferGUI extends javax.swing.JPanel {
                             .addComponent(InsertPinPinPrompt1, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(46, 46, 46)
-                        .addComponent(InsertPinEnterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(enterButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(InsertPinBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(37, 37, 37))
         );
 
@@ -215,13 +215,13 @@ public class TransferGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_InsertPinTextfieldActionPerformed
 
-    private void InsertPinBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinBackButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_InsertPinBackButtonActionPerformed
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        ATM_Project.goToScreen("home");
+    }//GEN-LAST:event_backButtonActionPerformed
 
-    private void InsertPinEnterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinEnterButtonActionPerformed
+    private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_InsertPinEnterButtonActionPerformed
+    }//GEN-LAST:event_enterButtonActionPerformed
 
     private void InsertPinPinPrompt1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinPinPrompt1ActionPerformed
         // TODO add your handling code here:
@@ -234,13 +234,13 @@ public class TransferGUI extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField HEADER;
-    private javax.swing.JButton InsertPinBackButton;
-    private javax.swing.JButton InsertPinEnterButton;
     private javax.swing.JTextField InsertPinPinPrompt;
     private javax.swing.JTextField InsertPinPinPrompt1;
     private javax.swing.JTextField InsertPinPrompt;
     private javax.swing.JTextField InsertPinTextfield;
     private javax.swing.JTextField InsertPinTextfield1;
+    private javax.swing.JButton backButton;
+    private javax.swing.JButton enterButton;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     // End of variables declaration//GEN-END:variables

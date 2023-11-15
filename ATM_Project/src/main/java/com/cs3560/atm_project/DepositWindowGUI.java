@@ -33,7 +33,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         jPanel3 = new javax.swing.JPanel();
         DepositHeader = new javax.swing.JTextField();
         Amount = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
+        inputField = new javax.swing.JTextField();
         depositButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
 
@@ -82,6 +82,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
             .addGap(0, 9, Short.MAX_VALUE)
         );
 
+        DepositHeader.setEditable(false);
         DepositHeader.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         DepositHeader.setForeground(new java.awt.Color(0, 0, 255));
         DepositHeader.setText("DEPOSIT");
@@ -92,6 +93,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
             }
         });
 
+        Amount.setEditable(false);
         Amount.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         Amount.setForeground(new java.awt.Color(0, 0, 255));
         Amount.setText("AMOUNT:");
@@ -102,9 +104,9 @@ public class DepositWindowGUI extends javax.swing.JPanel {
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        inputField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                inputFieldActionPerformed(evt);
             }
         });
 
@@ -138,7 +140,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
                 .addGap(159, 159, 159)
                 .addComponent(Amount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 163, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -163,7 +165,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
                 .addGap(39, 39, 39)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Amount, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addComponent(depositButton, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -196,12 +198,17 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_AmountActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void inputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_inputFieldActionPerformed
 
     private void depositButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositButtonActionPerformed
         // TODO add your handling code here:
+        String input = inputField.getText();
+        if (input.length() == 0) input = "0";
+        Double amount = Double.valueOf(input);
+        
+        System.out.println("Depositing: " + amount);
     }//GEN-LAST:event_depositButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
@@ -216,10 +223,10 @@ public class DepositWindowGUI extends javax.swing.JPanel {
     private javax.swing.JTextField HEADER;
     private javax.swing.JButton backButton;
     private javax.swing.JButton depositButton;
+    private javax.swing.JTextField inputField;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 
 }

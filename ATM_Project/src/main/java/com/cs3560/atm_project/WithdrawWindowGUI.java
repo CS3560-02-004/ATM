@@ -53,8 +53,8 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         fiftyDollarAmount = new javax.swing.JTextField();
         oneHundredDollarTitle = new javax.swing.JTextField();
         oneHundredDollarAmount = new javax.swing.JTextField();
-        withdrawBackButton = new javax.swing.JTextField();
         withdrawButton = new javax.swing.JButton();
+        backButton = new javax.swing.JButton();
 
         DepositHeader.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         DepositHeader.setForeground(new java.awt.Color(0, 0, 255));
@@ -126,6 +126,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
 
+        withdrawHeader.setEditable(false);
         withdrawHeader.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         withdrawHeader.setForeground(new java.awt.Color(0, 0, 255));
         withdrawHeader.setText("WITHDRAW");
@@ -136,6 +137,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
             }
         });
 
+        withdrawAmountTitle.setEditable(false);
         withdrawAmountTitle.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         withdrawAmountTitle.setForeground(new java.awt.Color(0, 0, 255));
         withdrawAmountTitle.setText("AMOUNT:");
@@ -178,16 +180,6 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         oneHundredDollarTitle.setText("$100");
         oneHundredDollarTitle.setBorder(null);
 
-        withdrawBackButton.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        withdrawBackButton.setForeground(new java.awt.Color(0, 0, 255));
-        withdrawBackButton.setText("BACK");
-        withdrawBackButton.setBorder(null);
-        withdrawBackButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                withdrawBackButtonActionPerformed(evt);
-            }
-        });
-
         withdrawButton.setBackground(new java.awt.Color(240, 240, 240));
         withdrawButton.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         withdrawButton.setForeground(new java.awt.Color(51, 51, 255));
@@ -195,6 +187,16 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         withdrawButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 withdrawButtonActionPerformed(evt);
+            }
+        });
+
+        backButton.setBackground(new java.awt.Color(240, 240, 240));
+        backButton.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        backButton.setForeground(new java.awt.Color(51, 51, 255));
+        backButton.setText("BACK");
+        backButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backButtonActionPerformed(evt);
             }
         });
 
@@ -245,12 +247,13 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(twentyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(fiftyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(oneHundredDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                                    .addComponent(oneHundredDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addComponent(backButton)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(108, 108, 108)
-                .addComponent(withdrawBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(withdrawButton)
                 .addGap(77, 77, 77))
         );
@@ -289,8 +292,8 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
                     .addComponent(tenDollarTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(withdrawBackButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(withdrawButton))
+                    .addComponent(withdrawButton)
+                    .addComponent(backButton))
                 .addGap(39, 39, 39))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -327,18 +330,24 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_oneDollarTitleActionPerformed
 
-    private void withdrawBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawBackButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_withdrawBackButtonActionPerformed
-
     private void withdrawButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawButtonActionPerformed
         // TODO add your handling code here:
+        String input = withdrawAmount.getText();
+        if (input.length() == 0) input = "0";
+        Double amount = Double.valueOf(input);
+        
+        System.out.println("Withdrawing: " + amount);
     }//GEN-LAST:event_withdrawButtonActionPerformed
+
+    private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        ATM_Project.goToScreen("home");
+    }//GEN-LAST:event_backButtonActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Amount;
     private javax.swing.JTextField DepositHeader;
+    private javax.swing.JButton backButton;
     private javax.swing.JTextField fiftyDollarAmount;
     private javax.swing.JTextField fiftyDollarTitle;
     private javax.swing.JTextField fiveDollarAmount;
@@ -362,7 +371,6 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
     private javax.swing.JTextField twoDollarTitle;
     private javax.swing.JTextField withdrawAmount;
     private javax.swing.JTextField withdrawAmountTitle;
-    private javax.swing.JTextField withdrawBackButton;
     private javax.swing.JButton withdrawButton;
     private javax.swing.JTextField withdrawHeader;
     private javax.swing.JTextField withdrawWindowTitle;

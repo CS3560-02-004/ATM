@@ -56,7 +56,7 @@
                       </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="InsertPinEnterButton" min="-2" max="-2" attributes="0"/>
+                  <Component id="enterButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace pref="82" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
@@ -67,7 +67,7 @@
                           <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="InsertPinBackButton" min="-2" max="-2" attributes="0"/>
+                          <Component id="backButton" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="232" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -95,11 +95,11 @@
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                          <Component id="InsertPinEnterButton" min="-2" pref="37" max="-2" attributes="0"/>
+                          <Component id="enterButton" min="-2" pref="37" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="44" max="32767" attributes="0"/>
-                  <Component id="InsertPinBackButton" min="-2" pref="37" max="-2" attributes="0"/>
+                  <Component id="backButton" min="-2" pref="37" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -195,7 +195,7 @@
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InsertPinTextfieldActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="InsertPinBackButton">
+        <Component class="javax.swing.JButton" name="backButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
@@ -209,10 +209,10 @@
             <Property name="text" type="java.lang.String" value="Back"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InsertPinBackButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backButtonActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="InsertPinEnterButton">
+        <Component class="javax.swing.JButton" name="enterButton">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="f0" green="f0" red="f0" type="rgb"/>
@@ -226,7 +226,7 @@
             <Property name="text" type="java.lang.String" value="Enter"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="InsertPinEnterButtonActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="enterButtonActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="InsertPinPinPrompt1">
