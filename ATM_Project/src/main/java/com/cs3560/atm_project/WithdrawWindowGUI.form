@@ -97,74 +97,61 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jPanel2" alignment="0" max="32767" attributes="0"/>
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="-2" pref="109" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="backButton" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="oneDollarTitle" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="twoDollarTitle" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Component id="fiveDollarTitle" min="-2" max="-2" attributes="0"/>
+                  <Component id="tenDollarTitle" min="-2" max="-2" attributes="0"/>
+              </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="241" max="-2" attributes="0"/>
-                      <Component id="withdrawHeader" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="168" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="oneDollarTitle" alignment="0" min="-2" pref="21" max="-2" attributes="0"/>
-                                  <Component id="twoDollarTitle" alignment="0" min="-2" pref="21" max="-2" attributes="0"/>
-                                  <Component id="fiveDollarTitle" alignment="0" min="-2" pref="21" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="1" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="tenDollarTitle" min="-2" pref="23" max="-2" attributes="0"/>
-                              <EmptySpace max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
+                  <Group type="102" attributes="0">
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="tenDollarAmount" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
                               <Component id="withdrawAmountTitle" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Component id="withdrawAmount" min="-2" pref="85" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
-                              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="fiveDollarAmount" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="oneHundredDollarTitle" min="-2" pref="27" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="twoDollarAmount" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                      <Component id="fiftyDollarTitle" min="-2" pref="24" max="-2" attributes="0"/>
-                                  </Group>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="fiveDollarAmount" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="twoDollarAmount" alignment="0" min="-2" max="-2" attributes="0"/>
                                   <Group type="102" attributes="0">
                                       <Component id="oneDollarAmount" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace min="-2" pref="73" max="-2" attributes="0"/>
-                                      <Component id="twentyDollarTitle" min="-2" pref="24" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                                   </Group>
                               </Group>
-                              <EmptySpace max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="5" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="twentyDollarTitle" min="-2" max="-2" attributes="0"/>
+                                  <Component id="fiftyDollarTitle" min="-2" max="-2" attributes="0"/>
+                                  <Component id="oneHundredDollarTitle" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="twentyDollarAmount" min="-2" max="-2" attributes="0"/>
                                   <Component id="fiftyDollarAmount" min="-2" max="-2" attributes="0"/>
-                                  <Component id="oneHundredDollarAmount" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="twentyDollarAmount" min="-2" max="-2" attributes="0"/>
+                                  <Component id="oneHundredDollarAmount" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="164" max="-2" attributes="0"/>
-                      <Component id="backButton" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace max="32767" attributes="0"/>
+                      <Component id="withdrawButton" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="102" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="withdrawButton" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+              <Component id="withdrawHeader" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="242" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -181,33 +168,31 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="oneDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="oneDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="twentyDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="twentyDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="oneDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="twentyDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="twoDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="twoDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="fiftyDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="fiftyDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="twoDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fiftyDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="fiveDollarTitle" min="-2" max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="fiveDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="oneHundredDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="oneHundredDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="fiveDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="oneHundredDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="fiveDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="oneHundredDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="9" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="tenDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tenDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="25" max="32767" attributes="0"/>
+              <EmptySpace pref="51" max="32767" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="withdrawButton" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="backButton" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -229,7 +214,7 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="241" max="32767" attributes="0"/>
+                  <EmptySpace pref="267" max="32767" attributes="0"/>
                   <Component id="withdrawWindowTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="236" max="-2" attributes="0"/>
               </Group>
@@ -271,6 +256,9 @@
     <Component class="javax.swing.JTextField" name="withdrawHeader">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Trebuchet MS" size="18" style="0"/>
         </Property>
@@ -289,6 +277,9 @@
     <Component class="javax.swing.JTextField" name="withdrawAmountTitle">
       <Properties>
         <Property name="editable" type="boolean" value="false"/>
+        <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="ff" green="ff" red="ff" type="rgb"/>
+        </Property>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Trebuchet MS" size="18" style="0"/>
         </Property>
@@ -309,76 +300,17 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="withdrawAmountActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JTextField" name="oneDollarTitle">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="$1"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="null"/>
-        </Property>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="oneDollarTitleActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JTextField" name="oneDollarAmount">
-    </Component>
-    <Component class="javax.swing.JTextField" name="twoDollarTitle">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="$2"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="null"/>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="twoDollarAmount">
     </Component>
-    <Component class="javax.swing.JTextField" name="fiveDollarTitle">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="$5"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="null"/>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="fiveDollarAmount">
-    </Component>
-    <Component class="javax.swing.JTextField" name="tenDollarTitle">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="$10"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="null"/>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="tenDollarAmount">
     </Component>
-    <Component class="javax.swing.JTextField" name="twentyDollarTitle">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="$20"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="null"/>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="twentyDollarAmount">
     </Component>
-    <Component class="javax.swing.JTextField" name="fiftyDollarTitle">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="$50"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="null"/>
-        </Property>
-      </Properties>
-    </Component>
     <Component class="javax.swing.JTextField" name="fiftyDollarAmount">
-    </Component>
-    <Component class="javax.swing.JTextField" name="oneHundredDollarTitle">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="$100"/>
-        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-          <Border info="null"/>
-        </Property>
-      </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="oneHundredDollarAmount">
     </Component>
@@ -415,6 +347,41 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="backButtonActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="oneDollarTitle">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="$1"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="twoDollarTitle">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="$2"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="fiveDollarTitle">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="$5"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="tenDollarTitle">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="$10"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="twentyDollarTitle">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="$20"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="fiftyDollarTitle">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="$50"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="oneHundredDollarTitle">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="$100"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

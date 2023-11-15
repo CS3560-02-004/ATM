@@ -39,22 +39,22 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         withdrawHeader = new javax.swing.JTextField();
         withdrawAmountTitle = new javax.swing.JTextField();
         withdrawAmount = new javax.swing.JTextField();
-        oneDollarTitle = new javax.swing.JTextField();
         oneDollarAmount = new javax.swing.JTextField();
-        twoDollarTitle = new javax.swing.JTextField();
         twoDollarAmount = new javax.swing.JTextField();
-        fiveDollarTitle = new javax.swing.JTextField();
         fiveDollarAmount = new javax.swing.JTextField();
-        tenDollarTitle = new javax.swing.JTextField();
         tenDollarAmount = new javax.swing.JTextField();
-        twentyDollarTitle = new javax.swing.JTextField();
         twentyDollarAmount = new javax.swing.JTextField();
-        fiftyDollarTitle = new javax.swing.JTextField();
         fiftyDollarAmount = new javax.swing.JTextField();
-        oneHundredDollarTitle = new javax.swing.JTextField();
         oneHundredDollarAmount = new javax.swing.JTextField();
         withdrawButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
+        oneDollarTitle = new javax.swing.JLabel();
+        twoDollarTitle = new javax.swing.JLabel();
+        fiveDollarTitle = new javax.swing.JLabel();
+        tenDollarTitle = new javax.swing.JLabel();
+        twentyDollarTitle = new javax.swing.JLabel();
+        fiftyDollarTitle = new javax.swing.JLabel();
+        oneHundredDollarTitle = new javax.swing.JLabel();
 
         DepositHeader.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         DepositHeader.setForeground(new java.awt.Color(0, 0, 255));
@@ -114,7 +114,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(241, Short.MAX_VALUE)
+                .addContainerGap(267, Short.MAX_VALUE)
                 .addComponent(withdrawWindowTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(236, 236, 236))
         );
@@ -127,6 +127,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         );
 
         withdrawHeader.setEditable(false);
+        withdrawHeader.setBackground(new java.awt.Color(255, 255, 255));
         withdrawHeader.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         withdrawHeader.setForeground(new java.awt.Color(0, 0, 255));
         withdrawHeader.setText("WITHDRAW");
@@ -138,6 +139,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         });
 
         withdrawAmountTitle.setEditable(false);
+        withdrawAmountTitle.setBackground(new java.awt.Color(255, 255, 255));
         withdrawAmountTitle.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         withdrawAmountTitle.setForeground(new java.awt.Color(0, 0, 255));
         withdrawAmountTitle.setText("AMOUNT:");
@@ -153,32 +155,6 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
                 withdrawAmountActionPerformed(evt);
             }
         });
-
-        oneDollarTitle.setText("$1");
-        oneDollarTitle.setBorder(null);
-        oneDollarTitle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                oneDollarTitleActionPerformed(evt);
-            }
-        });
-
-        twoDollarTitle.setText("$2");
-        twoDollarTitle.setBorder(null);
-
-        fiveDollarTitle.setText("$5");
-        fiveDollarTitle.setBorder(null);
-
-        tenDollarTitle.setText("$10");
-        tenDollarTitle.setBorder(null);
-
-        twentyDollarTitle.setText("$20");
-        twentyDollarTitle.setBorder(null);
-
-        fiftyDollarTitle.setText("$50");
-        fiftyDollarTitle.setBorder(null);
-
-        oneHundredDollarTitle.setText("$100");
-        oneHundredDollarTitle.setBorder(null);
 
         withdrawButton.setBackground(new java.awt.Color(240, 240, 240));
         withdrawButton.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
@@ -200,62 +176,68 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
             }
         });
 
+        oneDollarTitle.setText("$1");
+
+        twoDollarTitle.setText("$2");
+
+        fiveDollarTitle.setText("$5");
+
+        tenDollarTitle.setText("$10");
+
+        twentyDollarTitle.setText("$20");
+
+        fiftyDollarTitle.setText("$50");
+
+        oneHundredDollarTitle.setText("$100");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
+                .addGap(109, 109, 109)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(backButton)
+                    .addComponent(oneDollarTitle)
+                    .addComponent(twoDollarTitle)
+                    .addComponent(fiveDollarTitle)
+                    .addComponent(tenDollarTitle))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(241, 241, 241)
-                        .addComponent(withdrawHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(168, 168, 168)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(oneDollarTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(twoDollarTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(fiveDollarTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(4, 4, 4))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(tenDollarTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tenDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
+                                .addGap(21, 21, 21)
                                 .addComponent(withdrawAmountTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(withdrawAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(fiveDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(oneHundredDollarTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(twoDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(fiftyDollarTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(fiveDollarAmount, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(twoDollarAmount, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addComponent(oneDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(73, 73, 73)
-                                        .addComponent(twentyDollarTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGap(78, 78, 78)))
+                                .addGap(5, 5, 5)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(twentyDollarTitle)
+                                    .addComponent(fiftyDollarTitle)
+                                    .addComponent(oneHundredDollarTitle))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(twentyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(fiftyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(twentyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(oneHundredDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(backButton)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(withdrawButton)
+                        .addGap(102, 102, 102))))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(withdrawButton)
-                .addGap(77, 77, 77))
+                .addComponent(withdrawHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(242, 242, 242))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -269,28 +251,27 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
                     .addComponent(withdrawAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(oneDollarTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(oneDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(twentyDollarTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(twentyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(twentyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(oneDollarTitle)
+                    .addComponent(twentyDollarTitle))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(twoDollarTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(twoDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fiftyDollarTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(fiftyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(fiftyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(twoDollarTitle)
+                    .addComponent(fiftyDollarTitle))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(fiveDollarTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(fiveDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(oneHundredDollarTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(oneHundredDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(fiveDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(oneHundredDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fiveDollarTitle)
+                    .addComponent(oneHundredDollarTitle))
                 .addGap(9, 9, 9)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(tenDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(tenDollarTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+                    .addComponent(tenDollarTitle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 51, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(withdrawButton)
                     .addComponent(backButton))
@@ -326,10 +307,6 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_withdrawAmountActionPerformed
 
-    private void oneDollarTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneDollarTitleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_oneDollarTitleActionPerformed
-
     private void withdrawButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawButtonActionPerformed
         // TODO add your handling code here:
         String input = withdrawAmount.getText();
@@ -349,9 +326,9 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
     private javax.swing.JTextField DepositHeader;
     private javax.swing.JButton backButton;
     private javax.swing.JTextField fiftyDollarAmount;
-    private javax.swing.JTextField fiftyDollarTitle;
+    private javax.swing.JLabel fiftyDollarTitle;
     private javax.swing.JTextField fiveDollarAmount;
-    private javax.swing.JTextField fiveDollarTitle;
+    private javax.swing.JLabel fiveDollarTitle;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;
@@ -360,15 +337,15 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField20;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField oneDollarAmount;
-    private javax.swing.JTextField oneDollarTitle;
+    private javax.swing.JLabel oneDollarTitle;
     private javax.swing.JTextField oneHundredDollarAmount;
-    private javax.swing.JTextField oneHundredDollarTitle;
+    private javax.swing.JLabel oneHundredDollarTitle;
     private javax.swing.JTextField tenDollarAmount;
-    private javax.swing.JTextField tenDollarTitle;
+    private javax.swing.JLabel tenDollarTitle;
     private javax.swing.JTextField twentyDollarAmount;
-    private javax.swing.JTextField twentyDollarTitle;
+    private javax.swing.JLabel twentyDollarTitle;
     private javax.swing.JTextField twoDollarAmount;
-    private javax.swing.JTextField twoDollarTitle;
+    private javax.swing.JLabel twoDollarTitle;
     private javax.swing.JTextField withdrawAmount;
     private javax.swing.JTextField withdrawAmountTitle;
     private javax.swing.JButton withdrawButton;

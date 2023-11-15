@@ -30,9 +30,9 @@ public class BalanceGUI extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         balanceWindowTitle = new javax.swing.JTextField();
         balanceHeader = new javax.swing.JTextField();
-        availableBalancesTitle = new javax.swing.JTextField();
         availableBalancesAmount = new javax.swing.JTextField();
         balanceBackButton = new javax.swing.JButton();
+        availableBalancesTitle = new javax.swing.JLabel();
 
         WithdrawWindowTitle.setBackground(new java.awt.Color(0, 0, 255));
         WithdrawWindowTitle.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
@@ -87,16 +87,6 @@ public class BalanceGUI extends javax.swing.JPanel {
             }
         });
 
-        availableBalancesTitle.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        availableBalancesTitle.setForeground(new java.awt.Color(0, 0, 255));
-        availableBalancesTitle.setText("AVAILABLE BALANCES:");
-        availableBalancesTitle.setBorder(null);
-        availableBalancesTitle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                availableBalancesTitleActionPerformed(evt);
-            }
-        });
-
         balanceBackButton.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         balanceBackButton.setForeground(new java.awt.Color(51, 51, 255));
         balanceBackButton.setText("BACK");
@@ -106,6 +96,10 @@ public class BalanceGUI extends javax.swing.JPanel {
                 balanceBackButtonActionPerformed(evt);
             }
         });
+
+        availableBalancesTitle.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        availableBalancesTitle.setForeground(new java.awt.Color(51, 51, 255));
+        availableBalancesTitle.setText("AVAILABLE BALANCES:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -121,10 +115,10 @@ public class BalanceGUI extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(balanceBackButton)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(availableBalancesTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(availableBalancesTitle)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(availableBalancesAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -133,10 +127,10 @@ public class BalanceGUI extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(balanceHeader, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(76, 76, 76)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(availableBalancesTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(availableBalancesAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(availableBalancesAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(availableBalancesTitle))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 99, Short.MAX_VALUE)
                 .addComponent(balanceBackButton)
                 .addGap(51, 51, 51))
         );
@@ -154,10 +148,6 @@ public class BalanceGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_balanceHeaderActionPerformed
 
-    private void availableBalancesTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_availableBalancesTitleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_availableBalancesTitleActionPerformed
-
     private void balanceBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_balanceBackButtonActionPerformed
         ATM_Project.goToScreen("home");
     }//GEN-LAST:event_balanceBackButtonActionPerformed
@@ -166,7 +156,7 @@ public class BalanceGUI extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField WithdrawWindowTitle;
     private javax.swing.JTextField availableBalancesAmount;
-    private javax.swing.JTextField availableBalancesTitle;
+    private javax.swing.JLabel availableBalancesTitle;
     private javax.swing.JButton balanceBackButton;
     private javax.swing.JTextField balanceHeader;
     private javax.swing.JTextField balanceWindowTitle;
