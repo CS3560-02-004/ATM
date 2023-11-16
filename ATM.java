@@ -6,11 +6,18 @@ public class ATM
 	private String branchName;
 
 	// ATM constructor ------------------------------
-	public ATM(int atmID, String branchName)
+	public ATM(int atmID, String branchName) {
+		this.atmID = atmID;
+		this.branchName = branchName;
+	}
 
 	// ATM getters ------------------------------
-	public int getAtmID()
-	public String getBranchName()
+	public int getAtmID() {
+		return atmID;
+	}
+	public String getBranchName() {
+		return branchName;
+	}
 
 	// ATM setters ------------------------------
 

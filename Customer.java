@@ -1,15 +1,32 @@
 package ATM;
 
-import java.lang.reflect.Constructor;
+import java.sql.ResultSet;
+
+import javax.smartcardio.Card;
+
 
 public class Customer {
     private int customerID;
     private String customerName;
-    private int phoneNumber;
+    private String phoneNumber;
     private String emailAddress;
     private String billingAddress;
 
+    private DatabaseConnection db;
+    private ResultSet rs;
+    private String ID_QUERY = "SELECT * FROM accounttable where accountID = ";
 
+    public Customer(int accountID) {
+        db = new DatabaseConnection();
+        rs = db.getQuery(String.format(ID_QUERY + accountID));
+        while (rs.next()) {
+            customerID = rs.getInt("customerID");
+            customerName= String.format("%s %s %s",rs.getString("firstName"), rs.getString("middleName"), rs.getString("lastName"));
+            phoneNumber = rs.getString("phoneNumber");
+            emailAddress = rs.getString("emailAddress");
+            billingAddress = rs.getString("billingAddress");
+        }
+    }
     // Customer constructor
     public Customer(int customerID, String customerName, int phoneNumber, String emailAddress, String billingAddress) {
         this.customerID = customerID;
@@ -17,7 +34,6 @@ public class Customer {
         this.phoneNumber = phoneNumber;
         this.emailAddress = emailAddress;
         this.billingAddress = billingAddress;
-
     }
 
     // insertCard takes a Card as a parameter an inserts it into the ATM based on the cards type
@@ -27,11 +43,11 @@ public class Customer {
 
     // customer id getter
     public int getCustomerID() {
-        
+
         return customerID;
     }
 
-    // customer id setter
+    // customer id setter (id auto increment, should not set)
     public void setCustomerID(int id) {
         customerID = id;
     }

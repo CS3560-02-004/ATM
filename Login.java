@@ -10,11 +10,13 @@ public class Login {
     final String LOCK_CARD = "UPDATE card SET lockStatus = true WHERE cardNumber = ";
 
     private DatabaseConnection db;
-    private String cardNumber;
-    private int pin;
     private ResultSet rs;
+    private String cardNumber;
+    private int accountID;
+    private int pin;
     private int lockCounter;
     private boolean cardLock;
+
 
     public Login(String cardNumber) {
         this.cardNumber = null;
@@ -26,6 +28,7 @@ public class Login {
         try {
             while (rs.next()) {
                 this.cardNumber = rs.getString("CardNumber");
+                accountID = rs.getInt("accountID");
                 pin = rs.getInt("fourDigitPin");
                 cardLock = rs.getBoolean("lockStatus");
             }
@@ -38,7 +41,7 @@ public class Login {
 
 
     // Loop for pin input, if fail 3 times, lock the card
-    private boolean loopPin() {
+    public boolean loopPin() {
         boolean correctPIN = false;
         while (lockCounter < 4 && correctPIN == false) {
             correctPIN = pinVerification(pin);
@@ -64,11 +67,11 @@ public class Login {
         rs = db.getQuery(String.format(LOCK_CARD + cardNumber));
     }
 
-    private boolean isLocked() {
+    public boolean isLocked() {
         return cardLock;
     }
 
-    protected String getCardNumber() {
+    public String getCardNumber() {
         return cardNumber;
     }
 
