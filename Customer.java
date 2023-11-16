@@ -1,9 +1,5 @@
-package ATM;
-
 import java.sql.ResultSet;
-
-import javax.smartcardio.Card;
-
+import java.sql.SQLException;
 
 public class Customer {
     private int customerID;
@@ -14,11 +10,12 @@ public class Customer {
 
     private DatabaseConnection db;
     private ResultSet rs;
-    private String ID_QUERY = "SELECT * FROM accounttable where accountID = ";
+    private String ID_QUERY = "SELECT * FROM customer where customerID = ";
 
     public Customer(int accountID) {
         db = new DatabaseConnection();
         rs = db.getQuery(String.format(ID_QUERY + accountID));
+        try {
         while (rs.next()) {
             customerID = rs.getInt("customerID");
             customerName= String.format("%s %s %s",rs.getString("firstName"), rs.getString("middleName"), rs.getString("lastName"));
@@ -26,9 +23,12 @@ public class Customer {
             emailAddress = rs.getString("emailAddress");
             billingAddress = rs.getString("billingAddress");
         }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
     // Customer constructor
-    public Customer(int customerID, String customerName, int phoneNumber, String emailAddress, String billingAddress) {
+    public Customer(int customerID, String customerName, String phoneNumber, String emailAddress, String billingAddress) {
         this.customerID = customerID;
         this.customerName = customerName;
         this.phoneNumber = phoneNumber;
@@ -37,9 +37,9 @@ public class Customer {
     }
 
     // insertCard takes a Card as a parameter an inserts it into the ATM based on the cards type
-    public void insertCard(Card card) {
+    // public void insertCard(Card card) {
 
-    }
+    // }
 
     // customer id getter
     public int getCustomerID() {
@@ -63,12 +63,12 @@ public class Customer {
     }
 
     // phone number getter
-    public int getPhoneNumber() {
+    public String getPhoneNumber() {
         return phoneNumber;
     }
 
     // phone number setter
-    public void setPhoneNumber(int number) {
+    public void setPhoneNumber(String number) {
         phoneNumber = number;
     }
 

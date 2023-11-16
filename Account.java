@@ -1,8 +1,27 @@
-package ATM;
-public abstract class Account {
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
+public class Account {
     protected int accountID;
     protected String dateCreated;
+    private DatabaseConnection db;
+    private ResultSet rs;
+    private String ID_QUERY = "SELECT * FROM accounttable where accountID = ";
 
+    public Account(int accountID) {
+        db = new DatabaseConnection();
+        rs = db.getQuery(String.format(ID_QUERY + accountID));
+
+        this.accountID = accountID;
+
+        try {
+            while (rs.next()) {
+                dateCreated = rs.getString("dateCreated");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
     // Constructor
     public Account(int accountID, String dateCreated) {
         this.accountID = accountID;

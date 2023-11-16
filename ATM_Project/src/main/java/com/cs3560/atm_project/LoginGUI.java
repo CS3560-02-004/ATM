@@ -122,7 +122,7 @@ public class LoginGUI extends javax.swing.JPanel {
         loginButton.setBackground(new java.awt.Color(240, 240, 240));
         loginButton.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         loginButton.setForeground(new java.awt.Color(51, 51, 255));
-        loginButton.setText("Login");
+        loginButton.setText("com.cs3560.atm_project.Login");
         loginButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 loginButtonActionPerformed(evt);
