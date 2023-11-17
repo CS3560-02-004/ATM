@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.cs3560.atm_project;
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author gippy
@@ -13,8 +13,24 @@ public class DepositWindowGUI extends javax.swing.JPanel {
     /**
      * Creates new form NewJPanel
      */
+    long totalDeposit = 0;
     public DepositWindowGUI() {
         initComponents();
+    }
+    
+    private void getTotalDeposit(){
+        totalDeposit = Integer.parseInt(oneDollarAmount.getText());
+        totalDeposit += Integer.parseInt(twoDollarAmount.getText()) * 2;
+        totalDeposit += Integer.parseInt(fiveDollarAmount.getText()) * 5;
+        totalDeposit += Integer.parseInt(tenDollarAmount.getText()) * 10;
+        totalDeposit += Integer.parseInt(twentyDollarAmount.getText()) * 20;
+        totalDeposit += Integer.parseInt(fiftyDollarAmount.getText()) * 50;
+        totalDeposit += Integer.parseInt(oneHundredDollarAmount.getText()) * 100;
+    }
+    
+    private void updateTotalDeposit(){
+        getTotalDeposit();
+        depositAmount.setText(totalDeposit + "");
     }
 
     /**
@@ -45,10 +61,10 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         fiftyDollarAmount = new javax.swing.JTextField();
         jPanel6 = new javax.swing.JPanel();
         depositFiveDollarTitle = new javax.swing.JLabel();
-        fiveDollarAmount1 = new javax.swing.JTextField();
+        fiveDollarAmount = new javax.swing.JTextField();
         depositOneHundredDollarTitle = new javax.swing.JLabel();
         oneHundredDollarAmount = new javax.swing.JTextField();
-        tenDollarAmount1 = new javax.swing.JTextField();
+        tenDollarAmount = new javax.swing.JTextField();
         depositTenDollarTitle = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
         backButton = new javax.swing.JButton();
@@ -134,6 +150,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
             }
         });
 
+        depositAmount.setText("0");
         depositAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 depositAmountActionPerformed(evt);
@@ -176,6 +193,11 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         depositTwentyDollarTitle.setText("$20");
 
         twentyDollarAmount.setText("0");
+        twentyDollarAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                twentyDollarAmountActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -185,11 +207,11 @@ public class DepositWindowGUI extends javax.swing.JPanel {
                 .addGap(170, 170, 170)
                 .addComponent(depositOneDollarTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(oneDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(oneDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(85, 85, 85)
                 .addComponent(depositTwentyDollarTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(twentyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(twentyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -209,6 +231,11 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         depositTwoDollarTitle.setText("$2");
 
         twoDollarAmount.setText("0");
+        twoDollarAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                twoDollarAmountActionPerformed(evt);
+            }
+        });
 
         depositFiftyDollarTitle.setText("$50");
 
@@ -227,11 +254,11 @@ public class DepositWindowGUI extends javax.swing.JPanel {
                 .addGap(170, 170, 170)
                 .addComponent(depositTwoDollarTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(twoDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(twoDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(85, 85, 85)
                 .addComponent(depositFiftyDollarTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fiftyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(fiftyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -250,13 +277,28 @@ public class DepositWindowGUI extends javax.swing.JPanel {
 
         depositFiveDollarTitle.setText("$5");
 
-        fiveDollarAmount1.setText("0");
+        fiveDollarAmount.setText("0");
+        fiveDollarAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fiveDollarAmountActionPerformed(evt);
+            }
+        });
 
         depositOneHundredDollarTitle.setText("$100");
 
         oneHundredDollarAmount.setText("0");
+        oneHundredDollarAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oneHundredDollarAmountActionPerformed(evt);
+            }
+        });
 
-        tenDollarAmount1.setText("0");
+        tenDollarAmount.setText("0");
+        tenDollarAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tenDollarAmountActionPerformed(evt);
+            }
+        });
 
         depositTenDollarTitle.setText("$10");
 
@@ -270,15 +312,15 @@ public class DepositWindowGUI extends javax.swing.JPanel {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(depositFiveDollarTitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fiveDollarAmount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(fiveDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(depositTenDollarTitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tenDollarAmount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tenDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(80, 80, 80)
                 .addComponent(depositOneHundredDollarTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(oneHundredDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(oneHundredDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
@@ -287,12 +329,12 @@ public class DepositWindowGUI extends javax.swing.JPanel {
                 .addGap(0, 3, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(depositFiveDollarTitle)
-                    .addComponent(fiveDollarAmount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fiveDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(depositOneHundredDollarTitle)
                     .addComponent(oneHundredDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tenDollarAmount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tenDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(depositTenDollarTitle))
                 .addContainerGap())
         );
@@ -394,7 +436,10 @@ public class DepositWindowGUI extends javax.swing.JPanel {
 //        String input = inputField.getText();
 //        if (input.length() == 0) input = "0";
 //        Double amount = Double.valueOf(input);
-//
+    boolean isDepositSuccessful = true;
+    if(isDepositSuccessful) JOptionPane.showMessageDialog(this, "Deposit Successful");
+    else JOptionPane.showMessageDialog(this, "Deposit Unable to Occur");
+    
 //        System.out.println("Depositing: " + amount);
     }//GEN-LAST:event_depositButtonActionPerformed
 
@@ -405,11 +450,38 @@ public class DepositWindowGUI extends javax.swing.JPanel {
 
     private void fiftyDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiftyDollarAmountActionPerformed
         // TODO add your handling code here:
+        updateTotalDeposit();
     }//GEN-LAST:event_fiftyDollarAmountActionPerformed
 
     private void oneDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneDollarAmountActionPerformed
         // TODO add your handling code here:
+        updateTotalDeposit();
     }//GEN-LAST:event_oneDollarAmountActionPerformed
+
+    private void twoDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoDollarAmountActionPerformed
+        // TODO add your handling code here:
+        updateTotalDeposit();
+    }//GEN-LAST:event_twoDollarAmountActionPerformed
+
+    private void fiveDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveDollarAmountActionPerformed
+        // TODO add your handling code here:
+        updateTotalDeposit();
+    }//GEN-LAST:event_fiveDollarAmountActionPerformed
+
+    private void tenDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tenDollarAmountActionPerformed
+        // TODO add your handling code here:
+        updateTotalDeposit();
+    }//GEN-LAST:event_tenDollarAmountActionPerformed
+
+    private void twentyDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twentyDollarAmountActionPerformed
+        // TODO add your handling code here:
+        updateTotalDeposit();
+    }//GEN-LAST:event_twentyDollarAmountActionPerformed
+
+    private void oneHundredDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneHundredDollarAmountActionPerformed
+        // TODO add your handling code here:
+        updateTotalDeposit();
+    }//GEN-LAST:event_oneHundredDollarAmountActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -427,7 +499,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
     private javax.swing.JLabel depositTwoDollarTitle;
     private javax.swing.JTextField depositWindowTitle1;
     private javax.swing.JTextField fiftyDollarAmount;
-    private javax.swing.JTextField fiveDollarAmount1;
+    private javax.swing.JTextField fiveDollarAmount;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -437,7 +509,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JTextField oneDollarAmount;
     private javax.swing.JTextField oneHundredDollarAmount;
-    private javax.swing.JTextField tenDollarAmount1;
+    private javax.swing.JTextField tenDollarAmount;
     private javax.swing.JTextField twentyDollarAmount;
     private javax.swing.JTextField twoDollarAmount;
     // End of variables declaration//GEN-END:variables
