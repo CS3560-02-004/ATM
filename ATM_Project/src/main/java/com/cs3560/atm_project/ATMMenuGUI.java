@@ -32,9 +32,9 @@ public class ATMMenuGUI extends javax.swing.JPanel {
         DEPOSITBTN = new javax.swing.JButton();
         TRANSFERBTN = new javax.swing.JButton();
         WITHDRAWBTN = new javax.swing.JButton();
-        LOGOUT = new javax.swing.JTextField();
         FOOTER = new javax.swing.JTextField();
         BALANCEBTN = new javax.swing.JButton();
+        logoutButton = new javax.swing.JButton();
 
         jPanel6.setBackground(new java.awt.Color(0, 0, 255));
 
@@ -111,16 +111,6 @@ public class ATMMenuGUI extends javax.swing.JPanel {
             }
         });
 
-        LOGOUT.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        LOGOUT.setForeground(new java.awt.Color(255, 51, 51));
-        LOGOUT.setText("LOGOUT");
-        LOGOUT.setBorder(null);
-        LOGOUT.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                LOGOUTActionPerformed(evt);
-            }
-        });
-
         FOOTER.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         FOOTER.setForeground(new java.awt.Color(51, 51, 255));
         FOOTER.setText("MyCPP Bank");
@@ -140,11 +130,23 @@ public class ATMMenuGUI extends javax.swing.JPanel {
             }
         });
 
+        logoutButton.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        logoutButton.setForeground(new java.awt.Color(255, 0, 0));
+        logoutButton.setText("LOGOUT");
+        logoutButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                logoutButtonActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 644, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(269, 269, 269)
+                .addComponent(logoutButton)
+                .addContainerGap(278, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addContainerGap()
@@ -164,15 +166,15 @@ public class ATMMenuGUI extends javax.swing.JPanel {
                             .addGap(108, 108, 108))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                             .addComponent(FOOTER, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(271, 271, 271))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(LOGOUT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(286, 286, 286)))
+                            .addGap(271, 271, 271)))
                     .addContainerGap()))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 412, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(338, Short.MAX_VALUE)
+                .addComponent(logoutButton)
+                .addGap(46, 46, 46))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(8, 8, 8)
@@ -185,9 +187,7 @@ public class ATMMenuGUI extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(WITHDRAWBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(BALANCEBTN, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 75, Short.MAX_VALUE)
-                    .addComponent(LOGOUT, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                     .addComponent(FOOTER, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(8, 8, 8)))
         );
@@ -213,10 +213,6 @@ public class ATMMenuGUI extends javax.swing.JPanel {
         ATM_Project.goToScreen("withdraw");
     }//GEN-LAST:event_WITHDRAWBTNActionPerformed
 
-    private void LOGOUTActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LOGOUTActionPerformed
-        ATM_Project.goToScreen("login");
-    }//GEN-LAST:event_LOGOUTActionPerformed
-
     private void FOOTERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FOOTERActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_FOOTERActionPerformed
@@ -225,22 +221,20 @@ public class ATMMenuGUI extends javax.swing.JPanel {
         ATM_Project.goToScreen("balance");
     }//GEN-LAST:event_BALANCEBTNActionPerformed
 
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
+        ATM_Project.goToScreen("login");
+    }//GEN-LAST:event_logoutButtonActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BALANCEBTN;
     private javax.swing.JButton DEPOSITBTN;
     private javax.swing.JTextField FOOTER;
-    private javax.swing.JTextField HEADER;
-    private javax.swing.JTextField HEADER1;
     private javax.swing.JTextField HEADER2;
-    private javax.swing.JTextField LOGOUT;
     private javax.swing.JTextField SUBHEADER;
     private javax.swing.JButton TRANSFERBTN;
     private javax.swing.JButton WITHDRAWBTN;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
+    private javax.swing.JButton logoutButton;
     // End of variables declaration//GEN-END:variables
 }

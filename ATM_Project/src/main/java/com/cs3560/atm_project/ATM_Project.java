@@ -42,7 +42,7 @@ public class ATM_Project {
         stackPanel.addStack("withdraw", withdrawGui);
         stackPanel.addStack("transfer", transferGui);
         stackPanel.addStack("balance", balanceGui);
-        stackPanel.showStack("withdraw");
+        stackPanel.showStack("login");
     }
     
     public static void goToScreen(String screen) {
