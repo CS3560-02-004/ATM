@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.cs3560.atm_project;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 /**
  *
@@ -226,13 +230,41 @@ public class InsertPinGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_InsertPinBackButtonActionPerformed
 
     private void InsertPinEnterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinEnterButtonActionPerformed
-        // TODO add your handling code here:
-        String message = "The PIN you inserted is incorrect.\nYou have " + attempts_left + " attempts left"
-                            + " before your account is locked for 24 hours.";
-        JOptionPane.showMessageDialog(this, message);
-        InsertPinTextfield.setText("");
-    }//GEN-LAST:event_InsertPinEnterButtonActionPerformed
 
+        int input = Integer.parseInt(InsertPinTextfield.getText());
+        
+        boolean validInput = validatePIN(input);// validateCardNumber(input);
+        if (validInput && attempts_left > 0) {
+            InsertPinTextfield.setText("");
+            ATM_Project.goToScreen("home");
+            attempts_left = 3;
+        } else {
+            if(attempts_left > 0){
+                JOptionPane.showMessageDialog(null, "Incorrect PIN for this card! You have " + attempts_left + " attempts left.",
+               "PIN Validater", JOptionPane.ERROR_MESSAGE);
+                attempts_left -= 1;
+            } else {
+                JOptionPane.showMessageDialog(null, "Your have no more attempts left. Try again in 24 hours!!",
+               "PIN Validater", JOptionPane.ERROR_MESSAGE);
+            }
+        }
+    }//GEN-LAST:event_InsertPinEnterButtonActionPerformed
+    
+    private boolean validatePIN(int PIN) {
+        DatabaseConnection db = new DatabaseConnection();
+        ResultSet rs = db.getQuery("SELECT * FROM card");
+        try {
+            while(rs.next()){
+                if(rs.getInt("fourDigitPin") == PIN){
+                    return true; 
+                }
+            }
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField HEADER;

@@ -190,7 +190,8 @@ public class LoginGUI extends javax.swing.JPanel {
         boolean validInput = validateCardNumber(input);// validateCardNumber(input);
         if (validInput && attempts > 0) {
             cardNumberInput.setText("");
-            ATM_Project.goToScreen("home");
+            ATM_Project.goToScreen("pin");
+            attempts = 3;
         } else {
             if(attempts > 0){
                 JOptionPane.showMessageDialog(null, "Your Card is not in the system! You have " + attempts + " attempts left.",
@@ -200,7 +201,6 @@ public class LoginGUI extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Your have no more attempts left. Try again in 24 hours!!",
                "Card Validater", JOptionPane.ERROR_MESSAGE);
             }
-   
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
