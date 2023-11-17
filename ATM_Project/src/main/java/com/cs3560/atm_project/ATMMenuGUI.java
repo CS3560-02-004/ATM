@@ -36,6 +36,8 @@ public class ATMMenuGUI extends javax.swing.JPanel {
         BALANCEBTN = new javax.swing.JButton();
         logoutButton = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 255, 255));
+
         jPanel6.setBackground(new java.awt.Color(0, 0, 255));
 
         HEADER2.setBackground(new java.awt.Color(0, 0, 255));
