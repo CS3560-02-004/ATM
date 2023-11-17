@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 
 public class LoginGUI extends javax.swing.JPanel {
     
+    int attempts = 3; 
     public LoginGUI() {
         initComponents();
     }
@@ -187,12 +188,19 @@ public class LoginGUI extends javax.swing.JPanel {
         String input = cardNumberInput.getText();
         
         boolean validInput = validateCardNumber(input);// validateCardNumber(input);
-        if (validInput) {
+        if (validInput && attempts > 0) {
             cardNumberInput.setText("");
             ATM_Project.goToScreen("home");
         } else {
-            JOptionPane.showMessageDialog(null, "Your Card is not in the system!",
+            if(attempts > 0){
+                JOptionPane.showMessageDialog(null, "Your Card is not in the system! You have " + attempts + " attempts left.",
                "Card Validater", JOptionPane.ERROR_MESSAGE);
+                attempts -= 1;
+            } else {
+                JOptionPane.showMessageDialog(null, "Your have no more attempts left. Try again in 24 hours!!",
+               "Card Validater", JOptionPane.ERROR_MESSAGE);
+            }
+   
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
