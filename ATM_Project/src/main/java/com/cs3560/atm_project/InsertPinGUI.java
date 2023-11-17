@@ -13,10 +13,8 @@ import javax.swing.JOptionPane;
  * @author gippy
  */
 public class InsertPinGUI extends javax.swing.JPanel {
-
-    /**
-     * Creates new form InsertPinGUI
-     */
+    
+    public static int correctPin;
     private byte attempts_left = 3;
     
     public InsertPinGUI() {
@@ -232,9 +230,8 @@ public class InsertPinGUI extends javax.swing.JPanel {
     private void InsertPinEnterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinEnterButtonActionPerformed
 
         int input = Integer.parseInt(InsertPinTextfield.getText().trim());
-        
-        boolean validInput = validatePIN(input);// validateCardNumber(input);
-        if (validInput && attempts_left > 0) {
+        System.out.println(correctPin);
+        if (correctPin == input && attempts_left > 0) {
             InsertPinTextfield.setText("");
             ATM_Project.goToScreen("home");
             attempts_left = 3;
@@ -249,21 +246,11 @@ public class InsertPinGUI extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_InsertPinEnterButtonActionPerformed
+
     
-    private boolean validatePIN(int PIN) {
-        DatabaseConnection db = new DatabaseConnection();
-        ResultSet rs = db.getQuery("SELECT * FROM card");
-        try {
-            while(rs.next()){
-                if(rs.getInt("fourDigitPin") == PIN){
-                    return true; 
-                }
-            }
-           
-        } catch (SQLException ex) {
-            Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        return false;
+    public void setCorrectPIN(int pin){
+        System.out.println(pin);
+        correctPin = pin;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

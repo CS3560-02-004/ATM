@@ -210,6 +210,10 @@ public class LoginGUI extends javax.swing.JPanel {
         try {
             while(rs.next()){
                 if(rs.getString("CardNumber").equals(cardNumber.trim())){
+                    int pin = Integer.parseInt(rs.getString("fourDigitPin"));
+                    System.out.println(pin);
+                    InsertPinGUI pinGUI = new InsertPinGUI();
+                    pinGUI.setCorrectPIN(pin);
                     return true; 
                 }
             }
