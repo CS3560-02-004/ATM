@@ -28,6 +28,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
     private int fifty_denomination = 0;
     private int hundred_denomination = 0;
     private static int currentAccountID;
+    BalanceGUI balGUI;
     
     public DepositWindowGUI() {
         initComponents();
@@ -603,6 +604,8 @@ public class DepositWindowGUI extends javax.swing.JPanel {
                         System.out.println("NEW TOTAL:  " + currentTotal);
                         db.executeUpdate("UPDATE checking SET checkingBalance = '" + currentTotal + 
                                 "' WHERE accountID = " + currentAccountID);
+                        balGUI = new BalanceGUI();
+                        balGUI.updateDisplay("Checking Account: " + currentTotal);
                     }
                 }
 
@@ -612,7 +615,6 @@ public class DepositWindowGUI extends javax.swing.JPanel {
             ATM_Project.goToScreen("home");
 
     }//GEN-LAST:event_depositButtonActionPerformed
-    
     
     public void setAccountID(int accountID){
         currentAccountID = accountID;

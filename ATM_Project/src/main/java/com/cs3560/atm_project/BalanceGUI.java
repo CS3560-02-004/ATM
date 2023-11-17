@@ -16,7 +16,7 @@ public class BalanceGUI extends javax.swing.JPanel {
     public BalanceGUI() {
         initComponents();
     }
-
+      
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -181,10 +181,12 @@ public class BalanceGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_WithdrawWindowTitleActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
         ATM_Project.goToScreen("home");
     }//GEN-LAST:event_jButton1ActionPerformed
-
+    
+    public void updateDisplay(String newBalance){
+        balanceDisplay.setText(newBalance); 
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField WithdrawWindowTitle;
