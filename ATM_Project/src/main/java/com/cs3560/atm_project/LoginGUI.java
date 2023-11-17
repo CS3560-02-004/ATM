@@ -209,7 +209,7 @@ public class LoginGUI extends javax.swing.JPanel {
         ResultSet rs = db.getQuery("SELECT * FROM card");
         try {
             while(rs.next()){
-                if(rs.getString("CardNumber").equals(cardNumber)){
+                if(rs.getString("CardNumber").equals(cardNumber.trim())){
                     return true; 
                 }
             }

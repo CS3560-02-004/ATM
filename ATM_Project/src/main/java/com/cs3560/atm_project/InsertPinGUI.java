@@ -231,7 +231,7 @@ public class InsertPinGUI extends javax.swing.JPanel {
 
     private void InsertPinEnterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinEnterButtonActionPerformed
 
-        int input = Integer.parseInt(InsertPinTextfield.getText());
+        int input = Integer.parseInt(InsertPinTextfield.getText().trim());
         
         boolean validInput = validatePIN(input);// validateCardNumber(input);
         if (validInput && attempts_left > 0) {
