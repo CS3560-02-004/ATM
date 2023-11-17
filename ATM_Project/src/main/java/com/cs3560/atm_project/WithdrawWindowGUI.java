@@ -13,10 +13,30 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
     /**
      * Creates new form WithdrawWindowGUI
      */
+    private long totalWithdraw = 0;
     public WithdrawWindowGUI() {
         initComponents();
     }
+    
+    // Get the total amount of money currently about to be depositted
+    // by looking at home many of each denomination is to be depositted
+    private void getTotalWithdraw(){
+        totalWithdraw = Integer.parseInt(oneDollarAmount.getText());
+        totalWithdraw += Integer.parseInt(twoDollarAmount.getText()) * 2;
+        totalWithdraw += Integer.parseInt(fiveDollarAmount.getText()) * 5;
+        totalWithdraw += Integer.parseInt(tenDollarAmount.getText()) * 10;
+        totalWithdraw += Integer.parseInt(twentyDollarAmount.getText()) * 20;
+        totalWithdraw += Integer.parseInt(fiftyDollarAmount.getText()) * 50;
+        totalWithdraw += Integer.parseInt(oneHundredDollarAmount.getText()) * 100;
+    }
+    
+    // Updates the total deposit amount display
+    private void updateTotalWithdraw(){
+        getTotalWithdraw();
+        withdrawAmount.setText(totalWithdraw + "");
+    }
 
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -46,10 +66,10 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         withdrawButton = new javax.swing.JButton();
         jPanel6 = new javax.swing.JPanel();
         depositFiveDollarTitle = new javax.swing.JLabel();
-        fiveDollarAmount1 = new javax.swing.JTextField();
+        fiveDollarAmount = new javax.swing.JTextField();
         depositOneHundredDollarTitle = new javax.swing.JLabel();
         oneHundredDollarAmount = new javax.swing.JTextField();
-        tenDollarAmount1 = new javax.swing.JTextField();
+        tenDollarAmount = new javax.swing.JTextField();
         depositTenDollarTitle = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         depositTwoDollarTitle = new javax.swing.JLabel();
@@ -179,6 +199,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
             }
         });
 
+        withdrawAmount.setText("0");
         withdrawAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 withdrawAmountActionPerformed(evt);
@@ -190,11 +211,11 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(180, 180, 180)
+                .addGap(170, 170, 170)
                 .addComponent(withdrawAmountTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(withdrawAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(withdrawAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -254,13 +275,28 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
 
         depositFiveDollarTitle.setText("$5");
 
-        fiveDollarAmount1.setText("0");
+        fiveDollarAmount.setText("0");
+        fiveDollarAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                fiveDollarAmountActionPerformed(evt);
+            }
+        });
 
         depositOneHundredDollarTitle.setText("$100");
 
         oneHundredDollarAmount.setText("0");
+        oneHundredDollarAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oneHundredDollarAmountActionPerformed(evt);
+            }
+        });
 
-        tenDollarAmount1.setText("0");
+        tenDollarAmount.setText("0");
+        tenDollarAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tenDollarAmountActionPerformed(evt);
+            }
+        });
 
         depositTenDollarTitle.setText("$10");
 
@@ -269,21 +305,21 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(163, 163, 163)
+                .addGap(144, 144, 144)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(depositFiveDollarTitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(fiveDollarAmount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(fiveDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(depositTenDollarTitle)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(tenDollarAmount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(tenDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(80, 80, 80)
                 .addComponent(depositOneHundredDollarTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(oneHundredDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(oneHundredDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -291,12 +327,12 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
                 .addGap(0, 3, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(depositFiveDollarTitle)
-                    .addComponent(fiveDollarAmount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(fiveDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(depositOneHundredDollarTitle)
                     .addComponent(oneHundredDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tenDollarAmount1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(tenDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(depositTenDollarTitle))
                 .addContainerGap())
         );
@@ -307,6 +343,11 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         depositTwoDollarTitle.setText("$2");
 
         twoDollarAmount.setText("0");
+        twoDollarAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                twoDollarAmountActionPerformed(evt);
+            }
+        });
 
         depositFiftyDollarTitle.setText("$50");
 
@@ -322,15 +363,15 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(170, 170, 170)
+                .addGap(150, 150, 150)
                 .addComponent(depositTwoDollarTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(twoDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(twoDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(85, 85, 85)
                 .addComponent(depositFiftyDollarTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(fiftyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(fiftyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -358,21 +399,26 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         depositTwentyDollarTitle.setText("$20");
 
         twentyDollarAmount.setText("0");
+        twentyDollarAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                twentyDollarAmountActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(170, 170, 170)
+                .addGap(150, 150, 150)
                 .addComponent(depositOneDollarTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(oneDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(oneDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(85, 85, 85)
                 .addComponent(depositTwentyDollarTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(twentyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(twentyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -450,25 +496,64 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_withdrawAmountActionPerformed
 
     private void withdrawButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawButtonActionPerformed
-        // TODO add your handling code here:
-        String input = withdrawAmount.getText();
-        if (input.length() == 0) input = "0";
-        Double amount = Double.valueOf(input);
-        
-        System.out.println("Withdrawing: " + amount);
+        // TODO add your handling code here:      
+        System.out.println("Withdrawing: " + totalWithdraw);
     }//GEN-LAST:event_withdrawButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        totalWithdraw = 0;
+        withdrawAmount.setText("0");
+        oneDollarAmount.setText("0");
+        twoDollarAmount.setText("0");
+        fiveDollarAmount.setText("0");
+        tenDollarAmount.setText("0");
+        twentyDollarAmount.setText("0");
+        fiftyDollarAmount.setText("0");
+        oneHundredDollarAmount.setText("0");
         ATM_Project.goToScreen("home");
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void fiftyDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiftyDollarAmountActionPerformed
         // TODO add your handling code here:
+        if(fiftyDollarAmount.getText().equals("")) fiftyDollarAmount.setText("0");
+        updateTotalWithdraw();
     }//GEN-LAST:event_fiftyDollarAmountActionPerformed
 
     private void oneDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneDollarAmountActionPerformed
         // TODO add your handling code here:
+        if(oneDollarAmount.getText().equals("")) oneDollarAmount.setText("0");
+        updateTotalWithdraw();
     }//GEN-LAST:event_oneDollarAmountActionPerformed
+
+    private void twoDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoDollarAmountActionPerformed
+        // TODO add your handling code here:
+        if(twoDollarAmount.getText().equals("")) twoDollarAmount.setText("0");
+        updateTotalWithdraw();
+    }//GEN-LAST:event_twoDollarAmountActionPerformed
+
+    private void fiveDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveDollarAmountActionPerformed
+        // TODO add your handling code here:
+        if(fiveDollarAmount.getText().equals("")) fiveDollarAmount.setText("0");
+        updateTotalWithdraw();
+    }//GEN-LAST:event_fiveDollarAmountActionPerformed
+
+    private void tenDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tenDollarAmountActionPerformed
+        // TODO add your handling code here:
+        if(tenDollarAmount.getText().equals("")) tenDollarAmount.setText("0");
+        updateTotalWithdraw();
+    }//GEN-LAST:event_tenDollarAmountActionPerformed
+
+    private void twentyDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twentyDollarAmountActionPerformed
+        // TODO add your handling code here:
+        if(twentyDollarAmount.getText().equals("")) twentyDollarAmount.setText("0");
+        updateTotalWithdraw();
+    }//GEN-LAST:event_twentyDollarAmountActionPerformed
+
+    private void oneHundredDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneHundredDollarAmountActionPerformed
+        // TODO add your handling code here:
+        if(oneHundredDollarAmount.getText().equals("")) oneHundredDollarAmount.setText("0");
+        updateTotalWithdraw();
+    }//GEN-LAST:event_oneHundredDollarAmountActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -483,7 +568,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
     private javax.swing.JLabel depositTwentyDollarTitle;
     private javax.swing.JLabel depositTwoDollarTitle;
     private javax.swing.JTextField fiftyDollarAmount;
-    private javax.swing.JTextField fiveDollarAmount1;
+    private javax.swing.JTextField fiveDollarAmount;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -499,7 +584,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField oneDollarAmount;
     private javax.swing.JTextField oneHundredDollarAmount;
-    private javax.swing.JTextField tenDollarAmount1;
+    private javax.swing.JTextField tenDollarAmount;
     private javax.swing.JTextField twentyDollarAmount;
     private javax.swing.JTextField twoDollarAmount;
     private javax.swing.JTextField withdrawAmount;
