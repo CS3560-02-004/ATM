@@ -76,6 +76,7 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="HEADER">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="0" red="0" type="rgb"/>
             </Property>

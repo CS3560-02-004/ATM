@@ -183,6 +183,7 @@ public class ATMMenuGUI extends javax.swing.JPanel {
             }
         });
 
+        FOOTER.setEditable(false);
         FOOTER.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         FOOTER.setForeground(new java.awt.Color(51, 51, 255));
         FOOTER.setText("MyCPP Bank");

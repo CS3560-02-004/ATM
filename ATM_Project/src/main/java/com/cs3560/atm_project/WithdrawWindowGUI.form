@@ -163,6 +163,7 @@
       <SubComponents>
         <Component class="javax.swing.JTextField" name="withdrawWindowTitle">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="0" red="0" type="rgb"/>
             </Property>
@@ -295,6 +296,7 @@
         </Component>
         <Component class="javax.swing.JTextField" name="withdrawAmount">
           <Properties>
+            <Property name="editable" type="boolean" value="false"/>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
           <Events>
@@ -437,9 +439,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="fiveDollarAmount">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fiveDollarAmountActionPerformed"/>
           </Events>
@@ -450,17 +449,11 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="oneHundredDollarAmount">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="oneHundredDollarAmountActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tenDollarAmount">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tenDollarAmountActionPerformed"/>
           </Events>
@@ -519,9 +512,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="twoDollarAmount">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="twoDollarAmountActionPerformed"/>
           </Events>
@@ -532,9 +522,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="fiftyDollarAmount">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fiftyDollarAmountActionPerformed"/>
           </Events>
@@ -583,9 +570,6 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="oneDollarAmount">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="oneDollarAmountActionPerformed"/>
           </Events>
@@ -601,9 +585,6 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JTextField" name="twentyDollarAmount">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="0"/>
-          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="twentyDollarAmountActionPerformed"/>
           </Events>

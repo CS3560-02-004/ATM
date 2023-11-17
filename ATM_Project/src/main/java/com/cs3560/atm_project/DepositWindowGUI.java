@@ -4,6 +4,8 @@
  */
 package com.cs3560.atm_project;
 import javax.swing.JOptionPane;
+import javax.swing.event.DocumentListener;
+import javax.swing.event.DocumentEvent;
 /**
  *
  * @author gippy
@@ -13,27 +15,182 @@ public class DepositWindowGUI extends javax.swing.JPanel {
     /**
      * Creates new form NewJPanel
      */
-    long totalDeposit = 0;
+    private long totalDeposit = 0;
+    private int one_denomination = 0;
+    private int two_denomination = 0;
+    private int five_denomination = 0;
+    private int ten_denomination = 0;
+    private int twenty_denomination = 0;
+    private int fifty_denomination = 0;
+    private int hundred_denomination = 0;
+    
     public DepositWindowGUI() {
         initComponents();
+        initDocumentListeners();
     }
     
     // Get the total amount of money currently about to be depositted
     // by looking at home many of each denomination is to be depositted
-    private void getTotalDeposit(){
-        totalDeposit = Integer.parseInt(oneDollarAmount.getText());
-        totalDeposit += Integer.parseInt(twoDollarAmount.getText()) * 2;
-        totalDeposit += Integer.parseInt(fiveDollarAmount.getText()) * 5;
-        totalDeposit += Integer.parseInt(tenDollarAmount.getText()) * 10;
-        totalDeposit += Integer.parseInt(twentyDollarAmount.getText()) * 20;
-        totalDeposit += Integer.parseInt(fiftyDollarAmount.getText()) * 50;
-        totalDeposit += Integer.parseInt(oneHundredDollarAmount.getText()) * 100;
+    private void getTotalDeposit(){   
+        totalDeposit = one_denomination + (two_denomination * 2) + (five_denomination * 5);
+        totalDeposit += (ten_denomination * 10) + (twenty_denomination * 20) + (fifty_denomination * 50);
+        totalDeposit += (hundred_denomination * 100);
     }
     
     // Updates the total deposit amount display
     private void updateTotalDeposit(){
         getTotalDeposit();
         depositAmount.setText(totalDeposit + "");
+    }
+    
+    // Initialize document listeners for all text fields
+    private void initDocumentListeners(){
+        oneDollarAmount.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                if(oneDollarAmount.getText().equals("")) one_denomination = 0;
+                else one_denomination = Integer.parseInt(oneDollarAmount.getText());
+                updateTotalDeposit();
+            }
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                if(oneDollarAmount.getText().equals("")) one_denomination = 0;
+                else one_denomination = Integer.parseInt(oneDollarAmount.getText());
+                updateTotalDeposit();
+            }
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                if(oneDollarAmount.getText().equals("")) one_denomination = 0;
+                else one_denomination = Integer.parseInt(oneDollarAmount.getText());
+                updateTotalDeposit();
+            }
+          });
+        
+        twoDollarAmount.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                if(twoDollarAmount.getText().equals("")) two_denomination = 0;
+                else two_denomination = Integer.parseInt(twoDollarAmount.getText());
+                updateTotalDeposit();
+            }
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                if(twoDollarAmount.getText().equals("")) two_denomination = 0;
+                else two_denomination = Integer.parseInt(twoDollarAmount.getText());
+                updateTotalDeposit();
+            }
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                if(twoDollarAmount.getText().equals("")) two_denomination = 0;
+                else two_denomination = Integer.parseInt(twoDollarAmount.getText());
+                updateTotalDeposit();
+            }
+          });
+        
+        fiveDollarAmount.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                if(fiveDollarAmount.getText().equals("")) five_denomination = 0;
+                else five_denomination = Integer.parseInt(fiveDollarAmount.getText());
+                updateTotalDeposit();
+            }
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                if(fiveDollarAmount.getText().equals("")) five_denomination = 0;
+                else five_denomination = Integer.parseInt(fiveDollarAmount.getText());
+                updateTotalDeposit();
+            }
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                if(fiveDollarAmount.getText().equals("")) five_denomination = 0;
+                else five_denomination = Integer.parseInt(fiveDollarAmount.getText());
+                updateTotalDeposit();
+            }
+          });
+        
+        tenDollarAmount.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                if(tenDollarAmount.getText().equals("")) ten_denomination = 0;
+                else ten_denomination = Integer.parseInt(tenDollarAmount.getText());
+                updateTotalDeposit();
+            }
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                if(tenDollarAmount.getText().equals("")) ten_denomination = 0;
+                else ten_denomination = Integer.parseInt(tenDollarAmount.getText());
+                updateTotalDeposit();
+            }
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                if(tenDollarAmount.getText().equals("")) ten_denomination = 0;
+                else ten_denomination = Integer.parseInt(tenDollarAmount.getText());
+                updateTotalDeposit();
+            }
+          });
+        
+        twentyDollarAmount.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                if(twentyDollarAmount.getText().equals("")) twenty_denomination = 0;
+                else twenty_denomination = Integer.parseInt(twentyDollarAmount.getText());
+                updateTotalDeposit();
+            }
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                if(twentyDollarAmount.getText().equals("")) twenty_denomination = 0;
+                else twenty_denomination = Integer.parseInt(twentyDollarAmount.getText());
+                updateTotalDeposit();
+            }
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                if(twentyDollarAmount.getText().equals("")) twenty_denomination = 0;
+                else twenty_denomination = Integer.parseInt(twentyDollarAmount.getText());
+                updateTotalDeposit();
+            }
+          });
+        
+        fiftyDollarAmount.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                if(fiftyDollarAmount.getText().equals("")) fifty_denomination = 0;
+                else fifty_denomination = Integer.parseInt(fiftyDollarAmount.getText());
+                updateTotalDeposit();
+            }
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                if(fiftyDollarAmount.getText().equals("")) fifty_denomination = 0;
+                else fifty_denomination = Integer.parseInt(fiftyDollarAmount.getText());
+                updateTotalDeposit();
+            }
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                if(fiftyDollarAmount.getText().equals("")) fifty_denomination = 0;
+                else fifty_denomination = Integer.parseInt(fiftyDollarAmount.getText());
+                updateTotalDeposit();
+            }
+          });
+        
+        oneHundredDollarAmount.getDocument().addDocumentListener(new DocumentListener() {
+            @Override
+            public void changedUpdate(DocumentEvent e) {
+                if(oneHundredDollarAmount.getText().equals("")) hundred_denomination = 0;
+                else hundred_denomination = Integer.parseInt(oneHundredDollarAmount.getText());
+                updateTotalDeposit();
+            }
+            @Override
+            public void removeUpdate(DocumentEvent e) {
+                if(oneHundredDollarAmount.getText().equals("")) hundred_denomination = 0;
+                else hundred_denomination = Integer.parseInt(oneHundredDollarAmount.getText());
+                updateTotalDeposit();
+            }
+            @Override
+            public void insertUpdate(DocumentEvent e) {
+                if(oneHundredDollarAmount.getText().equals("")) hundred_denomination = 0;
+                else hundred_denomination = Integer.parseInt(oneHundredDollarAmount.getText());
+                updateTotalDeposit();
+            }
+          });
     }
 
     /**
@@ -78,6 +235,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         jPanel4.setBackground(new java.awt.Color(0, 0, 255));
         jPanel4.setPreferredSize(new java.awt.Dimension(600, 77));
 
+        depositWindowTitle1.setEditable(false);
         depositWindowTitle1.setBackground(new java.awt.Color(0, 0, 255));
         depositWindowTitle1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         depositWindowTitle1.setForeground(new java.awt.Color(255, 255, 255));
@@ -153,6 +311,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
             }
         });
 
+        depositAmount.setEditable(false);
         depositAmount.setText("0");
         depositAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,7 +343,6 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
         jPanel3.setPreferredSize(new java.awt.Dimension(600, 55));
 
-        oneDollarAmount.setText("0");
         oneDollarAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 oneDollarAmountActionPerformed(evt);
@@ -195,7 +353,6 @@ public class DepositWindowGUI extends javax.swing.JPanel {
 
         depositTwentyDollarTitle.setText("$20");
 
-        twentyDollarAmount.setText("0");
         twentyDollarAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 twentyDollarAmountActionPerformed(evt);
@@ -233,7 +390,6 @@ public class DepositWindowGUI extends javax.swing.JPanel {
 
         depositTwoDollarTitle.setText("$2");
 
-        twoDollarAmount.setText("0");
         twoDollarAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 twoDollarAmountActionPerformed(evt);
@@ -242,7 +398,6 @@ public class DepositWindowGUI extends javax.swing.JPanel {
 
         depositFiftyDollarTitle.setText("$50");
 
-        fiftyDollarAmount.setText("0");
         fiftyDollarAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fiftyDollarAmountActionPerformed(evt);
@@ -280,7 +435,6 @@ public class DepositWindowGUI extends javax.swing.JPanel {
 
         depositFiveDollarTitle.setText("$5");
 
-        fiveDollarAmount.setText("0");
         fiveDollarAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 fiveDollarAmountActionPerformed(evt);
@@ -289,14 +443,12 @@ public class DepositWindowGUI extends javax.swing.JPanel {
 
         depositOneHundredDollarTitle.setText("$100");
 
-        oneHundredDollarAmount.setText("0");
         oneHundredDollarAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 oneHundredDollarAmountActionPerformed(evt);
             }
         });
 
-        tenDollarAmount.setText("0");
         tenDollarAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tenDollarAmountActionPerformed(evt);
@@ -448,57 +600,50 @@ public class DepositWindowGUI extends javax.swing.JPanel {
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
         totalDeposit = 0;
+        one_denomination = 0;
+        two_denomination = 0;
+        five_denomination = 0;
+        ten_denomination = 0;
+        twenty_denomination = 0;
+        fifty_denomination = 0;
+        hundred_denomination = 0;
         depositAmount.setText("0");
-        oneDollarAmount.setText("0");
-        twoDollarAmount.setText("0");
-        fiveDollarAmount.setText("0");
-        tenDollarAmount.setText("0");
-        twentyDollarAmount.setText("0");
-        fiftyDollarAmount.setText("0");
-        oneHundredDollarAmount.setText("0");
+        oneDollarAmount.setText("");
+        twoDollarAmount.setText("");
+        fiveDollarAmount.setText("");
+        tenDollarAmount.setText("");
+        twentyDollarAmount.setText("");
+        fiftyDollarAmount.setText("");
+        oneHundredDollarAmount.setText("");
         ATM_Project.goToScreen("home");
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void fiftyDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiftyDollarAmountActionPerformed
         // TODO add your handling code here:
-        if(fiftyDollarAmount.getText().equals("")) fiftyDollarAmount.setText("0");
-        updateTotalDeposit();
     }//GEN-LAST:event_fiftyDollarAmountActionPerformed
 
     private void oneDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneDollarAmountActionPerformed
         // TODO add your handling code here:
-        if(oneDollarAmount.getText().equals("")) oneDollarAmount.setText("0");
-        updateTotalDeposit();
     }//GEN-LAST:event_oneDollarAmountActionPerformed
 
     private void twoDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoDollarAmountActionPerformed
         // TODO add your handling code here:
-        if(twoDollarAmount.getText().equals("")) twoDollarAmount.setText("0");
-        updateTotalDeposit();
     }//GEN-LAST:event_twoDollarAmountActionPerformed
 
     private void fiveDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveDollarAmountActionPerformed
         // TODO add your handling code here:
-        if(fiveDollarAmount.getText().equals("")) fiveDollarAmount.setText("0");
-        updateTotalDeposit();
     }//GEN-LAST:event_fiveDollarAmountActionPerformed
 
     private void tenDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tenDollarAmountActionPerformed
         // TODO add your handling code here:
-        if(tenDollarAmount.getText().equals("")) tenDollarAmount.setText("0");
-        updateTotalDeposit();
     }//GEN-LAST:event_tenDollarAmountActionPerformed
 
     private void twentyDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twentyDollarAmountActionPerformed
         // TODO add your handling code here:
-        if(twentyDollarAmount.getText().equals("")) twentyDollarAmount.setText("0");
-        updateTotalDeposit();
     }//GEN-LAST:event_twentyDollarAmountActionPerformed
 
     private void oneHundredDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneHundredDollarAmountActionPerformed
         // TODO add your handling code here:
-        if(oneHundredDollarAmount.getText().equals("")) oneHundredDollarAmount.setText("0");
-        updateTotalDeposit();
     }//GEN-LAST:event_oneHundredDollarAmountActionPerformed
 
 

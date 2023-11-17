@@ -35,6 +35,7 @@ public class LoginGUI extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 255));
 
+        HEADER.setEditable(false);
         HEADER.setBackground(new java.awt.Color(0, 0, 255));
         HEADER.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         HEADER.setForeground(new java.awt.Color(255, 255, 255));
