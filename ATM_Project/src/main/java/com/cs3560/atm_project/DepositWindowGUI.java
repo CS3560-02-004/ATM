@@ -3,6 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.cs3560.atm_project;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentListener;
 import javax.swing.event.DocumentEvent;
@@ -23,6 +27,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
     private int twenty_denomination = 0;
     private int fifty_denomination = 0;
     private int hundred_denomination = 0;
+    private static int currentAccountID;
     
     public DepositWindowGUI() {
         initComponents();
@@ -586,17 +591,32 @@ public class DepositWindowGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_depositAmountActionPerformed
 
     private void depositButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositButtonActionPerformed
-        // TODO add your handling code here:
-//        String input = inputField.getText();
-//        if (input.length() == 0) input = "0";
-//        Double amount = Double.valueOf(input);
-    boolean isDepositSuccessful = true;
-    if(isDepositSuccessful) JOptionPane.showMessageDialog(this, "Deposit Successful");
-    else JOptionPane.showMessageDialog(this, "Deposit Unable to Occur");
-    
-//        System.out.println("Depositing: " + amount);
-    }//GEN-LAST:event_depositButtonActionPerformed
+            System.out.println(totalDeposit);
+            System.out.println(currentAccountID);
+            DatabaseConnection db = new DatabaseConnection();
+            ResultSet rs = db.getQuery("SELECT * FROM checking");
+            try {
+                while(rs.next()){
+                    if(rs.getInt("accountID") == (currentAccountID)){
+                        int currentTotal = rs.getInt("checkingBalance");
+                        currentTotal += totalDeposit;
+                        System.out.println("NEW TOTAL:  " + currentTotal);
+                        db.executeUpdate("UPDATE checking SET checkingBalance = '" + currentTotal + 
+                                "' WHERE accountID = " + currentAccountID);
+                    }
+                }
 
+            } catch (SQLException ex) {
+                Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            ATM_Project.goToScreen("home");
+
+    }//GEN-LAST:event_depositButtonActionPerformed
+    
+    
+    public void setAccountID(int accountID){
+        currentAccountID = accountID;
+    }
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
         totalDeposit = 0;

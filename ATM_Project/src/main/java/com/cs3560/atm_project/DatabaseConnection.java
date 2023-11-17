@@ -36,4 +36,14 @@ public class DatabaseConnection {
         }
         return rs;
     }
+    
+    public int executeUpdate(String query) {
+    int affectedRows = 0;
+    try (Statement statement = connection.createStatement()) {
+        affectedRows = statement.executeUpdate(query);
+    } catch (SQLException ex) {
+        Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+    }
+    return affectedRows;
+}
 }

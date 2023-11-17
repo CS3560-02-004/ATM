@@ -17,6 +17,8 @@ import javax.swing.JOptionPane;
 public class LoginGUI extends javax.swing.JPanel {
     
     int attempts = 3; 
+    InsertPinGUI pinGUI;
+    DepositWindowGUI depositGUI;
     public LoginGUI() {
         initComponents();
     }
@@ -211,9 +213,12 @@ public class LoginGUI extends javax.swing.JPanel {
             while(rs.next()){
                 if(rs.getString("CardNumber").equals(cardNumber.trim())){
                     int pin = Integer.parseInt(rs.getString("fourDigitPin"));
+                    int accountID = Integer.parseInt(rs.getString("accountID"));
                     System.out.println(pin);
-                    InsertPinGUI pinGUI = new InsertPinGUI();
+                    pinGUI = new InsertPinGUI();
                     pinGUI.setCorrectPIN(pin);
+                    depositGUI = new DepositWindowGUI();
+                    depositGUI.setAccountID(accountID);
                     return true; 
                 }
             }
