@@ -31,13 +31,13 @@ public class TransferGUI extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         titleLabel = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        amountTextInput = new javax.swing.JTextField();
+        amountInput = new javax.swing.JTextField();
         amountLabel = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         backButton = new javax.swing.JButton();
         enterButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        InsertPinTextfield1 = new javax.swing.JTextField();
+        accountNumberInput = new javax.swing.JTextField();
         accountNumberLabel = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -93,9 +93,10 @@ public class TransferGUI extends javax.swing.JPanel {
 
         jPanel2.setBackground(new java.awt.Color(255, 255, 255));
 
-        amountTextInput.addActionListener(new java.awt.event.ActionListener() {
+        amountInput.setText("0");
+        amountInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                amountTextInputActionPerformed(evt);
+                amountInputActionPerformed(evt);
             }
         });
 
@@ -111,14 +112,14 @@ public class TransferGUI extends javax.swing.JPanel {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(amountLabel)
                 .addGap(30, 30, 30)
-                .addComponent(amountTextInput, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(amountInput, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(160, 160, 160))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(amountTextInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(amountInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(amountLabel))
                 .addGap(35, 35, 35))
         );
@@ -167,9 +168,9 @@ public class TransferGUI extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        InsertPinTextfield1.addActionListener(new java.awt.event.ActionListener() {
+        accountNumberInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                InsertPinTextfield1ActionPerformed(evt);
+                accountNumberInputActionPerformed(evt);
             }
         });
 
@@ -185,14 +186,14 @@ public class TransferGUI extends javax.swing.JPanel {
                 .addContainerGap(108, Short.MAX_VALUE)
                 .addComponent(accountNumberLabel)
                 .addGap(30, 30, 30)
-                .addComponent(InsertPinTextfield1, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(accountNumberInput, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(160, 160, 160))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(InsertPinTextfield1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(accountNumberInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(accountNumberLabel))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -226,11 +227,13 @@ public class TransferGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void amountTextInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amountTextInputActionPerformed
+    private void amountInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_amountInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_amountTextInputActionPerformed
+    }//GEN-LAST:event_amountInputActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        amountInput.setText("0");
+        accountNumberInput.setText("");
         ATM_Project.goToScreen("home");
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -238,16 +241,16 @@ public class TransferGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_enterButtonActionPerformed
 
-    private void InsertPinTextfield1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinTextfield1ActionPerformed
+    private void accountNumberInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountNumberInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_InsertPinTextfield1ActionPerformed
+    }//GEN-LAST:event_accountNumberInputActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField InsertPinTextfield1;
+    private javax.swing.JTextField accountNumberInput;
     private javax.swing.JLabel accountNumberLabel;
+    private javax.swing.JTextField amountInput;
     private javax.swing.JLabel amountLabel;
-    private javax.swing.JTextField amountTextInput;
     private javax.swing.JButton backButton;
     private javax.swing.JButton enterButton;
     private javax.swing.JLabel jLabel2;

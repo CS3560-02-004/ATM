@@ -24,7 +24,7 @@ public class LoginGUI extends javax.swing.JPanel {
         panel1 = new java.awt.Panel();
         label3 = new java.awt.Label();
         panel2 = new java.awt.Panel();
-        inputField = new javax.swing.JTextField();
+        cardNumberInput = new javax.swing.JTextField();
         label2 = new java.awt.Label();
         panel3 = new java.awt.Panel();
         loginButton = new javax.swing.JButton();
@@ -85,9 +85,9 @@ public class LoginGUI extends javax.swing.JPanel {
                 .addComponent(label3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        inputField.addActionListener(new java.awt.event.ActionListener() {
+        cardNumberInput.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputFieldActionPerformed(evt);
+                cardNumberInputActionPerformed(evt);
             }
         });
 
@@ -103,14 +103,14 @@ public class LoginGUI extends javax.swing.JPanel {
                 .addGap(108, 108, 108)
                 .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(2, 2, 2)
-                .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cardNumberInput, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(213, Short.MAX_VALUE))
         );
         panel2Layout.setVerticalGroup(
             panel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel2Layout.createSequentialGroup()
                 .addGap(3, 3, 3)
-                .addComponent(inputField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cardNumberInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(13, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panel2Layout.createSequentialGroup()
                 .addComponent(label2, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -174,16 +174,17 @@ public class LoginGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_HEADERActionPerformed
 
-    private void inputFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputFieldActionPerformed
+    private void cardNumberInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNumberInputActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputFieldActionPerformed
+    }//GEN-LAST:event_cardNumberInputActionPerformed
 
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
-        String input = inputField.getText();
+        String input = cardNumberInput.getText();
         
         boolean validInput = true;// validateCardNumber(input);
         if (validInput) {
+            cardNumberInput.setText("");
             ATM_Project.goToScreen("home");
         }
     }//GEN-LAST:event_loginButtonActionPerformed
@@ -195,7 +196,7 @@ public class LoginGUI extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField HEADER;
-    private javax.swing.JTextField inputField;
+    private javax.swing.JTextField cardNumberInput;
     private javax.swing.JPanel jPanel2;
     private java.awt.Label label1;
     private java.awt.Label label2;

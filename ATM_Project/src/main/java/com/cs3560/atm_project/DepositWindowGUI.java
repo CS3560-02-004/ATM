@@ -18,6 +18,8 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         initComponents();
     }
     
+    // Get the total amount of money currently about to be depositted
+    // by looking at home many of each denomination is to be depositted
     private void getTotalDeposit(){
         totalDeposit = Integer.parseInt(oneDollarAmount.getText());
         totalDeposit += Integer.parseInt(twoDollarAmount.getText()) * 2;
@@ -28,6 +30,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         totalDeposit += Integer.parseInt(oneHundredDollarAmount.getText()) * 100;
     }
     
+    // Updates the total deposit amount display
     private void updateTotalDeposit(){
         getTotalDeposit();
         depositAmount.setText(totalDeposit + "");
@@ -162,11 +165,11 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(171, 171, 171)
+                .addGap(170, 170, 170)
                 .addComponent(depositAmountTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(depositAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(171, Short.MAX_VALUE))
+                .addGap(172, 172, 172))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -204,7 +207,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(170, 170, 170)
+                .addGap(140, 140, 140)
                 .addComponent(depositOneDollarTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(oneDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -212,7 +215,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
                 .addComponent(depositTwentyDollarTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(twentyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,7 +254,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel5Layout.createSequentialGroup()
-                .addGap(170, 170, 170)
+                .addGap(140, 140, 140)
                 .addComponent(depositTwoDollarTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(twoDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -259,7 +262,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
                 .addComponent(depositFiftyDollarTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(fiftyDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -307,7 +310,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel6Layout.createSequentialGroup()
-                .addGap(163, 163, 163)
+                .addGap(135, 135, 135)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(depositFiveDollarTitle)
@@ -321,7 +324,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
                 .addComponent(depositOneHundredDollarTitle)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(oneHundredDollarAmount, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -444,41 +447,57 @@ public class DepositWindowGUI extends javax.swing.JPanel {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         // TODO add your handling code here:
+        totalDeposit = 0;
+        depositAmount.setText("0");
+        oneDollarAmount.setText("0");
+        twoDollarAmount.setText("0");
+        fiveDollarAmount.setText("0");
+        tenDollarAmount.setText("0");
+        twentyDollarAmount.setText("0");
+        fiftyDollarAmount.setText("0");
+        oneHundredDollarAmount.setText("0");
         ATM_Project.goToScreen("home");
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void fiftyDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiftyDollarAmountActionPerformed
         // TODO add your handling code here:
+        if(fiftyDollarAmount.getText().equals("")) fiftyDollarAmount.setText("0");
         updateTotalDeposit();
     }//GEN-LAST:event_fiftyDollarAmountActionPerformed
 
     private void oneDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneDollarAmountActionPerformed
         // TODO add your handling code here:
+        if(oneDollarAmount.getText().equals("")) oneDollarAmount.setText("0");
         updateTotalDeposit();
     }//GEN-LAST:event_oneDollarAmountActionPerformed
 
     private void twoDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoDollarAmountActionPerformed
         // TODO add your handling code here:
+        if(twoDollarAmount.getText().equals("")) twoDollarAmount.setText("0");
         updateTotalDeposit();
     }//GEN-LAST:event_twoDollarAmountActionPerformed
 
     private void fiveDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveDollarAmountActionPerformed
         // TODO add your handling code here:
+        if(fiveDollarAmount.getText().equals("")) fiveDollarAmount.setText("0");
         updateTotalDeposit();
     }//GEN-LAST:event_fiveDollarAmountActionPerformed
 
     private void tenDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tenDollarAmountActionPerformed
         // TODO add your handling code here:
+        if(tenDollarAmount.getText().equals("")) tenDollarAmount.setText("0");
         updateTotalDeposit();
     }//GEN-LAST:event_tenDollarAmountActionPerformed
 
     private void twentyDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twentyDollarAmountActionPerformed
         // TODO add your handling code here:
+        if(twentyDollarAmount.getText().equals("")) twentyDollarAmount.setText("0");
         updateTotalDeposit();
     }//GEN-LAST:event_twentyDollarAmountActionPerformed
 
     private void oneHundredDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneHundredDollarAmountActionPerformed
         // TODO add your handling code here:
+        if(oneHundredDollarAmount.getText().equals("")) oneHundredDollarAmount.setText("0");
         updateTotalDeposit();
     }//GEN-LAST:event_oneHundredDollarAmountActionPerformed
 

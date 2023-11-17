@@ -251,11 +251,11 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="180" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
                   <Component id="withdrawAmountTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="withdrawAmount" min="-2" pref="106" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="withdrawAmount" min="-2" pref="169" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -294,6 +294,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="withdrawAmount">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="0"/>
+          </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="withdrawAmountActionPerformed"/>
           </Events>
@@ -386,24 +389,24 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="163" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="144" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="depositFiveDollarTitle" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="fiveDollarAmount1" min="-2" max="-2" attributes="0"/>
+                          <Component id="fiveDollarAmount" min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="depositTenDollarTitle" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="tenDollarAmount1" min="-2" max="-2" attributes="0"/>
+                          <Component id="tenDollarAmount" min="-2" pref="70" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="80" max="-2" attributes="0"/>
                   <Component id="depositOneHundredDollarTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="oneHundredDollarAmount" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="oneHundredDollarAmount" min="-2" pref="70" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -413,13 +416,13 @@
                   <EmptySpace min="0" pref="3" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="depositFiveDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="fiveDollarAmount1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="fiveDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="depositOneHundredDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="oneHundredDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="8" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="tenDollarAmount1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="tenDollarAmount" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="depositTenDollarTitle" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -433,10 +436,13 @@
             <Property name="text" type="java.lang.String" value="$5"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="fiveDollarAmount1">
+        <Component class="javax.swing.JTextField" name="fiveDollarAmount">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fiveDollarAmountActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="depositOneHundredDollarTitle">
           <Properties>
@@ -447,11 +453,17 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="oneHundredDollarAmountActionPerformed"/>
+          </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="tenDollarAmount1">
+        <Component class="javax.swing.JTextField" name="tenDollarAmount">
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tenDollarAmountActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="depositTenDollarTitle">
           <Properties>
@@ -474,15 +486,15 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                   <Component id="depositTwoDollarTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="twoDollarAmount" min="-2" max="-2" attributes="0"/>
+                  <Component id="twoDollarAmount" min="-2" pref="70" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                   <Component id="depositFiftyDollarTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="fiftyDollarAmount" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="fiftyDollarAmount" min="-2" pref="70" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -510,6 +522,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="twoDollarAmountActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="depositFiftyDollarTitle">
           <Properties>
@@ -540,15 +555,15 @@
         <DimensionLayout dim="0">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace min="-2" pref="170" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
                   <Component id="depositOneDollarTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="oneDollarAmount" min="-2" max="-2" attributes="0"/>
+                  <Component id="oneDollarAmount" min="-2" pref="70" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
                   <Component id="depositTwentyDollarTitle" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="twentyDollarAmount" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <Component id="twentyDollarAmount" min="-2" pref="70" max="-2" attributes="0"/>
+                  <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -589,6 +604,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="twentyDollarAmountActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>

@@ -221,6 +221,7 @@ public class InsertPinGUI extends javax.swing.JPanel {
 
     private void InsertPinBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinBackButtonActionPerformed
         // TODO add your handling code here:
+        InsertPinTextfield.setText("");
         ATM_Project.goToPreviousScreen();
     }//GEN-LAST:event_InsertPinBackButtonActionPerformed
 
@@ -229,6 +230,7 @@ public class InsertPinGUI extends javax.swing.JPanel {
         String message = "The PIN you inserted is incorrect.\nYou have " + attempts_left + " attempts left"
                             + " before your account is locked for 24 hours.";
         JOptionPane.showMessageDialog(this, message);
+        InsertPinTextfield.setText("");
     }//GEN-LAST:event_InsertPinEnterButtonActionPerformed
 
 
