@@ -21,7 +21,7 @@ public class ATM_Project {
     private static StackPanel stackPanel;
     
     public static void main(String[] args) {
-        System.out.println("HELLO");
+        System.out.println("HELLO IM TESTING 123");
         
         stackPanel = new StackPanel();
         
