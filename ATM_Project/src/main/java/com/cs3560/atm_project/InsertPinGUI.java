@@ -226,7 +226,7 @@ public class InsertPinGUI extends javax.swing.JPanel {
     private void InsertPinBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinBackButtonActionPerformed
         // TODO add your handling code here:
         InsertPinTextfield.setText("");
-        ATM_Project.goToPreviousScreen();
+        ATM_Project.goToScreen("login");
     }//GEN-LAST:event_InsertPinBackButtonActionPerformed
 
     private void InsertPinEnterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinEnterButtonActionPerformed

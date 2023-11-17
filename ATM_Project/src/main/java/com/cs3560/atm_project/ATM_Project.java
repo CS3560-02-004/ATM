@@ -39,6 +39,7 @@ public class ATM_Project {
         balanceGui = new BalanceGUI();
         
         stackPanel.setVisible(true);
+        stackPanel.setResizable(false);
         
         stackPanel.addStack("login", loginGui);
         stackPanel.addStack("home", homeGui);        
