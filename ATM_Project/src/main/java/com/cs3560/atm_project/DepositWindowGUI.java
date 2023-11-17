@@ -342,7 +342,6 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         jPanel7.setBackground(new java.awt.Color(255, 255, 255));
         jPanel7.setPreferredSize(new java.awt.Dimension(600, 100));
 
-        backButton.setBackground(new java.awt.Color(240, 240, 240));
         backButton.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         backButton.setForeground(new java.awt.Color(51, 51, 255));
         backButton.setText("BACK");
