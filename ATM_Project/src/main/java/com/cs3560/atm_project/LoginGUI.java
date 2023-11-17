@@ -4,15 +4,18 @@
  */
 package com.cs3560.atm_project;
 
-/**
- *
- * @author gippy
- */
-public class LoginGUI extends javax.swing.JPanel {
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
-    /**
-     * Creates new form LoginGUI
-     */
+
+
+public class LoginGUI extends javax.swing.JPanel {
+    
     public LoginGUI() {
         initComponents();
     }
@@ -183,16 +186,30 @@ public class LoginGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
         String input = cardNumberInput.getText();
         
-        boolean validInput = true;// validateCardNumber(input);
+        boolean validInput = validateCardNumber(input);// validateCardNumber(input);
         if (validInput) {
             cardNumberInput.setText("");
             ATM_Project.goToScreen("home");
+        } else {
+            JOptionPane.showMessageDialog(null, "Your Card is not in the system!",
+               "Card Validater", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
     private boolean validateCardNumber(String cardNumber) {
-        // TODO - check database for card
-        return true;
+        DatabaseConnection db = new DatabaseConnection();
+        ResultSet rs = db.getQuery("SELECT * FROM card");
+        try {
+            while(rs.next()){
+                if(rs.getString("CardNumber").equals(cardNumber)){
+                    return true; 
+                }
+            }
+           
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return false;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

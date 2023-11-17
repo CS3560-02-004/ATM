@@ -49,6 +49,7 @@ com\cs3560\atm_project\DepositWindowGUI$6.class
 com\cs3560\atm_project\InsertPinGUI$3.class
 com\cs3560\atm_project\ATMMenuGUI$5.class
 com\cs3560\atm_project\WithdrawWindowGUI$14.class
+com\cs3560\atm_project\DatabaseConnection.class
 com\cs3560\atm_project\DepositWindowGUI$20.class
 com\cs3560\atm_project\DepositWindowGUI$10.class
 com\cs3560\atm_project\LoginGUI$3.class
