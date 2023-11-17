@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.cs3560.atm_project;
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author gippy
@@ -13,9 +13,17 @@ public class TransferGUI extends javax.swing.JPanel {
     /**
      * Creates new form TransferGUI
      */
+    private double totalTransfer = 0;
     public TransferGUI() {
         initComponents();
     }
+    
+    // Get the total amount of money currently about to be transfer
+    // by looking at home many of each denomination is to be transfer
+    private void getTotalTransfer(){
+        totalTransfer = Double.parseDouble(amountInput.getText());
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -239,6 +247,9 @@ public class TransferGUI extends javax.swing.JPanel {
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
         // TODO add your handling code here:
+        boolean isTransferSuccessful = true;
+        if(isTransferSuccessful) JOptionPane.showMessageDialog(this, "Transfer Successful");
+        else JOptionPane.showMessageDialog(this, "Transfer Unable to Occur");
     }//GEN-LAST:event_enterButtonActionPerformed
 
     private void accountNumberInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountNumberInputActionPerformed

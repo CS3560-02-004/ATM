@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.cs3560.atm_project;
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author rizen
@@ -18,8 +18,8 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         initComponents();
     }
     
-    // Get the total amount of money currently about to be depositted
-    // by looking at home many of each denomination is to be depositted
+    // Get the total amount of money currently about to be withdrawn
+    // by looking at home many of each denomination is to be withdrawn
     private void getTotalWithdraw(){
         totalWithdraw = Integer.parseInt(oneDollarAmount.getText());
         totalWithdraw += Integer.parseInt(twoDollarAmount.getText()) * 2;
@@ -30,7 +30,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         totalWithdraw += Integer.parseInt(oneHundredDollarAmount.getText()) * 100;
     }
     
-    // Updates the total deposit amount display
+    // Updates the total withdraw amount display
     private void updateTotalWithdraw(){
         getTotalWithdraw();
         withdrawAmount.setText(totalWithdraw + "");
@@ -498,6 +498,9 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
     private void withdrawButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawButtonActionPerformed
         // TODO add your handling code here:      
         System.out.println("Withdrawing: " + totalWithdraw);
+        boolean isWithdrawSuccessful = true;
+        if(isWithdrawSuccessful) JOptionPane.showMessageDialog(this, "Withdraw Successful");
+        else JOptionPane.showMessageDialog(this, "Withdraw Unable to Occur");
     }//GEN-LAST:event_withdrawButtonActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
