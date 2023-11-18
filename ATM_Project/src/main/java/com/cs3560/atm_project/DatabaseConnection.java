@@ -14,13 +14,17 @@ import java.util.logging.Logger;
 
 
 public class DatabaseConnection {
+    private final String URL = "jdbc:mysql://localhost:3306/atmsystem";
+    private final String USERNAME = "root";
+    private final String PASSWORD = "123456789";
+    
     private Connection connection;
     private Statement statement;
     private ResultSet rs;
     
     public DatabaseConnection(){
         try{
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/atmsystem", "root", "asdf1234QWER!@#$");
+            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             System.out.println("Database Connected");
         } catch (SQLException ex) {
             Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -38,12 +42,12 @@ public class DatabaseConnection {
     }
     
     public int executeUpdate(String query) {
-    int affectedRows = 0;
-    try (Statement statement = connection.createStatement()) {
-        affectedRows = statement.executeUpdate(query);
-    } catch (SQLException ex) {
-        Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+        int affectedRows = 0;
+        try (Statement statement = connection.createStatement()) {
+            affectedRows = statement.executeUpdate(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return affectedRows;
     }
-    return affectedRows;
-}
 }

@@ -8,6 +8,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -19,6 +20,8 @@ public class LoginGUI extends javax.swing.JPanel {
     int attempts = 3; 
     InsertPinGUI pinGUI;
     DepositWindowGUI depositGUI;
+    
+    private final String GET_CARD = "SELECT * FROM CARD WHERE cardNumber = "; 
     public LoginGUI() {
         initComponents();
     }
@@ -189,11 +192,15 @@ public class LoginGUI extends javax.swing.JPanel {
         // TODO add your handling code here:
         String input = cardNumberInput.getText();
         
-        boolean validInput = validateCardNumber(input);// validateCardNumber(input);
-        if (validInput && attempts > 0) {
+        int validInput = validateCardNumber(input);// validateCardNumber(input);
+        
+        
+        if (validInput == 0 && attempts > 0) {
             cardNumberInput.setText("");
             ATM_Project.goToScreen("pin");
             attempts = 3;
+        } else if (validInput == 1) {
+            ATM_Project.goToScreen("home");
         } else {
             if(attempts > 0){
                 JOptionPane.showMessageDialog(null, "Your Card is not in the system! You have " + attempts + " attempts left.",
@@ -205,28 +212,53 @@ public class LoginGUI extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_loginButtonActionPerformed
-
-    private boolean validateCardNumber(String cardNumber) {
+    /*
+    Validate card number and return 
+    0 : card is not a credit card, promt for pin
+    1 : card is a credit card, skip pin
+    2 : card is not in the system
+    */
+    private int validateCardNumber(String cardNumber) {
+        // default not found
+        int cardValidation = 2;
+        
+        int accountID;
+        int pin;
+        boolean isCredit;
         DatabaseConnection db = new DatabaseConnection();
-        ResultSet rs = db.getQuery("SELECT * FROM card");
+        ResultSet rs = db.getQuery(String.format(GET_CARD + cardNumber));
         try {
-            while(rs.next()){
-                if(rs.getString("CardNumber").equals(cardNumber.trim())){
-                    int pin = Integer.parseInt(rs.getString("fourDigitPin"));
-                    int accountID = Integer.parseInt(rs.getString("accountID"));
-                    System.out.println(pin);
+            // check if any value return from database
+            if (rs.next() == false) {
+                System.out.println("Card number not found in database");
+            // get value
+            } else {
+                do {
+                    accountID = rs.getInt("accountID");
+                    pin = rs.getInt("fourDigitPin");
+                    isCredit = rs.getBoolean("isCredit");
+                    cardValidation = 0;
+                } while (rs.next());
+                
+                // check if card is a credit card
+                if (isCredit) {
                     pinGUI = new InsertPinGUI();
                     pinGUI.setCorrectPIN(pin);
-                    depositGUI = new DepositWindowGUI();
-                    depositGUI.setAccountID(accountID);
-                    return true; 
+                    cardValidation = 1;
                 }
+                
+                depositGUI = new DepositWindowGUI();
+                depositGUI.setAccountID(accountID);
             }
+            
+            
+            
+
            
         } catch (SQLException ex) {
             Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return false;
+        return cardValidation;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
