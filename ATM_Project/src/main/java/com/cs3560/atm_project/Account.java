@@ -19,7 +19,7 @@ public class Account {
     
     private DatabaseConnection db;
     private ResultSet rs;
-    private final String GET_ACCOUNT = "SELECT * FROM accounttalbe WHERE accountID = ";
+    private final String GET_ACCOUNT = "SELECT * FROM accounttable WHERE accountID = ";
     
     public Account(int accountID) {
         db = new DatabaseConnection();

@@ -41,7 +41,7 @@ public class Credit extends Account{
         }
     }
     
-    public boolean updateCreditUsed(int amount) {
+    public boolean updateCreditUsed(double amount) {
         boolean result = false;
         creditUsed += amount;
         if (creditLimit > creditUsed) {

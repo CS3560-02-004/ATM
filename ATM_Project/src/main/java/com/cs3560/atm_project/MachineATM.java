@@ -17,7 +17,6 @@ public class MachineATM {
     private int atmID;
     private String branch;
     // 0 -> 6: one, two, five, ten, twenty, fifty, hundred
-    private String[] dollar = {"oneDollarQuantity", "twoDollarQuantity", };
     private int[] quantity;
     
     private final String GET_ATM_MACHINE = "SELECT * FROM atm WHERE atmID = ";
@@ -25,7 +24,8 @@ public class MachineATM {
     private ResultSet rs;
     
     // Constructor
-    public MachineATM(int amtID) {
+    public MachineATM() {
+        this.atmID = ATM_Project.getMenuGUI().getAtmID();
         db = new DatabaseConnection();
         rs = db.getQuery(String.format(GET_ATM_MACHINE + atmID));
         
@@ -35,7 +35,6 @@ public class MachineATM {
                 System.out.println("Machine ID not found in database");
             } else {
                 do {
-                    this.atmID = atmID;
                     branch = rs.getString("branch");
                     quantity[0] = rs.getInt("oneDollarQuantity");
                     quantity[1] = rs.getInt("twoDollarQuantity");

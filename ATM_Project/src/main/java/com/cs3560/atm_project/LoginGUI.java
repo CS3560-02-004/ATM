@@ -16,8 +16,9 @@ import javax.swing.JOptionPane;
 
 
 public class LoginGUI extends javax.swing.JPanel {
-    
+    int atmID = 1;
     int attempts = 3; 
+    ATMMenuGUI menuGUI;
     InsertPinGUI pinGUI;
     DepositWindowGUI depositGUI;
     
@@ -252,6 +253,11 @@ public class LoginGUI extends javax.swing.JPanel {
                     // Debug
                     System.out.println("It is Credit " + pin);
                 }
+                
+                menuGUI = ATM_Project.getMenuGUI();
+                menuGUI.storeAccountID(accountID);
+                menuGUI.storeAtmID(atmID);
+                menuGUI.storeIsCredit(isCredit);
                 
                 depositGUI = new DepositWindowGUI();
                 depositGUI.setAccountID(accountID);

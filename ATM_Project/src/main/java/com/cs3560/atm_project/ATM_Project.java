@@ -63,4 +63,8 @@ public class ATM_Project {
     public static InsertPinGUI getInsertPinGUI() {
         return pinGui;
     }
+    
+    public static ATMMenuGUI getMenuGUI() {
+        return homeGui;
+    }
 }

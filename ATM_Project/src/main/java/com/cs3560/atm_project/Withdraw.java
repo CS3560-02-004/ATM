@@ -13,13 +13,13 @@ public class Withdraw {
     private Account account;
     private boolean isCredit;
     
-    public Withdraw(int atmID, int accountID, boolean isCredit) {
-        this.atm = new MachineATM(atmID);
-        this.isCredit = isCredit;
+    public Withdraw() {
+        this.atm = new MachineATM();
+        this.isCredit = ATM_Project.getMenuGUI().getIsCredit();
         if (isCredit) {
-            account = new Credit(accountID);
+            account = new Credit(ATM_Project.getMenuGUI().getAccountID());
         } else {
-            account = new Checking(accountID);
+            account = new Checking(ATM_Project.getMenuGUI().getAccountID());
         }
     }
     

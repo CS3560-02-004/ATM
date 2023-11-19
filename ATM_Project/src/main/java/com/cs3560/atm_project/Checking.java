@@ -44,7 +44,7 @@ public class Checking extends Account{
     public boolean updateCheckingBalance(double reducedAmount) {
         boolean result = false;
         if (checkingBalance > reducedAmount) {
-            String query = String.format("UPDATE checking SET checkingBalance = %d WHERE accountID = %d", reducedAmount, super.getAccountID());
+            String query = String.format("UPDATE checking SET checkingBalance = %f WHERE accountID = %d", checkingBalance - reducedAmount, super.getAccountID());
             db.executeUpdate(query);
             result = true;
         } else {
