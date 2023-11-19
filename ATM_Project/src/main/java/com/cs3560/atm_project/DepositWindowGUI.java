@@ -35,21 +35,26 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         initDocumentListeners();
     }
     
-    // Get the total amount of money currently about to be depositted
-    // by looking at home many of each denomination is to be depositted
+    /**
+     * Get the total amount of money currently about to be deposited by looking at home many of each denomination is to be deposited.
+     */
     private void getTotalDeposit(){   
         totalDeposit = one_denomination + (two_denomination * 2) + (five_denomination * 5);
         totalDeposit += (ten_denomination * 10) + (twenty_denomination * 20) + (fifty_denomination * 50);
         totalDeposit += (hundred_denomination * 100);
     }
     
-    // Updates the total deposit amount display
+    /**
+     * Updates the total deposit amount display.
+     */
     private void updateTotalDeposit(){
         getTotalDeposit();
         depositAmount.setText(totalDeposit + "");
     }
     
-    // Initialize document listeners for all text fields
+    /**
+     * Initialize document listeners for all text fields.
+     */
     private void initDocumentListeners(){
         oneDollarAmount.getDocument().addDocumentListener(new DocumentListener() {
             @Override
@@ -615,7 +620,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
             ATM_Project.goToScreen("home");
 
     }//GEN-LAST:event_depositButtonActionPerformed
-    
+
     public void setAccountID(int accountID){
         currentAccountID = accountID;
     }

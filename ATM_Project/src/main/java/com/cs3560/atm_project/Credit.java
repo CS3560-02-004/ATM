@@ -21,6 +21,10 @@ public class Credit extends Account{
     private ResultSet rs;
     private final String GET_CREDIT = "SELECT * FROM credit WHERE accountID = ";
     
+    /**
+     * Constructor for Credit.
+     * @param accountID ID to be retrieve from database.
+     */
     public Credit(int accountID) {
         super(accountID);
         
@@ -40,7 +44,11 @@ public class Credit extends Account{
             Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    /**
+     * Update credit used into database.
+     * @param amount amount to be increase to creditUsed.
+     * @return true if credit used is less than credit limit, false otherwise.
+     */
     public boolean updateCreditUsed(double amount) {
         boolean result = false;
         creditUsed += amount;
@@ -55,16 +63,22 @@ public class Credit extends Account{
     }    
     
     
-    // Get credit limit
+    /**
+     * Getter for credit limit.
+     * @return credit limit.
+     */
     public double getCreditLimit() {
         return creditLimit;
     }
-    // Get credit used
+    /**
+     * Getter for credit used
+     * @return credit used
+     */
     public double getCreditUsed() {
         return creditUsed;
     }
     @Override
-    public int getAccountID() {
+    public int getAccountID(){
         return super.getAccountID();
     }
     @Override

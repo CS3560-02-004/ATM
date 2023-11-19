@@ -12,7 +12,9 @@ public class Withdraw {
     private MachineATM atm;
     private Account account;
     private boolean isCredit;
-    
+    /**
+     * Constructor for withdraw.
+     */
     public Withdraw() {
         this.atm = new MachineATM();
         this.isCredit = ATM_Project.getMenuGUI().getIsCredit();
@@ -22,13 +24,24 @@ public class Withdraw {
             account = new Checking(ATM_Project.getMenuGUI().getAccountID());
         }
     }
-    
+    /**
+     * Getter for ATM.
+     * @return machineATM.
+     */
     public MachineATM getMachineATM() {
         return atm;
     }
+    /**
+     * Getter for account.
+     * @return account.
+     */
     public Account getAccount() {
         return account;
     }
+    /**
+     * Getter if it is credit.
+     * @return true if it is credit card, false otherwise.
+     */
     public boolean getIsCredit() {
         return isCredit;
     }

@@ -21,6 +21,10 @@ public class Account {
     private ResultSet rs;
     private final String GET_ACCOUNT = "SELECT * FROM accounttable WHERE accountID = ";
     
+    /**
+     * Constructor for Account.
+     * @param accountID to be retrieve from database.
+     */
     public Account(int accountID) {
         db = new DatabaseConnection();
         rs = db.getQuery(String.format(GET_ACCOUNT + accountID));
@@ -36,10 +40,17 @@ public class Account {
         }
     }
     
+    /**
+     * Getter for accountID
+     * @return accountID
+     */
     public int getAccountID() {
         return accountID;
     }
-    
+    /**
+     * Getter for dateCreated
+     * @return date created
+     */
     public String getDateCreated() {
         return dateCreated;
     }

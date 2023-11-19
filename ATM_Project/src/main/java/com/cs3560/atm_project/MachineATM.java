@@ -50,7 +50,17 @@ public class MachineATM {
             Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    /**
+     * Reduce quantity of cash in the database with value from @param.
+     * @param one one dollar quantity reduced.
+     * @param two two dollar quantity reduced.
+     * @param five five dollar quantity reduced.
+     * @param ten ten dollar quantity reduced.
+     * @param twenty twenty dollar quantity reduced.
+     * @param fifty fifty dollar quantity reduced.
+     * @param hundred one hundred dollar quantity reduced.
+     * @return result if the action can be perform. 
+     */
     public boolean reduceQuantity(int one, int two, int five, int ten, int twenty, int fifty, int hundred) {
         boolean result = true;
         int[] reduce = {one, two, five, ten, twenty, fifty, hundred};
@@ -69,53 +79,76 @@ public class MachineATM {
         
         return result;
     }
-    
+    /**
+     * Support method that execute the query to update database value.
+     * @param reduce array of dollar to be reduced.
+     */
     private void updateDatabaseQuantity(int[] reduce) {
-//        String query = String.format("UPDATE atm SET oneDollarQuantity = %d, twoDollarQuantity = %d, fiveDollarQuantity = %d, tenDollarQuantity= %d, twentyDollarQuantity = %d, fiftyDollarQuantity = %d, hundredDollarQuantity = %d WHERE atmID = ", reduce[0],reduce[1],reduce[2],reduce[3],reduce[4], reduce[5], reduce[6], atmID);
         String query;
-//        int affected = 1;
         for (int i = 0; i < quantity.length; i++) {
             query = String.format("UPDATE atm SET %s = %d WHERE atmID = %d",strQuantity[i], reduce[i], atmID);
             db.executeUpdate(query);
 
         }
-        
-     
     }
     
     /*
     Getter for various variable
     */
     
-    // Get branch name
+    /**
+     * Getter for branch.
+     * @return branch name.
+     */
     public String getBranch() {
         return branch;
     }
-    // Get available quantity of one dollar
+    /**
+     * Getter for one dollar quantity.
+     * @return one dollar quantity.
+     */
     public int getOneQuantity() {
         return quantity[0];
     }
-    // Get available quantity of two dollar
-    public int getTwoQuantity() {
+    /**
+     * Getter for two dollar quantity.
+     * @return two dollar quantity.
+     */
+    public int getTwoQuantity(){
         return quantity[1];
     }
-    // Get available quantity of five dollar
+    /**
+     * Getter for five dollar quantity.
+     * @return five dollar quantity.
+     */
     public int getFiveQuantity() {
         return quantity[2];
     }
-    // Get available quantity of ten dollar
+    /**
+     * Getter for ten dollar quantity.
+     * @return ten dollar quantity.
+     */
     public int getTenQuantity() {
         return quantity[3];
     }
-    // Get available quantity of twenty dollar
+    /**
+     * Getter for twenty dollar quantity.
+     * @return twenty dollar quantity.
+     */
     public int getTwentyQuantity() {
         return quantity[4];
     }
-    // Get available quantity of fifty dollar
+    /**
+     * Getter for fifty dollar quantity.
+     * @return fifty dollar quantity.
+     */
     public int getFiftyQuantity() {
         return quantity[5];
     }
-    // Get available quantity of one hundred dollar
+    /**
+     * Getter for one hundred dollar quantity.
+     * @return one hundred dollar quantity.
+     */
     public int getHundredQuantity() {
         return quantity[6];
     }

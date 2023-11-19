@@ -32,21 +32,28 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         
     }
     
-    // Get the total amount of money currently about to be withdrawn
-    // by looking at home many of each denomination is to be withdrawn
+    
+    /**
+     * Get the total amount of money currently about to be withdrawn 
+     * by looking at home many of each denomination is to be withdrawn.
+     */
     private void getTotalWithdraw(){
         totalWithdraw = one_denomination + (two_denomination * 2) + (five_denomination * 5);
         totalWithdraw += (ten_denomination * 10) + (twenty_denomination * 20) + (fifty_denomination * 50);
         totalWithdraw += (hundred_denomination * 100);
     }
     
-    // Updates the total withdraw amount display
+    /**
+     * Updates the total withdraw amount display.
+     */
     private void updateTotalWithdraw(){
         getTotalWithdraw();
         withdrawAmount.setText(totalWithdraw + "");
     }
     
-    // Initialize document listeners for all text fields
+    /**
+     * Initialize document listeners for all text fields.
+     */
     private void initDocumentListeners(){
         oneDollarAmount.getDocument().addDocumentListener(new DocumentListener() {
             @Override
@@ -649,15 +656,21 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
     private void withdrawAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawAmountActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_withdrawAmountActionPerformed
-
+    /**
+     * Execute when withdraw button is pressed.
+     * @param evt event.
+     */
     private void withdrawButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawButtonActionPerformed
         // TODO add your handling code here:      
         System.out.println("Withdrawing: " + totalWithdraw);
         withdraw = new Withdraw();
         
         boolean isWithdrawSuccessful = false;
+        
         boolean accountWithdraw = false;
         boolean atmWithdraw = false;
+        
+        // withdraw based on if account type (credit or debit). return true if account have sufficient fund.
         if (withdraw.getIsCredit()) {
             Credit credit = (Credit)(withdraw.getAccount());
             accountWithdraw =  credit.updateCreditUsed(totalWithdraw);
@@ -665,8 +678,11 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
             Checking check = (Checking)(withdraw.getAccount());
             accountWithdraw = check.updateCheckingBalance(totalWithdraw);
         }
+        
+        // true if quantity can be supplied.
         atmWithdraw = withdraw.getMachineATM().reduceQuantity(one_denomination, two_denomination, five_denomination, ten_denomination, twenty_denomination, fifty_denomination, hundred_denomination);
         
+        // both fund and dollar quantity need to be enough.
         if (accountWithdraw == true && atmWithdraw == true) {
             isWithdrawSuccessful = true;
         }
@@ -674,7 +690,10 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         if(isWithdrawSuccessful) JOptionPane.showMessageDialog(this, "Withdraw Successful");
         else JOptionPane.showMessageDialog(this, "Withdraw Unable to Occur");
     }//GEN-LAST:event_withdrawButtonActionPerformed
-
+    /**
+     * Reset all value back to default.
+     * @param evt event.
+     */
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         totalWithdraw = 0;
         one_denomination = 0;

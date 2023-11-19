@@ -214,12 +214,14 @@ public class LoginGUI extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_loginButtonActionPerformed
-    /*
-    Validate card number and return 
-    0 : card is not a credit card, promt for pin
-    1 : card is a credit card, skip pin
-    2 : card is not in the system
-    */
+
+    /**
+     * Validate card number.
+     * @param cardNumber String to be validate.
+     * @return 0 if card is not a credit card.
+     *          1 if card is a credit card.
+     *          2 if card is not in the system.
+     */
     private int validateCardNumber(String cardNumber) {
         // default not found
         int cardValidation = 2;

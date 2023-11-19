@@ -22,6 +22,9 @@ public class DatabaseConnection {
     private Statement statement;
     private ResultSet rs;
     
+    /**
+     * Constructor create connection to database.
+     */
     public DatabaseConnection(){
         try{
             connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
@@ -30,7 +33,11 @@ public class DatabaseConnection {
             Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    /**
+     * Execute retrieve query to database.
+     * @param query string to be executed.
+     * @return ResultSet data values getting from the query.
+     */
     public ResultSet getQuery(String query){
         try{
             statement = connection.createStatement();
@@ -40,7 +47,11 @@ public class DatabaseConnection {
         }
         return rs;
     }
-    
+    /**
+     * Execute update to the database.
+     * @param query string to be executed.
+     * @return affected rows.
+     */
     public int executeUpdate(String query) {
         int affectedRows = 0;
         try (Statement statement = connection.createStatement()) {

@@ -21,7 +21,10 @@ public class Checking extends Account{
     private DatabaseConnection db;
     private ResultSet rs;
     
-    // Constructor
+    /**
+     * Constructor for checking account.
+     * @param accountID of account
+     */
     public Checking(int accountID) {
         super(accountID);
         
@@ -40,7 +43,11 @@ public class Checking extends Account{
             Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    /**
+     * Update checkingBalance in the database.
+     * @param reducedAmount amount of reduction.
+     * @return true if checking balance is larger than reduce amount, else false .
+     */
     public boolean updateCheckingBalance(double reducedAmount) {
         boolean result = false;
         if (checkingBalance > reducedAmount) {
@@ -54,7 +61,10 @@ public class Checking extends Account{
     }
     
     
-    // Get checking balance
+    /**
+     * Getter for checking balance.
+     * @return checking balance.
+     */
     public double getcheckingBalance() {
         return checkingBalance;
     }
