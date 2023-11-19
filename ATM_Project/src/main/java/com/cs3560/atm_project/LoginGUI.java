@@ -22,6 +22,7 @@ public class LoginGUI extends javax.swing.JPanel {
     DepositWindowGUI depositGUI;
     
     private final String GET_CARD = "SELECT * FROM CARD WHERE cardNumber = "; 
+    
     public LoginGUI() {
         initComponents();
     }
@@ -237,24 +238,26 @@ public class LoginGUI extends javax.swing.JPanel {
                     accountID = rs.getInt("accountID");
                     pin = rs.getInt("fourDigitPin");
                     isCredit = rs.getBoolean("isCredit");
-                    cardValidation = 0;
+
                 } while (rs.next());
                 
                 // check if card is a credit card
-                if (isCredit) {
-                    pinGUI = new InsertPinGUI();
-                    pinGUI.setCorrectPIN(pin);
+                if (isCredit == true) {
                     cardValidation = 1;
+                    
+                } else {
+                    pinGUI = ATM_Project.getInsertPinGUI();
+                    pinGUI.setCorrectPIN(pin);
+                    cardValidation = 0;
+                    // Debug
+                    System.out.println("It is Credit " + pin);
                 }
                 
                 depositGUI = new DepositWindowGUI();
                 depositGUI.setAccountID(accountID);
+                
             }
-            
-            
-            
-
-           
+             
         } catch (SQLException ex) {
             Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
         }

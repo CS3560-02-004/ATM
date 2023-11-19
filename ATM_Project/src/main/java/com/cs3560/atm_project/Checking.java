@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  *
  * @author lkbao
  */
-public class Checking {
+public class Checking extends Account{
     private double checkingBalance;
     
     private final String GET_CHECKING_BALANCE = "SELECT * FROM checking WHERE accountID = ";
@@ -23,6 +23,8 @@ public class Checking {
     
     // Constructor
     public Checking(int accountID) {
+        super(accountID);
+        
         db = new DatabaseConnection();
         rs = db.getQuery(String.format(GET_CHECKING_BALANCE + accountID));
         
@@ -39,8 +41,31 @@ public class Checking {
         }
     }
     
+    public boolean updateCheckingBalance(double reducedAmount) {
+        boolean result = false;
+        if (checkingBalance > reducedAmount) {
+            String query = String.format("UPDATE checking SET checkingBalance = %d WHERE accountID = %d", reducedAmount, super.getAccountID());
+            db.executeUpdate(query);
+            result = true;
+        } else {
+            System.out.println("Cannot reduce balance below 0");
+        }
+        return result;
+    }
+    
+    
     // Get checking balance
     public double getcheckingBalance() {
         return checkingBalance;
+    }
+    
+    
+    @Override
+    public int getAccountID() {
+        return super.getAccountID();
+    }
+    @Override
+    public String getDateCreated() {
+        return super.getDateCreated();
     }
 }

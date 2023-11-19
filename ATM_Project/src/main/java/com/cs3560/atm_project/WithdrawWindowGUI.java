@@ -23,6 +23,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
     private int twenty_denomination = 0;
     private int fifty_denomination = 0;
     private int hundred_denomination = 0;
+    private Withdraw withdraw;
     
     public WithdrawWindowGUI() {
         initComponents();
@@ -650,7 +651,10 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
     private void withdrawButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawButtonActionPerformed
         // TODO add your handling code here:      
         System.out.println("Withdrawing: " + totalWithdraw);
-        boolean isWithdrawSuccessful = true;
+        MachineATM atm = withdraw.getMachineATM();
+        Checking check = (Checking)(withdraw.getAccount());
+        
+        boolean isWithdrawSuccessful = check.updateCheckingBalance((double)totalWithdraw);
         if(isWithdrawSuccessful) JOptionPane.showMessageDialog(this, "Withdraw Successful");
         else JOptionPane.showMessageDialog(this, "Withdraw Unable to Occur");
     }//GEN-LAST:event_withdrawButtonActionPerformed
@@ -703,7 +707,10 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
     private void oneHundredDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneHundredDollarAmountActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_oneHundredDollarAmountActionPerformed
-
+    
+    public void setUpWithdraw(int atmID, int accountID, boolean isCredit) {
+        withdraw = new Withdraw(atmID, accountID, isCredit);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Amount;

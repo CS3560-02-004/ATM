@@ -24,7 +24,7 @@ public class ATM_Project {
     private static TransferGUI transferGui;
     private static BalanceGUI balanceGui;
     private static StackPanel stackPanel;
-      
+       
     public static void main(String[] args) {
         System.out.println("HELLO");
 
@@ -58,5 +58,9 @@ public class ATM_Project {
     
     public static void goToPreviousScreen() {
         stackPanel.showPrevious();
+    }
+    
+    public static InsertPinGUI getInsertPinGUI() {
+        return pinGui;
     }
 }

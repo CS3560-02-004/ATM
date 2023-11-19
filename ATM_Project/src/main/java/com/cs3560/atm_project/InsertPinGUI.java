@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class InsertPinGUI extends javax.swing.JPanel {
     
-    public static int correctPin;
+    private int correctPin;
     private byte attempts_left = 3;
     
     public InsertPinGUI() {
@@ -228,9 +228,10 @@ public class InsertPinGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_InsertPinBackButtonActionPerformed
 
     private void InsertPinEnterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinEnterButtonActionPerformed
-
+        
+        System.out.println("Hello "+correctPin);
         int input = Integer.parseInt(InsertPinTextfield.getText().trim());
-        System.out.println(correctPin);
+        
         if (correctPin == input && attempts_left > 0) {
             InsertPinTextfield.setText("");
             ATM_Project.goToScreen("home");
@@ -251,6 +252,9 @@ public class InsertPinGUI extends javax.swing.JPanel {
     public void setCorrectPIN(int pin){
         System.out.println(pin);
         correctPin = pin;
+    }
+    public int getPin() {
+        return correctPin;
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
