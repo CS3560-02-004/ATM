@@ -654,14 +654,21 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         // TODO add your handling code here:      
         System.out.println("Withdrawing: " + totalWithdraw);
         withdraw = new Withdraw();
-        boolean isWithdrawSuccessful = false;
         
+        boolean isWithdrawSuccessful = false;
+        boolean accountWithdraw = false;
+        boolean atmWithdraw = false;
         if (withdraw.getIsCredit()) {
             Credit credit = (Credit)(withdraw.getAccount());
-            isWithdrawSuccessful =  credit.updateCreditUsed(totalWithdraw);
+            accountWithdraw =  credit.updateCreditUsed(totalWithdraw);
         } else {
             Checking check = (Checking)(withdraw.getAccount());
-            isWithdrawSuccessful = check.updateCheckingBalance(totalWithdraw);
+            accountWithdraw = check.updateCheckingBalance(totalWithdraw);
+        }
+        atmWithdraw = withdraw.getMachineATM().reduceQuantity(one_denomination, two_denomination, five_denomination, ten_denomination, twenty_denomination, fifty_denomination, hundred_denomination);
+        
+        if (accountWithdraw == true && atmWithdraw == true) {
+            isWithdrawSuccessful = true;
         }
         
         if(isWithdrawSuccessful) JOptionPane.showMessageDialog(this, "Withdraw Successful");

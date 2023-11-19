@@ -17,6 +17,7 @@ public class MachineATM {
     private int atmID;
     private String branch;
     // 0 -> 6: one, two, five, ten, twenty, fifty, hundred
+    private String[] strQuantity = { "oneDollarQuantity", "twoDollarQuantity", "fiveDollarQuantity", "tenDollarQuantity", "twentyDollarQuantity", "fiftyDollarQuantity", "hundredDollarQuantity"};
     private int[] quantity;
     
     private final String GET_ATM_MACHINE = "SELECT * FROM atm WHERE atmID = ";
@@ -69,10 +70,17 @@ public class MachineATM {
         return result;
     }
     
-    private int updateDatabaseQuantity(int[] reduce) {
-        String query = String.format("UPDATE atm SET oneDollarQuantity = %d, twoDollarQuantity = %d, fiveDollarQuantity = %d, tenDollarQuantity= %d, twentyDollarQuantity = %d, fiftyDollarQuantity = %d, hundredDollarQuantity = %d WHERE atmID = ", reduce[0],reduce[1],reduce[2],reduce[3],reduce[4], reduce[5], reduce[6], atmID);
-        int affected = db.executeUpdate(query);
-        return affected;
+    private void updateDatabaseQuantity(int[] reduce) {
+//        String query = String.format("UPDATE atm SET oneDollarQuantity = %d, twoDollarQuantity = %d, fiveDollarQuantity = %d, tenDollarQuantity= %d, twentyDollarQuantity = %d, fiftyDollarQuantity = %d, hundredDollarQuantity = %d WHERE atmID = ", reduce[0],reduce[1],reduce[2],reduce[3],reduce[4], reduce[5], reduce[6], atmID);
+        String query;
+//        int affected = 1;
+        for (int i = 0; i < quantity.length; i++) {
+            query = String.format("UPDATE atm SET %s = %d WHERE atmID = %d",strQuantity[i], reduce[i], atmID);
+            db.executeUpdate(query);
+
+        }
+        
+     
     }
     
     /*
