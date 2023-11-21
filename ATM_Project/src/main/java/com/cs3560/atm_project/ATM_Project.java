@@ -15,6 +15,10 @@ import java.sql.SQLException;
  *
  * @author gippy
  */
+// Test Card: 1181159426469480
+// Test Pin: 1014
+// Test Debit: 9703052905532230
+// Pin: 3465
 public class ATM_Project {
     private static LoginGUI loginGui;
     private static ATMMenuGUI homeGui;
@@ -66,5 +70,19 @@ public class ATM_Project {
     
     public static ATMMenuGUI getMenuGUI() {
         return homeGui;
+    }
+    
+    public static BalanceGUI getBalanceGUI() {
+        return balanceGui;
+    }
+    
+    // Get Checking object saved in homeGui
+    public static Checking getCheckingAccount(){
+        return homeGui.checking_account;
+    }
+    
+    // Get Credit object saved in homeGui
+    public static Credit getCreditAccount(){
+        return homeGui.credit_account;
     }
 }

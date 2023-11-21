@@ -676,7 +676,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
             accountWithdraw =  credit.updateCreditUsed(totalWithdraw);
         } else {
             Checking check = (Checking)(withdraw.getAccount());
-            accountWithdraw = check.updateCheckingBalance(totalWithdraw);
+            accountWithdraw = check.reduceCheckingBalance(totalWithdraw);
         }
         
         // true if quantity can be supplied.

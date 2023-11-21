@@ -13,7 +13,7 @@ import java.util.logging.Logger;
  *
  * @author lkbao
  */
-public class Account {
+public abstract class Account {
     private int accountID;
     private String dateCreated;
     

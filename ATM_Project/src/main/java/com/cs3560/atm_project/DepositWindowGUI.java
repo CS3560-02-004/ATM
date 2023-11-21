@@ -19,7 +19,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
     /**
      * Creates new form NewJPanel
      */
-    private long totalDeposit = 0;
+    private double totalDeposit = 0;
     private int one_denomination = 0;
     private int two_denomination = 0;
     private int five_denomination = 0;
@@ -28,7 +28,6 @@ public class DepositWindowGUI extends javax.swing.JPanel {
     private int fifty_denomination = 0;
     private int hundred_denomination = 0;
     private static int currentAccountID;
-    BalanceGUI balGUI;
     
     public DepositWindowGUI() {
         initComponents();
@@ -597,27 +596,28 @@ public class DepositWindowGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_depositAmountActionPerformed
 
     private void depositButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositButtonActionPerformed
-            System.out.println(totalDeposit);
-            System.out.println(currentAccountID);
-            DatabaseConnection db = new DatabaseConnection();
-            ResultSet rs = db.getQuery("SELECT * FROM checking");
-            try {
-                while(rs.next()){
-                    if(rs.getInt("accountID") == (currentAccountID)){
-                        int currentTotal = rs.getInt("checkingBalance");
-                        currentTotal += totalDeposit;
-                        System.out.println("NEW TOTAL:  " + currentTotal);
-                        db.executeUpdate("UPDATE checking SET checkingBalance = '" + currentTotal + 
-                                "' WHERE accountID = " + currentAccountID);
-                        balGUI = new BalanceGUI();
-                        balGUI.updateDisplay("Checking Account: " + currentTotal);
-                    }
-                }
-
-            } catch (SQLException ex) {
-                Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            ATM_Project.goToScreen("home");
+        System.out.println(totalDeposit);
+        System.out.println(currentAccountID);
+        ATM_Project.getCheckingAccount().updateCheckingBalance(totalDeposit);
+            
+        totalDeposit = 0;
+        one_denomination = 0;
+        two_denomination = 0;
+        five_denomination = 0;
+        ten_denomination = 0;
+        twenty_denomination = 0;
+        fifty_denomination = 0;
+        hundred_denomination = 0;
+        depositAmount.setText("0");
+        oneDollarAmount.setText("");
+        twoDollarAmount.setText("");
+        fiveDollarAmount.setText("");
+        tenDollarAmount.setText("");
+        twentyDollarAmount.setText("");
+        fiftyDollarAmount.setText("");
+        oneHundredDollarAmount.setText("");
+        ATM_Project.goToScreen("home");
+        ATM_Project.goToScreen("home");
 
     }//GEN-LAST:event_depositButtonActionPerformed
 

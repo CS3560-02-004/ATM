@@ -44,20 +44,41 @@ public class Checking extends Account{
         }
     }
     /**
-     * Update checkingBalance in the database.
+     * Reduce checkingBalance in the database.
      * @param reducedAmount amount of reduction.
      * @return true if checking balance is larger than reduce amount, else false .
      */
-    public boolean updateCheckingBalance(double reducedAmount) {
+    public boolean reduceCheckingBalance(double reducedAmount) {
         boolean result = false;
         if (checkingBalance > reducedAmount) {
-            String query = String.format("UPDATE checking SET checkingBalance = %f WHERE accountID = %d", checkingBalance - reducedAmount, super.getAccountID());
+            checkingBalance = checkingBalance - reducedAmount;
+            String query = String.format("UPDATE checking SET checkingBalance = %f WHERE accountID = %d", checkingBalance, super.getAccountID());
             db.executeUpdate(query);
             result = true;
         } else {
             System.out.println("Cannot reduce balance below 0");
         }
         return result;
+    }
+    
+    /**
+     * Update checkingBalance in the database, for deposit
+     * @param depositAmount amount of reduction.
+     */
+    public void updateCheckingBalance(double depositAmount) {
+        rs = db.getQuery("SELECT * FROM checking");
+        try {
+            while(rs.next()){
+                    
+            }
+            checkingBalance +=+ depositAmount;
+            System.out.println("NEW TOTAL:  " + checkingBalance);
+            String query = String.format("UPDATE checking SET checkingBalance = %f WHERE accountID = %d", checkingBalance, super.getAccountID());
+            db.executeUpdate(query);
+        }
+        catch (SQLException ex) {
+            Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     

@@ -230,7 +230,10 @@ public class InsertPinGUI extends javax.swing.JPanel {
     private void InsertPinEnterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinEnterButtonActionPerformed
         
         System.out.println("Hello "+correctPin);
-        int input = Integer.parseInt(InsertPinTextfield.getText().trim());
+        String input_string = InsertPinTextfield.getText();
+        if(input_string.equals("")) return;
+        
+        int input = Integer.parseInt(input_string.trim());
         
         if (correctPin == input && attempts_left > 0) {
             InsertPinTextfield.setText("");

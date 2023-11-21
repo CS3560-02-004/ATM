@@ -181,11 +181,25 @@ public class BalanceGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_WithdrawWindowTitleActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        updateDisplay("");
         ATM_Project.goToScreen("home");
     }//GEN-LAST:event_jButton1ActionPerformed
     
-    public void updateDisplay(String newBalance){
-        balanceDisplay.setText(newBalance); 
+    // Updates the value of the balance/credit available
+    public void updateDisplay(String prompt){
+        balanceDisplay.setText("$" + prompt); 
+    }
+    
+    // Updates whether the page is providing Balance support or Credit Support on display
+    public void updateGUI(boolean isCredit){
+        if(isCredit){
+            jLabel1.setText("Credit");
+            availableBalancesTitle.setText("AVAILABLE CREDIT");
+        }
+        else{
+            jLabel1.setText("Balance");
+            availableBalancesTitle.setText("AVAILABLE BALANCE");
+        }
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

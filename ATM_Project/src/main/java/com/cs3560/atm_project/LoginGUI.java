@@ -17,7 +17,6 @@ import javax.swing.JOptionPane;
 
 public class LoginGUI extends javax.swing.JPanel {
     int atmID = 1;
-    int attempts = 3; 
     ATMMenuGUI menuGUI;
     InsertPinGUI pinGUI;
     DepositWindowGUI depositGUI;
@@ -193,25 +192,19 @@ public class LoginGUI extends javax.swing.JPanel {
     private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
         // TODO add your handling code here:
         String input = cardNumberInput.getText();
+        if(input.equals("")) return; // Quit operation if e
         
         int validInput = validateCardNumber(input);// validateCardNumber(input);
         
         
-        if (validInput == 0 && attempts > 0) {
+        if (validInput == 0) {
             cardNumberInput.setText("");
             ATM_Project.goToScreen("pin");
-            attempts = 3;
         } else if (validInput == 1) {
             ATM_Project.goToScreen("home");
         } else {
-            if(attempts > 0){
-                JOptionPane.showMessageDialog(null, "Your Card is not in the system! You have " + attempts + " attempts left.",
-               "Card Validater", JOptionPane.ERROR_MESSAGE);
-                attempts -= 1;
-            } else {
-                JOptionPane.showMessageDialog(null, "Your have no more attempts left. Try again in 24 hours!!",
-               "Card Validater", JOptionPane.ERROR_MESSAGE);
-            }
+            JOptionPane.showMessageDialog(null, "Your Card is not in the system!",
+           "Card Validater", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
@@ -257,13 +250,20 @@ public class LoginGUI extends javax.swing.JPanel {
                 }
                 
                 menuGUI = ATM_Project.getMenuGUI();
-                menuGUI.storeAccountID(accountID);
+                
+                // Update account data into menuGUI so it is accessible to all features
+                if(isCredit) menuGUI.credit_account = new Credit(accountID);
+                else menuGUI.checking_account = new Checking(accountID);
+                
+                // Update GUI of getBalance
+                ATM_Project.getBalanceGUI().updateGUI(isCredit);
+                
+                // Store important data into menuGUI
                 menuGUI.storeAtmID(atmID);
                 menuGUI.storeIsCredit(isCredit);
                 
                 depositGUI = new DepositWindowGUI();
                 depositGUI.setAccountID(accountID);
-                
             }
              
         } catch (SQLException ex) {

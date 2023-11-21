@@ -4,15 +4,19 @@
  */
 package com.cs3560.atm_project;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author rizen   
  */
 public class ATMMenuGUI extends javax.swing.JPanel {
 
-    private int accountID;
     private int atmID;
     private boolean isCredit;
+    
+    public Checking checking_account;
+    public Credit credit_account;
     /**
      * Creates new form HomeScreen
      */
@@ -250,6 +254,12 @@ public class ATMMenuGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_SUBHEADERActionPerformed
 
     private void DEPOSITBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DEPOSITBTNActionPerformed
+        if(isCredit){
+            JOptionPane.showMessageDialog(null, "You Cannot Deposit On a Credit Card",
+           "System Message", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+            
         ATM_Project.goToScreen("deposit");
     }//GEN-LAST:event_DEPOSITBTNActionPerformed
 
@@ -266,6 +276,11 @@ public class ATMMenuGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_FOOTERActionPerformed
 
     private void BALANCEBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BALANCEBTNActionPerformed
+        if(isCredit){
+            double available_credit = credit_account.getCreditLimit() -  credit_account.getCreditUsed();
+            ATM_Project.getBalanceGUI().updateDisplay(available_credit + "");
+        }
+        else ATM_Project.getBalanceGUI().updateDisplay(checking_account.getcheckingBalance() + "");
         ATM_Project.goToScreen("balance");
     }//GEN-LAST:event_BALANCEBTNActionPerformed
 
@@ -273,10 +288,6 @@ public class ATMMenuGUI extends javax.swing.JPanel {
         ATM_Project.goToScreen("login");
     }//GEN-LAST:event_logoutButtonActionPerformed
 
-    public void storeAccountID(int accountID) {
-        System.out.println("AccountID:" + accountID);
-        this.accountID = accountID;
-    }
     public void storeAtmID(int atmID) {
         System.out.println("atmID:" + atmID);
         this.atmID = atmID;
@@ -286,7 +297,8 @@ public class ATMMenuGUI extends javax.swing.JPanel {
     }
     
     public int getAccountID() {
-        return accountID;
+        if(isCredit) return credit_account.getAccountID();
+        else return checking_account.getAccountID();
     }
     public int getAtmID() {
         return atmID;
