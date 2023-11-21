@@ -666,12 +666,23 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         
         // withdraw based on if account type (credit or debit). return true if account have sufficient fund.
         if(ATM_Project.getCheckingAccount() == null){
-           ATM_Project.getCreditAccount().updateCreditUsed(totalWithdraw);
            double remainingCredit = ATM_Project.getCreditAccount().getCreditLimit() - ATM_Project.getCreditAccount().getCreditUsed();
-           JOptionPane.showMessageDialog(this, "You have successfully used " + totalWithdraw + " dollars. You have " + remainingCredit + " remaining.");  
+           if((remainingCredit-totalWithdraw) > 0){
+               ATM_Project.getCreditAccount().updateCreditUsed(totalWithdraw);
+               JOptionPane.showMessageDialog(this, "You have successfully used " + totalWithdraw + " dollars. You have " + remainingCredit + " remaining.");  
+           } else {
+               JOptionPane.showMessageDialog(this, "You can not go over the limit, you have "  + remainingCredit + " credit remaining.");  
+           }
+                      
         }else {
-           ATM_Project.getCheckingAccount().reduceCheckingBalance(totalWithdraw);
-           JOptionPane.showMessageDialog(this, "You have successfully used " + totalWithdraw + " dollars. ");
+            double totalAmount = ATM_Project.getCheckingAccount().getcheckingBalance();
+            if((totalAmount-totalWithdraw) > 0){
+                ATM_Project.getCheckingAccount().reduceCheckingBalance(totalWithdraw);
+                JOptionPane.showMessageDialog(this, "You have successfully used " + totalWithdraw + " dollars. ");               
+            } else {
+               JOptionPane.showMessageDialog(this, "You can not withdraw this much, you have $"  + totalAmount + " in your balance");  
+           }
+
         }
         ATM_Project.goToScreen("home");
 
