@@ -599,6 +599,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         System.out.println(totalDeposit);
         System.out.println(currentAccountID);
         ATM_Project.getCheckingAccount().updateCheckingBalance(totalDeposit);
+        JOptionPane.showMessageDialog(this, "You have successfully deposited " + totalDeposit + " dollars.");
             
         totalDeposit = 0;
         one_denomination = 0;
@@ -617,8 +618,6 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         fiftyDollarAmount.setText("");
         oneHundredDollarAmount.setText("");
         ATM_Project.goToScreen("home");
-        ATM_Project.goToScreen("home");
-
     }//GEN-LAST:event_depositButtonActionPerformed
 
     public void setAccountID(int accountID){

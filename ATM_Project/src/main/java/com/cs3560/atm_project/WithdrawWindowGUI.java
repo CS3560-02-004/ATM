@@ -663,32 +663,34 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
     private void withdrawButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawButtonActionPerformed
         // TODO add your handling code here:      
         System.out.println("Withdrawing: " + totalWithdraw);
-        withdraw = new Withdraw();
-        
-        boolean isWithdrawSuccessful = false;
-        
-        boolean accountWithdraw = false;
-        boolean atmWithdraw = false;
         
         // withdraw based on if account type (credit or debit). return true if account have sufficient fund.
-        if (withdraw.getIsCredit()) {
-            Credit credit = (Credit)(withdraw.getAccount());
-            accountWithdraw =  credit.updateCreditUsed(totalWithdraw);
-        } else {
-            Checking check = (Checking)(withdraw.getAccount());
-            accountWithdraw = check.reduceCheckingBalance(totalWithdraw);
+        if(ATM_Project.getCheckingAccount() == null){
+           ATM_Project.getCreditAccount().updateCreditUsed(totalWithdraw);
+           double remainingCredit = ATM_Project.getCreditAccount().getCreditLimit() - ATM_Project.getCreditAccount().getCreditUsed();
+           JOptionPane.showMessageDialog(this, "You have successfully used " + totalWithdraw + " dollars. You have " + remainingCredit + " remaining.");  
+        }else {
+           ATM_Project.getCheckingAccount().reduceCheckingBalance(totalWithdraw);
+           JOptionPane.showMessageDialog(this, "You have successfully used " + totalWithdraw + " dollars. ");
         }
-        
-        // true if quantity can be supplied.
-        atmWithdraw = withdraw.getMachineATM().reduceQuantity(one_denomination, two_denomination, five_denomination, ten_denomination, twenty_denomination, fifty_denomination, hundred_denomination);
-        
-        // both fund and dollar quantity need to be enough.
-        if (accountWithdraw == true && atmWithdraw == true) {
-            isWithdrawSuccessful = true;
-        }
-        
-        if(isWithdrawSuccessful) JOptionPane.showMessageDialog(this, "Withdraw Successful");
-        else JOptionPane.showMessageDialog(this, "Withdraw Unable to Occur");
+        ATM_Project.goToScreen("home");
+
+              
+        one_denomination = 0;
+        two_denomination = 0;
+        five_denomination = 0;
+        ten_denomination = 0;
+        twenty_denomination = 0;
+        fifty_denomination = 0;
+        hundred_denomination = 0;
+        withdrawAmount.setText("0");
+        oneDollarAmount.setText("");
+        twoDollarAmount.setText("");
+        fiveDollarAmount.setText("");
+        tenDollarAmount.setText("");
+        twentyDollarAmount.setText("");
+        fiftyDollarAmount.setText("");
+        oneHundredDollarAmount.setText("");
     }//GEN-LAST:event_withdrawButtonActionPerformed
     /**
      * Reset all value back to default.
