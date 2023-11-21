@@ -14,19 +14,30 @@ import java.util.logging.Logger;
 
 
 public class DatabaseConnection {
+    private final String URL = "jdbc:mysql://localhost:3306/atmsystem";
+    private final String USERNAME = "root";
+    private final String PASSWORD = "123456789";
+    
     private Connection connection;
     private Statement statement;
     private ResultSet rs;
     
+    /**
+     * Constructor create connection to database.
+     */
     public DatabaseConnection(){
         try{
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/atmsystem", "root", "asdf1234QWER!@#$");
+            connection = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             System.out.println("Database Connected");
         } catch (SQLException ex) {
             Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
+    /**
+     * Execute retrieve query to database.
+     * @param query string to be executed.
+     * @return ResultSet data values getting from the query.
+     */
     public ResultSet getQuery(String query){
         try{
             statement = connection.createStatement();
@@ -36,14 +47,18 @@ public class DatabaseConnection {
         }
         return rs;
     }
-    
+    /**
+     * Execute update to the database.
+     * @param query string to be executed.
+     * @return affected rows.
+     */
     public int executeUpdate(String query) {
-    int affectedRows = 0;
-    try (Statement statement = connection.createStatement()) {
-        affectedRows = statement.executeUpdate(query);
-    } catch (SQLException ex) {
-        Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+        int affectedRows = 0;
+        try (Statement statement = connection.createStatement()) {
+            affectedRows = statement.executeUpdate(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return affectedRows;
     }
-    return affectedRows;
-}
 }

@@ -10,6 +10,9 @@ package com.cs3560.atm_project;
  */
 public class ATMMenuGUI extends javax.swing.JPanel {
 
+    private int accountID;
+    private int atmID;
+    private boolean isCredit;
     /**
      * Creates new form HomeScreen
      */
@@ -270,6 +273,28 @@ public class ATMMenuGUI extends javax.swing.JPanel {
         ATM_Project.goToScreen("login");
     }//GEN-LAST:event_logoutButtonActionPerformed
 
+    public void storeAccountID(int accountID) {
+        System.out.println("AccountID:" + accountID);
+        this.accountID = accountID;
+    }
+    public void storeAtmID(int atmID) {
+        System.out.println("atmID:" + atmID);
+        this.atmID = atmID;
+    }
+    public void storeIsCredit(boolean isCredit) {
+        this.isCredit = isCredit;
+    }
+    
+    public int getAccountID() {
+        return accountID;
+    }
+    public int getAtmID() {
+        return atmID;
+    }
+    public boolean getIsCredit() {
+        return isCredit;
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BALANCEBTN;
