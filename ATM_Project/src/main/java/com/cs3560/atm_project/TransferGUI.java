@@ -45,8 +45,8 @@ public class TransferGUI extends javax.swing.JPanel {
         backButton = new javax.swing.JButton();
         enterButton = new javax.swing.JButton();
         jPanel3 = new javax.swing.JPanel();
-        accountNumberInput = new javax.swing.JTextField();
         accountNumberLabel = new javax.swing.JLabel();
+        accountComboBox = new javax.swing.JComboBox<>();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(600, 400));
@@ -176,15 +176,16 @@ public class TransferGUI extends javax.swing.JPanel {
 
         jPanel3.setBackground(new java.awt.Color(255, 255, 255));
 
-        accountNumberInput.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                accountNumberInputActionPerformed(evt);
-            }
-        });
-
         accountNumberLabel.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         accountNumberLabel.setForeground(new java.awt.Color(0, 0, 255));
         accountNumberLabel.setText("Account Number");
+
+        accountComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        accountComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                accountComboBoxActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -193,17 +194,17 @@ public class TransferGUI extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
                 .addContainerGap(108, Short.MAX_VALUE)
                 .addComponent(accountNumberLabel)
-                .addGap(30, 30, 30)
-                .addComponent(accountNumberInput, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(accountComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(160, 160, 160))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(accountNumberInput, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(accountNumberLabel))
-                .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(accountNumberLabel)
+                    .addComponent(accountComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 2, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -231,7 +232,7 @@ public class TransferGUI extends javax.swing.JPanel {
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(50, 50, 50)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -241,7 +242,7 @@ public class TransferGUI extends javax.swing.JPanel {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         amountInput.setText("0");
-        accountNumberInput.setText("");
+        accountComboBox.setSelectedIndex(0);
         ATM_Project.goToScreen("home");
     }//GEN-LAST:event_backButtonActionPerformed
 
@@ -252,13 +253,13 @@ public class TransferGUI extends javax.swing.JPanel {
         else JOptionPane.showMessageDialog(this, "Transfer Unable to Occur");
     }//GEN-LAST:event_enterButtonActionPerformed
 
-    private void accountNumberInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountNumberInputActionPerformed
+    private void accountComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_accountNumberInputActionPerformed
+    }//GEN-LAST:event_accountComboBoxActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField accountNumberInput;
+    private javax.swing.JComboBox<String> accountComboBox;
     private javax.swing.JLabel accountNumberLabel;
     private javax.swing.JTextField amountInput;
     private javax.swing.JLabel amountLabel;
