@@ -47,6 +47,35 @@ public class Customer {
         }
     }
     
+     /**
+     * 
+     * @param accountID
+     * @param customerID 
+     */
+    public void updateComboBox(int accountID, int customerID) {
+        db = new DatabaseConnection();
+        String query = String.format("SELECT accountID FROM accounttable WHERE accountID = %d AND customerID = %d", super.getAccountID(), checkingBalance);
+        rs = db.getQuery(query);
+        
+        ArrayList<String> accounts = new ArrayList<String>();
+        accounts.add("Select");
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                int value = rs.getInt(1);
+                String stringValue = String.valueOf(value);
+                accounts.add(stringValue);
+            }
+            }
+            catch (SQLException e) {
+                
+            }
+        }
+        
+        for (String item : accounts) {
+            accountComboBox.add(item);
+        }
+    }
     private void queryAccountList() {
         rs = db.getQuery(String.format(GET_ACCOUNT_LIST + customerID));
         try {
