@@ -731,6 +731,8 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
            if((remainingCredit-totalWithdraw) > 0){
                ATM_Project.getCreditAccount().updateCreditUsed(totalWithdraw);
                JOptionPane.showMessageDialog(this, "You have successfully used " + totalWithdraw + " dollars. You have " + remainingCredit + " remaining.");  
+               
+               Transaction create = new Transaction(ATM_Project.getCreditAccount().getAccountID(), ATM_Project.getATM(), "Credit Withdraw", "Sucessful");
            } else {
                JOptionPane.showMessageDialog(this, "You can not go over the limit, you have "  + remainingCredit + " credit remaining.");  
            }
@@ -739,7 +741,8 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
             double totalAmount = ATM_Project.getCheckingAccount().getcheckingBalance();
             if((totalAmount-totalWithdraw) > 0){
                 ATM_Project.getCheckingAccount().reduceCheckingBalance(totalWithdraw);
-                JOptionPane.showMessageDialog(this, "You have successfully used " + totalWithdraw + " dollars. ");               
+                JOptionPane.showMessageDialog(this, "You have successfully used " + totalWithdraw + " dollars. ");       
+                Transaction create = new Transaction(ATM_Project.getCheckingAccount().getAccountID(), ATM_Project.getATM(), "Checking Withdraw", "Sucessful");
             } else {
                JOptionPane.showMessageDialog(this, "You can not withdraw this much, you have $"  + totalAmount + " in your balance");  
            }

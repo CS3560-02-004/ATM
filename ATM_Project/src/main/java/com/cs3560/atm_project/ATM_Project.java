@@ -89,4 +89,8 @@ public class ATM_Project {
     public static Credit getCreditAccount(){
         return homeGui.credit_account;
     }
+    
+    public static int getATM() {
+        return homeGui.getAtmID();
+    }
 }
