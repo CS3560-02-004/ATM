@@ -725,6 +725,14 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         // TODO add your handling code here:      
         System.out.println("Withdrawing: " + totalWithdraw);
         
+        MachineATM machine = new MachineATM();
+        boolean result = machine.reduceQuantity(one_denomination, two_denomination, five_denomination, ten_denomination, twenty_denomination, fifty_denomination, hundred_denomination);
+        if(!result){
+            JOptionPane.showMessageDialog(this, "There isn't enough denominations in the system, deposit some more money ");
+            ATM_Project.goToScreen("home");
+            return;
+        }
+        
         // withdraw based on if account type (credit or debit). return true if account have sufficient fund.
         if(ATM_Project.getCheckingAccount() == null){
            double remainingCredit = ATM_Project.getCreditAccount().getCreditLimit() - ATM_Project.getCreditAccount().getCreditUsed();

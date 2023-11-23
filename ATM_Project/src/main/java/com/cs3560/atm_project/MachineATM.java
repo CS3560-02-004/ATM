@@ -65,7 +65,7 @@ public class MachineATM {
         boolean result = true;
         int[] reduce = {one, two, five, ten, twenty, fifty, hundred};
         for (int i = 0; i < quantity.length; i++) {
-            if (quantity[i] > reduce[i]) {
+            if (quantity[i] > reduce[i]) {              
                 reduce[i] = quantity[i] - reduce[i];
             } else {
                 System.out.println("Cannot reduce below 0");
@@ -75,6 +75,32 @@ public class MachineATM {
         }
         if (result) {
             updateDatabaseQuantity(reduce);
+        }
+        
+        return result;
+    }
+    
+        /**
+     * Increase quantity of cash in the database with value from @param.
+     * @param one one dollar quantity increased.
+     * @param two two dollar quantity increased.
+     * @param five five dollar quantity increased.
+     * @param ten ten dollar quantity increased.
+     * @param twenty twenty dollar quantity increased.
+     * @param fifty fifty dollar quantity increased.
+     * @param hundred one hundred dollar quantity increased.
+     * @return result if the action can be perform. 
+     */
+    public boolean increaseQuantity(int one, int two, int five, int ten, int twenty, int fifty, int hundred) {
+        boolean result = true;
+        int[] increase = {one, two, five, ten, twenty, fifty, hundred};
+        for (int i = 0; i < quantity.length; i++) {
+            if (quantity[i] > increase[i]) {
+                increase[i] = quantity[i] + increase[i];
+            }
+        }
+        if (result) {
+            updateDatabaseQuantity(increase);
         }
         
         return result;
