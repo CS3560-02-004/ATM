@@ -76,6 +76,10 @@ public class ATM_Project {
         return balanceGui;
     }
     
+    public static WithdrawWindowGUI getWithdrawGUI(){
+        return withdrawGui;
+    }
+    
     // Get Checking object saved in homeGui
     public static Checking getCheckingAccount(){
         return homeGui.checking_account;
@@ -84,5 +88,9 @@ public class ATM_Project {
     // Get Credit object saved in homeGui
     public static Credit getCreditAccount(){
         return homeGui.credit_account;
+    }
+    
+    public static int getATM() {
+        return homeGui.getAtmID();
     }
 }

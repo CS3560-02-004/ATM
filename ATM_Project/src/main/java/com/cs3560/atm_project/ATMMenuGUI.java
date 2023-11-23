@@ -268,6 +268,17 @@ public class ATMMenuGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_TRANSFERBTNActionPerformed
 
     private void WITHDRAWBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WITHDRAWBTNActionPerformed
+        if(isCredit){
+            double available_credit = credit_account.getCreditLimit() -  credit_account.getCreditUsed();
+            String value = String.format("%.2f", available_credit);
+            ATM_Project.getWithdrawGUI().updateBalanceText(value);
+        }
+        else{
+            String value = String.format("%.2f", checking_account.getcheckingBalance());
+            ATM_Project.getWithdrawGUI().updateBalanceText(value + "");
+        }
+         ATM_Project.getWithdrawGUI().updateBalanceHeader(isCredit);
+        
         ATM_Project.goToScreen("withdraw");
     }//GEN-LAST:event_WITHDRAWBTNActionPerformed
 
@@ -277,12 +288,14 @@ public class ATMMenuGUI extends javax.swing.JPanel {
 
     private void BALANCEBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BALANCEBTNActionPerformed
         if(isCredit){
-            System.out.println("THIS IS A CREDIT ACCOUNT");
-            System.out.println("Credit Limit: " + credit_account.getCreditLimit() + " Credit Used: " + credit_account.getCreditUsed());
             double available_credit = credit_account.getCreditLimit() -  credit_account.getCreditUsed();
-            ATM_Project.getBalanceGUI().updateDisplay(available_credit + "");
+            String value = String.format("%.2f", available_credit);
+            ATM_Project.getBalanceGUI().updateDisplay(value);
         }
-        else ATM_Project.getBalanceGUI().updateDisplay(checking_account.getcheckingBalance() + "");
+        else{
+            String value = String.format("%.2f", checking_account.getcheckingBalance());
+            ATM_Project.getBalanceGUI().updateDisplay(value);
+        }
         ATM_Project.goToScreen("balance");
     }//GEN-LAST:event_BALANCEBTNActionPerformed
 

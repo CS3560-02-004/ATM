@@ -600,6 +600,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         System.out.println(currentAccountID);
         ATM_Project.getCheckingAccount().updateCheckingBalance(totalDeposit);
         JOptionPane.showMessageDialog(this, "You have successfully deposited " + totalDeposit + " dollars.");
+        Transaction create = new Transaction(ATM_Project.getCheckingAccount().getAccountID(), ATM_Project.getATM(), "Deposit", "Sucessful");
             
         totalDeposit = 0;
         one_denomination = 0;
