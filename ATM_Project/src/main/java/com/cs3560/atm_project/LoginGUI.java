@@ -204,7 +204,7 @@ public class LoginGUI extends javax.swing.JPanel {
             ATM_Project.goToScreen("home");
         } else {
             JOptionPane.showMessageDialog(null, "Your Card is not in the system!",
-           "Card Validater", JOptionPane.ERROR_MESSAGE);
+           "Card Validator", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
