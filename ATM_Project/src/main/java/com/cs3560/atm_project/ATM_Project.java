@@ -76,6 +76,10 @@ public class ATM_Project {
         return balanceGui;
     }
     
+    public static WithdrawWindowGUI getWithdrawGUI(){
+        return withdrawGui;
+    }
+    
     // Get Checking object saved in homeGui
     public static Checking getCheckingAccount(){
         return homeGui.checking_account;
