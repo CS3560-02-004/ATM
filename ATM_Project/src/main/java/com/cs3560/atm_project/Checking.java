@@ -81,6 +81,40 @@ public class Checking extends Account{
         }
     }
     
+    public boolean transferFunds(double transferAmount, int accountNumber) {
+    	// if transferAmt is negative or zero
+    	if (transferAmount <= 0) {
+    		System.out.println("Invalid transfer amount.");
+    		return false;
+    	}
+    	// if transferAmt is over the current checkingBalance
+    	if (transferAmount > checkingBalance) {
+    		System.out.println("Insufficient funds for transfer.");
+    		return false;
+    	}
+    	// if transferAmt is valid
+    	else {
+            try {
+                // Update the sender's balance
+                checkingBalance -= transferAmount;
+                String query1 = String.format("UPDATE checking SET checkingBalance -= %f WHERE accountID = %d", transferAmount, super.getAccountID());
+                db.executeUpdate(query1);
+
+                // Update the recipient's balance
+                String query2 = String.format("UPDATE checking SET checkingBalance += %f WHERE accountID = %d", transferAmount, accountNumber);
+                db.executeUpdate(query2);
+                
+                // Transfer successful
+                return true;
+            } 
+            catch (Exception e) {
+                // Transfer failed due to a database error
+                e.printStackTrace();
+                return false;
+            }
+    	}
+    }
+    
     
     /**
      * Getter for checking balance.
