@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+import java.util.ArrayList;
 /**
  *
  * @author lkbao
@@ -17,6 +17,7 @@ public class Checking extends Account{
     private double checkingBalance;
     
     private final String GET_CHECKING_BALANCE = "SELECT * FROM checking WHERE accountID = ";
+
     
     private DatabaseConnection db;
     private ResultSet rs;
@@ -61,6 +62,30 @@ public class Checking extends Account{
         return result;
     }
     
+    public void updateComboBox(int accountID, int customerID) {
+        db = new DatabaseConnection();
+        String query = String.format("SELECT accountID FROM accounttable WHERE accountID = %d AND customerID = %d", super.getAccountID(), checkingBalance);
+        rs = db.getQuery(query);
+        
+        ArrayList<String> accounts = new ArrayList<String>();
+        accounts.add("Select");
+        if (rs != null) {
+            try {
+                while (rs.next()) {
+                int value = rs.getInt(1);
+                String stringValue = String.valueOf(value);
+                accounts.add(stringValue);
+            }
+            }
+            catch (SQLException e) {
+                
+            }
+        }
+        
+        for (String item : accounts) {
+            accountComboBox.add(item);
+        }
+    }
     /**
      * Update checkingBalance in the database, for deposit
      * @param depositAmount amount of reduction.
