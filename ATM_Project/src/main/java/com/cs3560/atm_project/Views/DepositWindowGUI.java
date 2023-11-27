@@ -10,7 +10,7 @@ import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentListener;
 
-import com.cs3560.atm_project.ATM_Project;
+import com.cs3560.atm_project.Controllers.ATM_Project;
 import com.cs3560.atm_project.Models.MachineATM;
 import com.cs3560.atm_project.Models.Transaction;
 

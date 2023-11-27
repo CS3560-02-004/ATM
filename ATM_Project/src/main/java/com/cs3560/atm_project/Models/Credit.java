@@ -4,7 +4,6 @@
  */
 package com.cs3560.atm_project.Models;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -19,9 +18,7 @@ public class Credit extends Account{
     private double creditLimit;
     private double creditUsed;
     
-    private DatabaseConnection db;
-    private ResultSet rs;
-    private final String GET_CREDIT = "SELECT * FROM credit WHERE accountID = ";
+    final String GET_CREDIT = "SELECT * FROM credit WHERE accountID = ";
     
     /**
      * Constructor for Credit.
@@ -78,13 +75,5 @@ public class Credit extends Account{
      */
     public double getCreditUsed() {
         return creditUsed;
-    }
-    @Override
-    public int getAccountID(){
-        return super.getAccountID();
-    }
-    @Override
-    public String getDateCreated() {
-        return super.getDateCreated();
     }
 }

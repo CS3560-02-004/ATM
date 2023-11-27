@@ -93,7 +93,7 @@ public class Customer {
         }
     }
     
-    public List getListAccount() {
+    public List<Integer> getListAccount() {
         return accountIDList;
     }
     

@@ -2,14 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  */
 
-package com.cs3560.atm_project;
-
-import java.awt.CardLayout;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+package com.cs3560.atm_project.Controllers;
 
 import com.cs3560.atm_project.Models.Checking;
 import com.cs3560.atm_project.Models.Credit;
+import com.cs3560.atm_project.Models.StackPanel;
 import com.cs3560.atm_project.Views.ATMMenuGUI;
 import com.cs3560.atm_project.Views.BalanceGUI;
 import com.cs3560.atm_project.Views.DepositWindowGUI;
@@ -17,10 +14,6 @@ import com.cs3560.atm_project.Views.InsertPinGUI;
 import com.cs3560.atm_project.Views.LoginGUI;
 import com.cs3560.atm_project.Views.TransferGUI;
 import com.cs3560.atm_project.Views.WithdrawWindowGUI;
-
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 /**
  *

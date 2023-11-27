@@ -5,7 +5,7 @@
 package com.cs3560.atm_project.Views;
 import javax.swing.JOptionPane;
 
-import com.cs3560.atm_project.ATM_Project;
+import com.cs3560.atm_project.Controllers.ATM_Project;
 /**
  *
  * @author gippy

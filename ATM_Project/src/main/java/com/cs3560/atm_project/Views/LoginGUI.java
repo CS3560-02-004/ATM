@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-import com.cs3560.atm_project.ATM_Project;
+import com.cs3560.atm_project.Controllers.ATM_Project;
 import com.cs3560.atm_project.Models.Checking;
 import com.cs3560.atm_project.Models.Credit;
 import com.cs3560.atm_project.Models.DatabaseConnection;

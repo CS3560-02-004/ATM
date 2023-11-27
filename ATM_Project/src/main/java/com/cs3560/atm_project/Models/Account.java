@@ -16,12 +16,13 @@ import com.cs3560.atm_project.Views.LoginGUI;
  * @author lkbao
  */
 public abstract class Account {
-    private int accountID;
-    private String dateCreated;
+    DatabaseConnection db;
+    ResultSet rs;
     
-    private DatabaseConnection db;
-    private ResultSet rs;
-    private final String GET_ACCOUNT = "SELECT * FROM accounttable WHERE accountID = ";
+    int accountID;
+    String dateCreated;
+    
+    final String GET_ACCOUNT = "SELECT * FROM accounttable WHERE accountID = ";
     
     /**
      * Constructor for Account.

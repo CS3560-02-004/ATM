@@ -21,10 +21,7 @@ public class Checking extends Account{
     
     private final String GET_CHECKING_BALANCE = "SELECT * FROM checking WHERE accountID = ";
 
-    
-    private DatabaseConnection db;
-    private ResultSet rs;
-    
+        
     /**
      * Constructor for checking account.
      * @param accountID of account
@@ -150,15 +147,5 @@ public class Checking extends Account{
      */
     public double getcheckingBalance() {
         return checkingBalance;
-    }
-    
-    
-    @Override
-    public int getAccountID() {
-        return super.getAccountID();
-    }
-    @Override
-    public String getDateCreated() {
-        return super.getDateCreated();
     }
 }
