@@ -54,10 +54,10 @@ public class Customer {
      */
     public void updateComboBox(int accountID, int customerID) {
         db = new DatabaseConnection();
-        String query = String.format("SELECT accountID FROM accounttable WHERE accountID = %d AND customerID = %d", super.getAccountID(), checkingBalance);
+        String query = String.format("SELECT accountID FROM accounttable WHERE accountID = %d AND customerID = %f", accountID, customerID);
         rs = db.getQuery(query);
         
-        ArrayList<String> accounts = new ArrayList<String>();
+        ArrayList<String> accounts = new ArrayList<>();
         accounts.add("Select");
         if (rs != null) {
             try {
@@ -72,9 +72,9 @@ public class Customer {
             }
         }
         
-        for (String item : accounts) {
-            accountComboBox.add(item);
-        }
+//        for (String item : accounts) {
+//            accountComboBox.add(item);
+//        }
     }
     private void queryAccountList() {
         rs = db.getQuery(String.format(GET_ACCOUNT_LIST + customerID));

@@ -40,6 +40,7 @@ com\mycompany\atm_project\ATM_Project.class
 com\cs3560\atm_project\WithdrawWindowGUI$6.class
 com\cs3560\atm_project\BalanceGUI.class
 com\cs3560\atm_project\Withdraw.class
+com\cs3560\atm_project\Customer.class
 com\cs3560\atm_project\WithdrawWindowGUI$12.class
 com\cs3560\atm_project\WithdrawWindowGUI.class
 com\cs3560\atm_project\WithdrawWindowGUI$11.class
@@ -69,6 +70,7 @@ com\cs3560\atm_project\ATMMenuGUI$1.class
 com\cs3560\atm_project\ATMMenuGUI$4.class
 com\cs3560\atm_project\Credit.class
 com\cs3560\atm_project\InsertPinGUI$4.class
+com\cs3560\atm_project\Transaction.class
 com\cs3560\atm_project\TransferGUI$4.class
 com\cs3560\atm_project\WithdrawWindowGUI$5.class
 com\cs3560\atm_project\WithdrawWindowGUI$10.class

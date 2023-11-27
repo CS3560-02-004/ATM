@@ -64,10 +64,10 @@ public class Checking extends Account{
     
     public void updateComboBox(int accountID, int customerID) {
         db = new DatabaseConnection();
-        String query = String.format("SELECT accountID FROM accounttable WHERE accountID = %d AND customerID = %d", super.getAccountID(), checkingBalance);
+        String query = String.format("SELECT accountID FROM accounttable WHERE accountID = %d AND customerID = %f", super.getAccountID(), customerID);
         rs = db.getQuery(query);
         
-        ArrayList<String> accounts = new ArrayList<String>();
+        ArrayList<String> accounts = new ArrayList<>();
         accounts.add("Select");
         if (rs != null) {
             try {
@@ -82,9 +82,9 @@ public class Checking extends Account{
             }
         }
         
-        for (String item : accounts) {
-            accountComboBox.add(item);
-        }
+//        for (String item : accounts) {
+//            accountComboBox.add(item);
+//        }
     }
     /**
      * Update checkingBalance in the database, for deposit

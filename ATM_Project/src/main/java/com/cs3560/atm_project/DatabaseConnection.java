@@ -11,12 +11,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+    
 
 public class DatabaseConnection {
     private final String URL = "jdbc:mysql://localhost:3306/atmsystem";
     private final String USERNAME = "root";
-    private final String PASSWORD = "123456789";
+    private final String PASSWORD = "root";
     
     private Connection connection;
     private Statement statement;
