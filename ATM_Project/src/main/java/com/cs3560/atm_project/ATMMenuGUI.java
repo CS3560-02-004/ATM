@@ -257,8 +257,8 @@ public class ATMMenuGUI extends javax.swing.JPanel {
 
     private void DEPOSITBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DEPOSITBTNActionPerformed
         if(isCredit){
-            JOptionPane.showMessageDialog(null, "You Cannot Deposit On a Credit Card",
-           "System Message", JOptionPane.ERROR_MESSAGE);
+            
+            JOptionPane.showMessageDialog(this, "Cannot Deposit with a Credit Card");
             return;
         }
             
@@ -266,6 +266,11 @@ public class ATMMenuGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_DEPOSITBTNActionPerformed
 
     private void TRANSFERBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TRANSFERBTNActionPerformed
+        if(isCredit){
+            JOptionPane.showMessageDialog(this, "Cannot Transfer with a Credit Card");
+            return;
+        }
+        
         TransferGUI transfer = ATM_Project.getTransferGUI();
         transfer.currentChecking = checking_account;
         ArrayList<Integer> list = customer.returnAccountList();
