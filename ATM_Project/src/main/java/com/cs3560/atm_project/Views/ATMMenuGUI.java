@@ -16,7 +16,6 @@ import com.cs3560.atm_project.Models.Account;
  * @author rizen   
  */
 public class ATMMenuGUI extends javax.swing.JPanel {    
-    public Account account;
     /**
      * Creates new form HomeScreen
      */
@@ -231,7 +230,7 @@ public class ATMMenuGUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void DEPOSITBTNActionPerformed(java.awt.event.ActionEvent evt) {
-        if(account.isCredit){
+        if(ATM_Project.getAccount().isCredit){
             JOptionPane.showMessageDialog(null, "You Cannot Deposit On a Credit Card",
            "System Message", JOptionPane.ERROR_MESSAGE);
             return;
@@ -245,6 +244,8 @@ public class ATMMenuGUI extends javax.swing.JPanel {
     }
 
     private void WITHDRAWBTNActionPerformed(java.awt.event.ActionEvent evt) {
+        Account account = ATM_Project.getAccount();
+
         if(account.isCredit){
             Credit credit_account = (Credit)account;
             double available_credit = credit_account.getCreditLimit() -  credit_account.getCreditUsed();
@@ -262,6 +263,8 @@ public class ATMMenuGUI extends javax.swing.JPanel {
     }
 
     private void BALANCEBTNActionPerformed(java.awt.event.ActionEvent evt) {
+        Account account = ATM_Project.getAccount();
+
         if(account.isCredit){
             Credit credit_account = (Credit)account;
             double available_credit = credit_account.getCreditLimit() -  credit_account.getCreditUsed();
@@ -281,15 +284,15 @@ public class ATMMenuGUI extends javax.swing.JPanel {
     }
 
     public void storeIsCredit(boolean isCredit) {
-        account.isCredit = isCredit;
+        ATM_Project.getAccount().isCredit = isCredit;
     }
     
     public int getAccountID() {
-        return account.getAccountID();
+        return ATM_Project.getAccount().getAccountID();
     }
         
     public boolean getIsCredit() {
-        return account.isCredit;
+        return ATM_Project.getAccount().isCredit;
     }
     
 

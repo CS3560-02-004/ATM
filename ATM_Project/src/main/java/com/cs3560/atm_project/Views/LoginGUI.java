@@ -249,8 +249,8 @@ public class LoginGUI extends javax.swing.JPanel {
                 menuGUI = ATM_Project.getMenuGUI();
                 
                 // Update account data into menuGUI so it is accessible to all features
-                if (isCredit) menuGUI.account = new Credit(accountID);
-                else menuGUI.account = new Checking(accountID);
+                if (isCredit) ATM_Project.setAccount(new Credit(accountID));
+                else ATM_Project.setAccount(new Checking(accountID));
                 
                 // Update GUI of getBalance
                 ATM_Project.getBalanceGUI().updateGUI(isCredit);

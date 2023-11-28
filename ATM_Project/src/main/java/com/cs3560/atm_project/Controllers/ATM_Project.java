@@ -34,6 +34,8 @@ public class ATM_Project {
     private static BalanceGUI balanceGui;
     private static StackPanel stackPanel;
        
+    private static Account account;
+
     public static void main(String[] args) {
         System.out.println("HELLO");
 
@@ -87,15 +89,19 @@ public class ATM_Project {
     
     // Get Checking object saved in homeGui
     public static Checking getCheckingAccount(){
-        return (Checking)homeGui.account;
+        return (Checking)account;
     }
     
     // Get Credit object saved in homeGui
     public static Credit getCreditAccount(){
-        return (Credit)homeGui.account;
+        return (Credit)account;
     }
 
     public static Account getAccount() {
-        return homeGui.account;
+        return account;
+    }
+    
+    public static void setAccount(Account newAccount) {
+        account = newAccount;
     }
 }
