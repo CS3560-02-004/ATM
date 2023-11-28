@@ -74,11 +74,11 @@ public class AtmController {
     public static InsertPinGUI getInsertPinGUI() {
         return pinGui;
     }
-    
-    public static BalanceGUI getBalanceGUI() {
-        return balanceGui;
+
+    public static void updateBalanceGUI() {
+        balanceGui.update();
     }
-    
+
     public static WithdrawWindowGUI getWithdrawGUI(){
         return withdrawGui;
     }
@@ -87,7 +87,7 @@ public class AtmController {
     public static Checking getCheckingAccount(){
         return (Checking)account;
     }
-    
+
     // Get Credit object saved in homeGui
     public static Credit getCreditAccount(){
         return (Credit)account;
@@ -99,5 +99,7 @@ public class AtmController {
     
     public static void setAccount(Account newAccount) {
         account = newAccount;
+
+        balanceGui.setAccount(account);
     }
 }

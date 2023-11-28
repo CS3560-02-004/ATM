@@ -5,12 +5,16 @@
 package com.cs3560.atm_project.Views;
 
 import com.cs3560.atm_project.Controllers.AtmController;
+import com.cs3560.atm_project.Models.Account;
+import com.cs3560.atm_project.Models.Checking;
+import com.cs3560.atm_project.Models.Credit;
 
 /**
  *
  * @author rizen
  */
 public class BalanceGUI extends javax.swing.JPanel {
+    private Account account;
 
     /**
      * Creates new form BalanceGUI
@@ -201,6 +205,24 @@ public class BalanceGUI extends javax.swing.JPanel {
         else{
             jLabel1.setText("Balance");
             availableBalancesTitle.setText("AVAILABLE BALANCE");
+        }
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+
+        updateGUI(account.isCredit);
+    }
+
+    public void update() {
+        updateGUI(account.isCredit);
+        if (account.isCredit) {
+            double availableCredit = ((Credit)account).getAvailableCredit();
+            String value = String.format("%.2f", availableCredit);
+            updateDisplay(value);
+        } else {
+            String value = String.format("%.2f", ((Checking)account).getcheckingBalance());
+            updateDisplay(value);
         }
     }
 

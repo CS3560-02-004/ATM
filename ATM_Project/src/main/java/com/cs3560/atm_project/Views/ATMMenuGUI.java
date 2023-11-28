@@ -267,16 +267,17 @@ public class ATMMenuGUI extends javax.swing.JPanel {
 
         if(account.isCredit){
             Credit credit_account = (Credit)account;
-            double available_credit = credit_account.getCreditLimit() -  credit_account.getCreditUsed();
+            double available_credit = credit_account.getAvailableCredit();
             String value = String.format("%.2f", available_credit);
-            AtmController.getBalanceGUI().updateDisplay(value);
+            // AtmController.updateBalanceDisplay(value);
         }
         else{
             Checking checking_account = (Checking)account;
             String value = String.format("%.2f", checking_account.getcheckingBalance());
-            AtmController.getBalanceGUI().updateDisplay(value);
+            // AtmController.updateBalanceDisplay(value);
         }
         AtmController.goToScreen("balance");
+        AtmController.updateBalanceGUI();
     }
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {

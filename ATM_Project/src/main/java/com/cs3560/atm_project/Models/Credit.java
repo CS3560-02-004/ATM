@@ -78,4 +78,8 @@ public class Credit extends Account{
     public double getCreditUsed() {
         return creditUsed;
     }
+
+    public double getAvailableCredit() {
+        return creditLimit - creditUsed;
+    }
 }
