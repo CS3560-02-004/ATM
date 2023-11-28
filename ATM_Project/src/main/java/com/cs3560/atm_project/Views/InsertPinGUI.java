@@ -9,7 +9,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-import com.cs3560.atm_project.Controllers.ATM_Project;
+import com.cs3560.atm_project.Controllers.AtmController;
 /**
  *
  * @author gippy
@@ -220,7 +220,7 @@ public class InsertPinGUI extends javax.swing.JPanel {
     private void InsertPinBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinBackButtonActionPerformed
         // TODO add your handling code here:
         InsertPinTextfield.setText("");
-        ATM_Project.goToScreen("login");
+        AtmController.goToScreen("login");
     }//GEN-LAST:event_InsertPinBackButtonActionPerformed
 
     private void InsertPinEnterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinEnterButtonActionPerformed
@@ -233,7 +233,7 @@ public class InsertPinGUI extends javax.swing.JPanel {
         
         if (correctPin == input && attempts_left > 0) {
             InsertPinTextfield.setText("");
-            ATM_Project.goToScreen("home");
+            AtmController.goToScreen("home");
             attempts_left = 3;
         } else {
             if(attempts_left > 0){

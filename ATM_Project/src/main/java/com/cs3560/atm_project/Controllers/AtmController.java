@@ -24,7 +24,7 @@ import com.cs3560.atm_project.Views.WithdrawWindowGUI;
 // Test Pin: 1014
 // Test Debit: 9703052905532230
 // Pin: 3465
-public class ATM_Project {
+public class AtmController {
     private static LoginGUI loginGui;
     private static ATMMenuGUI homeGui;
     private static InsertPinGUI pinGui;

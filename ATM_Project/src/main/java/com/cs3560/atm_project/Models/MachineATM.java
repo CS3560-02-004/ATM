@@ -11,7 +11,7 @@ import java.util.logging.Logger;
 
 import javax.crypto.Mac;
 
-import com.cs3560.atm_project.Controllers.ATM_Project;
+import com.cs3560.atm_project.Controllers.AtmController;
 import com.cs3560.atm_project.Views.LoginGUI;
 
 /**

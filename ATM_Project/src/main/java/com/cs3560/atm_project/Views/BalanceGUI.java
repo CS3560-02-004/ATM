@@ -4,7 +4,7 @@
  */
 package com.cs3560.atm_project.Views;
 
-import com.cs3560.atm_project.Controllers.ATM_Project;
+import com.cs3560.atm_project.Controllers.AtmController;
 
 /**
  *
@@ -184,7 +184,7 @@ public class BalanceGUI extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         updateDisplay("");
-        ATM_Project.goToScreen("home");
+        AtmController.goToScreen("home");
     }//GEN-LAST:event_jButton1ActionPerformed
     
     // Updates the value of the balance/credit available

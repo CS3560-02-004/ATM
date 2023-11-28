@@ -5,7 +5,7 @@
 package com.cs3560.atm_project.Views;
 import javax.swing.JOptionPane;
 
-import com.cs3560.atm_project.Controllers.ATM_Project;
+import com.cs3560.atm_project.Controllers.AtmController;
 /**
  *
  * @author gippy
@@ -245,7 +245,7 @@ public class TransferGUI extends javax.swing.JPanel {
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         amountInput.setText("0");
         accountComboBox.setSelectedIndex(0);
-        ATM_Project.goToScreen("home");
+        AtmController.goToScreen("home");
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed

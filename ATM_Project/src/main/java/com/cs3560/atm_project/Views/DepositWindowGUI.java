@@ -6,7 +6,7 @@ package com.cs3560.atm_project.Views;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentListener;
 
-import com.cs3560.atm_project.Controllers.ATM_Project;
+import com.cs3560.atm_project.Controllers.AtmController;
 import com.cs3560.atm_project.Models.MachineATM;
 import com.cs3560.atm_project.Models.Transaction;
 
@@ -538,9 +538,9 @@ public class DepositWindowGUI extends javax.swing.JPanel {
     private void depositButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositButtonActionPerformed
         System.out.println(totalDeposit);
         System.out.println(currentAccountID);
-        ATM_Project.getCheckingAccount().updateCheckingBalance(totalDeposit);
+        AtmController.getCheckingAccount().updateCheckingBalance(totalDeposit);
         JOptionPane.showMessageDialog(this, "You have successfully deposited " + totalDeposit + " dollars.");
-        Transaction create = new Transaction(ATM_Project.getCheckingAccount().getAccountID(), MachineATM.getInstance().getAtmID(), "Deposit", "Sucessful");
+        Transaction create = new Transaction(AtmController.getCheckingAccount().getAccountID(), MachineATM.getInstance().getAtmID(), "Deposit", "Sucessful");
          
         MachineATM machine = MachineATM.getInstance();
         machine.increaseQuantity(one_denomination, two_denomination, five_denomination, ten_denomination, twenty_denomination, fifty_denomination, hundred_denomination);
@@ -560,7 +560,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         twentyDollarAmount.setText("");
         fiftyDollarAmount.setText("");
         oneHundredDollarAmount.setText("");
-        ATM_Project.goToScreen("home");
+        AtmController.goToScreen("home");
     }//GEN-LAST:event_depositButtonActionPerformed
 
     public void setAccountID(int accountID){
@@ -583,7 +583,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         twentyDollarAmount.setText("");
         fiftyDollarAmount.setText("");
         oneHundredDollarAmount.setText("");
-        ATM_Project.goToScreen("home");
+        AtmController.goToScreen("home");
     }//GEN-LAST:event_backButtonActionPerformed
 
 

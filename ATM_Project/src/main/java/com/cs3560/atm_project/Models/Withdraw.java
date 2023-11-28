@@ -4,7 +4,7 @@
  */
 package com.cs3560.atm_project.Models;
 
-import com.cs3560.atm_project.Controllers.ATM_Project;
+import com.cs3560.atm_project.Controllers.AtmController;
 
 /**
  *
@@ -20,11 +20,11 @@ public class Withdraw {
     public Withdraw() {
         atm = MachineATM.getInstance();
 
-        this.isCredit = ATM_Project.getMenuGUI().getIsCredit();
+        this.isCredit = AtmController.getMenuGUI().getIsCredit();
         if (isCredit) {
-            account = new Credit(ATM_Project.getMenuGUI().getAccountID());
+            account = new Credit(AtmController.getMenuGUI().getAccountID());
         } else {
-            account = new Checking(ATM_Project.getMenuGUI().getAccountID());
+            account = new Checking(AtmController.getMenuGUI().getAccountID());
         }
     }
     /**

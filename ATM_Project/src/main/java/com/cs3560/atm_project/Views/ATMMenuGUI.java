@@ -6,7 +6,7 @@ package com.cs3560.atm_project.Views;
 
 import javax.swing.JOptionPane;
 
-import com.cs3560.atm_project.Controllers.ATM_Project;
+import com.cs3560.atm_project.Controllers.AtmController;
 import com.cs3560.atm_project.Models.Checking;
 import com.cs3560.atm_project.Models.Credit;
 import com.cs3560.atm_project.Models.Account;
@@ -230,69 +230,69 @@ public class ATMMenuGUI extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void DEPOSITBTNActionPerformed(java.awt.event.ActionEvent evt) {
-        if(ATM_Project.getAccount().isCredit){
+        if(AtmController.getAccount().isCredit){
             JOptionPane.showMessageDialog(null, "You Cannot Deposit On a Credit Card",
            "System Message", JOptionPane.ERROR_MESSAGE);
             return;
         }
             
-        ATM_Project.goToScreen("deposit");
+        AtmController.goToScreen("deposit");
     }
 
     private void TRANSFERBTNActionPerformed(java.awt.event.ActionEvent evt) {
-        ATM_Project.goToScreen("transfer");
+        AtmController.goToScreen("transfer");
     }
 
     private void WITHDRAWBTNActionPerformed(java.awt.event.ActionEvent evt) {
-        Account account = ATM_Project.getAccount();
+        Account account = AtmController.getAccount();
 
         if(account.isCredit){
             Credit credit_account = (Credit)account;
             double available_credit = credit_account.getCreditLimit() -  credit_account.getCreditUsed();
             String value = String.format("%.2f", available_credit);
-            ATM_Project.getWithdrawGUI().updateBalanceText(value);
+            AtmController.getWithdrawGUI().updateBalanceText(value);
         }
         else{
             Checking checking_account = (Checking)account;
             String value = String.format("%.2f", checking_account.getcheckingBalance());
-            ATM_Project.getWithdrawGUI().updateBalanceText(value + "");
+            AtmController.getWithdrawGUI().updateBalanceText(value + "");
         }
-         ATM_Project.getWithdrawGUI().updateBalanceHeader(account.isCredit);
+         AtmController.getWithdrawGUI().updateBalanceHeader(account.isCredit);
         
-        ATM_Project.goToScreen("withdraw");
+        AtmController.goToScreen("withdraw");
     }
 
     private void BALANCEBTNActionPerformed(java.awt.event.ActionEvent evt) {
-        Account account = ATM_Project.getAccount();
+        Account account = AtmController.getAccount();
 
         if(account.isCredit){
             Credit credit_account = (Credit)account;
             double available_credit = credit_account.getCreditLimit() -  credit_account.getCreditUsed();
             String value = String.format("%.2f", available_credit);
-            ATM_Project.getBalanceGUI().updateDisplay(value);
+            AtmController.getBalanceGUI().updateDisplay(value);
         }
         else{
             Checking checking_account = (Checking)account;
             String value = String.format("%.2f", checking_account.getcheckingBalance());
-            ATM_Project.getBalanceGUI().updateDisplay(value);
+            AtmController.getBalanceGUI().updateDisplay(value);
         }
-        ATM_Project.goToScreen("balance");
+        AtmController.goToScreen("balance");
     }
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {
-        ATM_Project.goToScreen("login");
+        AtmController.goToScreen("login");
     }
 
     public void storeIsCredit(boolean isCredit) {
-        ATM_Project.getAccount().isCredit = isCredit;
+        AtmController.getAccount().isCredit = isCredit;
     }
     
     public int getAccountID() {
-        return ATM_Project.getAccount().getAccountID();
+        return AtmController.getAccount().getAccountID();
     }
         
     public boolean getIsCredit() {
-        return ATM_Project.getAccount().isCredit;
+        return AtmController.getAccount().isCredit;
     }
     
 

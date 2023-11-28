@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-import com.cs3560.atm_project.Controllers.ATM_Project;
+import com.cs3560.atm_project.Controllers.AtmController;
 import com.cs3560.atm_project.Models.Checking;
 import com.cs3560.atm_project.Models.Credit;
 import com.cs3560.atm_project.Models.DatabaseConnection;
@@ -196,9 +196,9 @@ public class LoginGUI extends javax.swing.JPanel {
         
         if (validInput == 0) {
             cardNumberInput.setText("");
-            ATM_Project.goToScreen("pin");
+            AtmController.goToScreen("pin");
         } else if (validInput == 1) {
-            ATM_Project.goToScreen("home");
+            AtmController.goToScreen("home");
         } else {
             JOptionPane.showMessageDialog(null, "Your Card is not in the system!",
            "Card Validator", JOptionPane.ERROR_MESSAGE);
@@ -239,21 +239,21 @@ public class LoginGUI extends javax.swing.JPanel {
                     cardValidation = 1;
                     
                 } else {
-                    pinGUI = ATM_Project.getInsertPinGUI();
+                    pinGUI = AtmController.getInsertPinGUI();
                     pinGUI.setCorrectPIN(pin);
                     cardValidation = 0;
                     // Debug
                     System.out.println("It is Credit " + pin);
                 }
                 
-                menuGUI = ATM_Project.getMenuGUI();
+                menuGUI = AtmController.getMenuGUI();
                 
                 // Update account data into menuGUI so it is accessible to all features
-                if (isCredit) ATM_Project.setAccount(new Credit(accountID));
-                else ATM_Project.setAccount(new Checking(accountID));
+                if (isCredit) AtmController.setAccount(new Credit(accountID));
+                else AtmController.setAccount(new Checking(accountID));
                 
                 // Update GUI of getBalance
-                ATM_Project.getBalanceGUI().updateGUI(isCredit);
+                AtmController.getBalanceGUI().updateGUI(isCredit);
                 
                 // Store important data into menuGUI
                 MachineATM.storeAtmID(atmID);

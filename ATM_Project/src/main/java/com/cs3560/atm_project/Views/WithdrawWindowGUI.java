@@ -7,7 +7,7 @@ import javax.swing.JOptionPane;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
-import com.cs3560.atm_project.Controllers.ATM_Project;
+import com.cs3560.atm_project.Controllers.AtmController;
 import com.cs3560.atm_project.Models.Credit;
 import com.cs3560.atm_project.Models.MachineATM;
 import com.cs3560.atm_project.Models.Transaction;
@@ -590,14 +590,14 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         boolean result = machine.reduceQuantity(one_denomination, two_denomination, five_denomination, ten_denomination, twenty_denomination, fifty_denomination, hundred_denomination);
         if(!result){
             JOptionPane.showMessageDialog(this, "There isn't enough denominations in the system, deposit some more money ");
-            ATM_Project.goToScreen("home");
+            AtmController.goToScreen("home");
             return;
         }
         
         // withdraw based on if account type (credit or debit). return true if account have sufficient fund.
         // if(ATM_Project.getCheckingAccount() == null){
-        if (ATM_Project.getAccount() instanceof Credit) {
-            Credit creditAccount = ATM_Project.getCreditAccount();
+        if (AtmController.getAccount() instanceof Credit) {
+            Credit creditAccount = AtmController.getCreditAccount();
             double remainingCredit = creditAccount.getCreditLimit() - creditAccount.getCreditUsed();
             if((remainingCredit-totalWithdraw) > 0){
                creditAccount.updateCreditUsed(totalWithdraw);
@@ -609,17 +609,17 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
             }
                       
         } else {
-            double totalAmount = ATM_Project.getCheckingAccount().getcheckingBalance();
+            double totalAmount = AtmController.getCheckingAccount().getcheckingBalance();
             if((totalAmount-totalWithdraw) > 0){
-                ATM_Project.getCheckingAccount().reduceCheckingBalance(totalWithdraw);
+                AtmController.getCheckingAccount().reduceCheckingBalance(totalWithdraw);
                 JOptionPane.showMessageDialog(this, "You have successfully used " + totalWithdraw + " dollars. ");       
-                Transaction create = new Transaction(ATM_Project.getCheckingAccount().getAccountID(), MachineATM.getInstance().getAtmID(), "Checking Withdraw", "Sucessful");
+                Transaction create = new Transaction(AtmController.getCheckingAccount().getAccountID(), MachineATM.getInstance().getAtmID(), "Checking Withdraw", "Sucessful");
             } else {
                JOptionPane.showMessageDialog(this, "You can not withdraw this much, you have $"  + totalAmount + " in your balance");  
            }
 
         }
-        ATM_Project.goToScreen("home");
+        AtmController.goToScreen("home");
 
               
         one_denomination = 0;
@@ -659,7 +659,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         twentyDollarAmount.setText("");
         fiftyDollarAmount.setText("");
         oneHundredDollarAmount.setText("");
-        ATM_Project.goToScreen("home");
+        AtmController.goToScreen("home");
     }//GEN-LAST:event_backButtonActionPerformed
     
 
