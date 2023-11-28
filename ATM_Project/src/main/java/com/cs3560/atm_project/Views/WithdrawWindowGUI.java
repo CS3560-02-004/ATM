@@ -585,7 +585,8 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
     private void withdrawButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawButtonActionPerformed
         System.out.println("Withdrawing: " + totalWithdraw);
         
-        MachineATM machine = new MachineATM();
+        MachineATM machine = MachineATM.getInstance();
+
         boolean result = machine.reduceQuantity(one_denomination, two_denomination, five_denomination, ten_denomination, twenty_denomination, fifty_denomination, hundred_denomination);
         if(!result){
             JOptionPane.showMessageDialog(this, "There isn't enough denominations in the system, deposit some more money ");

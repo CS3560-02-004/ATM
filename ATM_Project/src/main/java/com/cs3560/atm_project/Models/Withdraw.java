@@ -18,7 +18,8 @@ public class Withdraw {
      * Constructor for withdraw.
      */
     public Withdraw() {
-        this.atm = new MachineATM();
+        atm = MachineATM.getInstance();
+
         this.isCredit = ATM_Project.getMenuGUI().getIsCredit();
         if (isCredit) {
             account = new Credit(ATM_Project.getMenuGUI().getAccountID());
