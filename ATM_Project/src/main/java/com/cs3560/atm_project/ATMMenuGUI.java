@@ -267,6 +267,7 @@ public class ATMMenuGUI extends javax.swing.JPanel {
 
     private void TRANSFERBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TRANSFERBTNActionPerformed
         TransferGUI transfer = ATM_Project.getTransferGUI();
+        transfer.currentChecking = checking_account;
         ArrayList<Integer> list = customer.returnAccountList();
         
         transfer.resetComboBoxItems();
@@ -274,6 +275,7 @@ public class ATMMenuGUI extends javax.swing.JPanel {
             transfer.addComboBoxItem(list.get(i).toString());
         }
         
+        transfer.isListenerOn = true;
         ATM_Project.goToScreen("transfer");
     }//GEN-LAST:event_TRANSFERBTNActionPerformed
 

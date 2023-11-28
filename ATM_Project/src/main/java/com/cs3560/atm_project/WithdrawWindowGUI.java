@@ -403,7 +403,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
 
         withdrawAmount.setEditable(false);
         withdrawAmount.setBackground(new java.awt.Color(255, 255, 255));
-        withdrawAmount.setText("0");
+        withdrawAmount.setText("$0");
         withdrawAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 withdrawAmountActionPerformed(evt);
@@ -412,7 +412,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
 
         balanceTextField.setEditable(false);
         balanceTextField.setBackground(new java.awt.Color(255, 255, 255));
-        balanceTextField.setText("0");
+        balanceTextField.setText("$0");
         balanceTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 balanceTextFieldTextFieldActionPerformed(evt);
@@ -738,21 +738,27 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
            double remainingCredit = ATM_Project.getCreditAccount().getCreditLimit() - ATM_Project.getCreditAccount().getCreditUsed();
            if((remainingCredit-totalWithdraw) > 0){
                ATM_Project.getCreditAccount().updateCreditUsed(totalWithdraw);
-               JOptionPane.showMessageDialog(this, "You have successfully used " + totalWithdraw + " dollars. You have " + remainingCredit + " remaining.");  
+               String value = String.format("$%d.00", totalWithdraw);
+               JOptionPane.showMessageDialog(this, "You have successfully withdrawn " + value + " dollars. You have " + remainingCredit + " remaining.");  
                
                Transaction create = new Transaction(ATM_Project.getCreditAccount().getAccountID(), ATM_Project.getATM(), "Credit Withdraw", "Sucessful");
            } else {
-               JOptionPane.showMessageDialog(this, "You can not go over the limit, you have "  + remainingCredit + " credit remaining.");  
+               String value = String.format("$%.2f", remainingCredit);
+               JOptionPane.showMessageDialog(this, "You can not go over the limit, you have "  + value + " credit remaining.");  
+               return;
            }
                       
         }else {
             double totalAmount = ATM_Project.getCheckingAccount().getcheckingBalance();
             if((totalAmount-totalWithdraw) > 0){
                 ATM_Project.getCheckingAccount().reduceCheckingBalance(totalWithdraw);
-                JOptionPane.showMessageDialog(this, "You have successfully used " + totalWithdraw + " dollars. ");       
+                String value = String.format("$%d.00", totalWithdraw);
+                JOptionPane.showMessageDialog(this, "You have successfully withdrawn " + value + " dollars. ");       
                 Transaction create = new Transaction(ATM_Project.getCheckingAccount().getAccountID(), ATM_Project.getATM(), "Checking Withdraw", "Sucessful");
             } else {
-               JOptionPane.showMessageDialog(this, "You can not withdraw this much, you have $"  + totalAmount + " in your balance");  
+               String value = String.format("$%.2f", totalAmount);
+               JOptionPane.showMessageDialog(this, "You can not withdraw this much, you have " + value + " in your balance");
+               return;
            }
 
         }
@@ -766,7 +772,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         twenty_denomination = 0;
         fifty_denomination = 0;
         hundred_denomination = 0;
-        withdrawAmount.setText("0");
+        withdrawAmount.setText("$0");
         oneDollarAmount.setText("");
         twoDollarAmount.setText("");
         fiveDollarAmount.setText("");
@@ -788,7 +794,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         twenty_denomination = 0;
         fifty_denomination = 0;
         hundred_denomination = 0;
-        withdrawAmount.setText("0");
+        withdrawAmount.setText("$0");
         oneDollarAmount.setText("");
         twoDollarAmount.setText("");
         fiveDollarAmount.setText("");

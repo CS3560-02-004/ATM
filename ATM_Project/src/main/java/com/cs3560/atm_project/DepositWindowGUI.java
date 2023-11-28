@@ -48,7 +48,8 @@ public class DepositWindowGUI extends javax.swing.JPanel {
      */
     private void updateTotalDeposit(){
         getTotalDeposit();
-        depositAmount.setText(totalDeposit + "");
+        String value = String.format("$%.2f", totalDeposit);
+        depositAmount.setText(value);
     }
     
     /**
@@ -324,7 +325,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
 
         depositAmount.setEditable(false);
         depositAmount.setBackground(new java.awt.Color(255, 255, 255));
-        depositAmount.setText("0");
+        depositAmount.setText("$0");
         depositAmount.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 depositAmountActionPerformed(evt);
@@ -616,7 +617,8 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         System.out.println(totalDeposit);
         System.out.println(currentAccountID);
         ATM_Project.getCheckingAccount().updateCheckingBalance(totalDeposit);
-        JOptionPane.showMessageDialog(this, "You have successfully deposited " + totalDeposit + " dollars.");
+        String value = String.format("$%.2f", totalDeposit);
+        JOptionPane.showMessageDialog(this, "You have successfully deposited " + value + " dollars.");
         Transaction create = new Transaction(ATM_Project.getCheckingAccount().getAccountID(), ATM_Project.getATM(), "Deposit", "Sucessful");
          
         MachineATM machine = new MachineATM();
@@ -629,7 +631,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         twenty_denomination = 0;
         fifty_denomination = 0;
         hundred_denomination = 0;
-        depositAmount.setText("0");
+        depositAmount.setText("$0");
         oneDollarAmount.setText("");
         twoDollarAmount.setText("");
         fiveDollarAmount.setText("");
@@ -680,7 +682,7 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         twenty_denomination = 0;
         fifty_denomination = 0;
         hundred_denomination = 0;
-        depositAmount.setText("0");
+        depositAmount.setText("$0");
         oneDollarAmount.setText("");
         twoDollarAmount.setText("");
         fiveDollarAmount.setText("");

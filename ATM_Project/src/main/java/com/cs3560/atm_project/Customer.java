@@ -22,8 +22,11 @@ public class Customer {
     private DatabaseConnection db;
     private ResultSet rs;
     
-    private String GET_CUSTOMER = "SELECT * FROM accounttable WHERE accountID = ";
-    private String GET_ACCOUNT_LIST = "SELECT * FROM accounttable WHERE customerID = ";
+    private static final String GET_CUSTOMER = "SELECT * FROM accounttable WHERE accountID = ";
+    private static final String GET_ACCOUNT_LIST = "SELECT * FROM accounttable WHERE customerID = ";
+    private static final String CHECK_IF_CHECKING = "SELECT * FROM checking WHERE accountID = ";
+    private static final String CHECK_IF_CREDIT = "SELECT * FROM credit WHERE accountID = ";
+    private static final String CHECK_IF_SAVING = "SELECT * FROM saving WHERE accountID = ";
     
     public Customer(int accountID) {
         thisAccountID = accountID;
@@ -54,6 +57,48 @@ public class Customer {
         return accountIDList;
     }
     
+    // Return:
+    // 0 if checking
+    // 1 if credit
+    // 2 if savings
+    // 3 if problem
+    public static int returnAccountType(int accountID){
+        DatabaseConnection db = new DatabaseConnection();
+        ResultSet rs;
+        
+        // Check if checking
+        rs = db.getQuery(String.format(CHECK_IF_CHECKING + accountID));
+        try {
+            if (rs.next() == true) {
+                return 0;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        // Check if credit
+        rs = db.getQuery(String.format(CHECK_IF_CREDIT + accountID));
+        try {
+            if (rs.next() == true) {
+                return 1;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        // Check if savings
+        rs = db.getQuery(String.format(CHECK_IF_SAVING + accountID));
+        try {
+            if (rs.next() == true) {
+                return 2;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return 3;
+    }
+    
     
     private void queryAccountList() {
         int accountNumBuffer = 0;
@@ -72,10 +117,6 @@ public class Customer {
         } catch (SQLException ex) {
             Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    
-    public List getListAccount() {
-        return accountIDList;
     }
     
     public int getCustomerID() {

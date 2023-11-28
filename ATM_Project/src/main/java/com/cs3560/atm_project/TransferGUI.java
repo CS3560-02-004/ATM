@@ -4,6 +4,8 @@
  */
 package com.cs3560.atm_project;
 import javax.swing.JOptionPane;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 /**
  *
  * @author gippy
@@ -13,12 +15,61 @@ public class TransferGUI extends javax.swing.JPanel {
     /**
      * Creates new form TransferGUI
      */
+    public Checking currentChecking;
+    public boolean isListenerOn = false;
+    
     private double totalTransfer = 0;
+    private int accountType = 3;
     private Checking selectedChecking;
     private Credit selectedCredit;
     
     public TransferGUI() {
         initComponents();
+        
+        // Click Listener
+        accountComboBox.addItemListener(new ItemListener(){
+            @Override
+            public void itemStateChanged(ItemEvent arg0){
+                if(!isListenerOn) return;
+                if(accountComboBox.getSelectedItem() == null) return;
+                String name = accountComboBox.getSelectedItem().toString();
+                if(name.equals("Select")){
+                    typeTextField.setText("");
+                    balanceTextField.setText("");
+                    accountType = 3;
+                    return;
+                }
+                
+                accountType = Customer.returnAccountType(Integer.parseInt(name));
+                // Update UI based on account type selected
+                switch(accountType){
+                    case 0:{
+                        typeTextField.setText("Checking");
+                        selectedChecking = new Checking(Integer.parseInt(name));
+                        
+                        balanceHeader.setText("Balance");
+                        String value = String.format("$%.2f", selectedChecking.getcheckingBalance());
+                        balanceTextField.setText(value);
+                        break;
+                    }
+                    case 1:{
+                        typeTextField.setText("Credit");
+                        selectedCredit = new Credit(Integer.parseInt(name));
+                        
+                        balanceHeader.setText("Credit Used");
+                        String value = String.format("$%.2f", selectedCredit.getCreditUsed());
+                        balanceTextField.setText(value);
+                        break;
+                    }
+                    case 2:
+                        typeTextField.setText("Savings");
+                        break;
+                    case 3:
+                        typeTextField.setText("");
+                        break;
+                }
+            }
+        });
     }
     
     public void addComboBoxItem(String item){
@@ -30,12 +81,6 @@ public class TransferGUI extends javax.swing.JPanel {
     
     public void resetComboBoxItems() {
         accountComboBox.removeAllItems();
-    }
-    
-    // Get the total amount of money currently about to be transfer
-    // by looking at home many of each denomination is to be transfer
-    private void getTotalTransfer(){
-        totalTransfer = Double.parseDouble(amountInput.getText());
     }
     
 
@@ -62,9 +107,9 @@ public class TransferGUI extends javax.swing.JPanel {
         accountNumberLabel = new javax.swing.JLabel();
         accountComboBox = new javax.swing.JComboBox<>();
         jPanel6 = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
-        accountNumberLabel1 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        typeTextField = new javax.swing.JTextField();
+        balanceHeader = new javax.swing.JLabel();
+        balanceTextField = new javax.swing.JTextField();
         accountNumberLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -208,23 +253,23 @@ public class TransferGUI extends javax.swing.JPanel {
 
         jPanel6.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextField1.setEditable(false);
-        jTextField1.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        typeTextField.setEditable(false);
+        typeTextField.setBackground(new java.awt.Color(255, 255, 255));
+        typeTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                typeTextFieldActionPerformed(evt);
             }
         });
 
-        accountNumberLabel1.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        accountNumberLabel1.setForeground(new java.awt.Color(0, 0, 255));
-        accountNumberLabel1.setText("Balance");
+        balanceHeader.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
+        balanceHeader.setForeground(new java.awt.Color(0, 0, 255));
+        balanceHeader.setText("Balance");
 
-        jTextField2.setEditable(false);
-        jTextField2.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        balanceTextField.setEditable(false);
+        balanceTextField.setBackground(new java.awt.Color(255, 255, 255));
+        balanceTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                balanceTextFieldActionPerformed(evt);
             }
         });
 
@@ -240,11 +285,11 @@ public class TransferGUI extends javax.swing.JPanel {
                 .addGap(70, 70, 70)
                 .addComponent(accountNumberLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(typeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(accountNumberLabel1)
+                .addComponent(balanceHeader)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(balanceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(60, 60, 60))
         );
         jPanel6Layout.setVerticalGroup(
@@ -252,9 +297,9 @@ public class TransferGUI extends javax.swing.JPanel {
             .addGroup(jPanel6Layout.createSequentialGroup()
                 .addGap(0, 0, 0)
                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(accountNumberLabel1)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(typeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(balanceHeader)
+                    .addComponent(balanceTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(accountNumberLabel2))
                 .addGap(0, 0, Short.MAX_VALUE))
         );
@@ -316,16 +361,54 @@ public class TransferGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_amountInputActionPerformed
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
+        isListenerOn = false;
+        accountType = 3;
         amountInput.setText("0");
+        typeTextField.setText("");
+        balanceTextField.setText("");
+        balanceHeader.setText("Balance");
         accountComboBox.setSelectedIndex(0);
         ATM_Project.goToScreen("home");
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed
         // TODO add your handling code here:
-        boolean isTransferSuccessful = true;
-        if(isTransferSuccessful) JOptionPane.showMessageDialog(this, "Transfer Successful");
-        else JOptionPane.showMessageDialog(this, "Transfer Unable to Occur");
+        if(accountType == 3){
+            JOptionPane.showMessageDialog(this, "No Account Selected");
+            return;
+        }
+        
+        totalTransfer = Double.parseDouble(amountInput.getText());
+        if(totalTransfer > currentChecking.getcheckingBalance()){
+            JOptionPane.showMessageDialog(this, "Checking Balance Too Low");
+            return;
+        }
+        
+        switch(accountType){
+            case 0:{
+                selectedChecking.updateCheckingBalance(totalTransfer);
+                currentChecking.reduceCheckingBalance(totalTransfer);
+                String value = String.format("$%.2f", selectedChecking.getcheckingBalance());
+                balanceTextField.setText(value);
+                JOptionPane.showMessageDialog(this, "Transfer Successful");
+                break;
+            }
+            case 1:{
+                if(selectedCredit.getCreditUsed() < totalTransfer){
+                    JOptionPane.showMessageDialog(this, "Cannot Transfer Over Amount Credit Owed");
+                    return;
+                }
+                
+                selectedCredit.payOffCreditUsed(totalTransfer);
+                currentChecking.reduceCheckingBalance(totalTransfer);
+                String value = String.format("$%.2f", selectedCredit.getCreditUsed());
+                balanceTextField.setText(value);
+                JOptionPane.showMessageDialog(this, "Transfer Successful");
+                break;
+            }
+            case 2:
+                break;
+        }
     }//GEN-LAST:event_enterButtonActionPerformed
 
     private void accountComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_accountComboBoxActionPerformed
@@ -333,23 +416,24 @@ public class TransferGUI extends javax.swing.JPanel {
         
     }//GEN-LAST:event_accountComboBoxActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void typeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_typeTextFieldActionPerformed
 
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
+    private void balanceTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_balanceTextFieldActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
+    }//GEN-LAST:event_balanceTextFieldActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> accountComboBox;
     private javax.swing.JLabel accountNumberLabel;
-    private javax.swing.JLabel accountNumberLabel1;
     private javax.swing.JLabel accountNumberLabel2;
     private javax.swing.JTextField amountInput;
     private javax.swing.JLabel amountLabel;
     private javax.swing.JButton backButton;
+    private javax.swing.JLabel balanceHeader;
+    private javax.swing.JTextField balanceTextField;
     private javax.swing.JButton enterButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
@@ -358,8 +442,7 @@ public class TransferGUI extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JLabel titleLabel;
+    private javax.swing.JTextField typeTextField;
     // End of variables declaration//GEN-END:variables
 }
