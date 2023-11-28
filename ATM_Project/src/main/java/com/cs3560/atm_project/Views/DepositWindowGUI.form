@@ -103,9 +103,6 @@
               <Border info="null"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="depositWindowTitle1ActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -157,9 +154,6 @@
               <Border info="null"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="depositHeaderActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -216,9 +210,6 @@
               <Border info="null"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="depositAmountTitleActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="depositAmount">
           <Properties>
@@ -228,9 +219,6 @@
             </Property>
             <Property name="text" type="java.lang.String" value="0"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="depositAmountActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -349,19 +337,10 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="twentyDollarAmount">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="twentyDollarAmountActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="fiftyDollarAmount">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fiftyDollarAmountActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="oneHundredDollarAmount">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="oneHundredDollarAmountActionPerformed"/>
-          </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel9">
           <Properties>
@@ -457,24 +436,12 @@
       </Layout>
       <SubComponents>
         <Component class="javax.swing.JTextField" name="oneDollarAmount">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="oneDollarAmountActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="twoDollarAmount">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="twoDollarAmountActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="fiveDollarAmount">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="fiveDollarAmountActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="tenDollarAmount">
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="tenDollarAmountActionPerformed"/>
-          </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel11">
           <Properties>

@@ -29,6 +29,8 @@ public class Checking extends Account{
     public Checking(int accountID) {
         super(accountID);
         
+        isCredit = false;
+
         db = new DatabaseConnection();
         rs = db.getQuery(String.format(GET_CHECKING_BALANCE + accountID));
         

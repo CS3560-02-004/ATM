@@ -107,9 +107,6 @@
               <Border info="null"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="HEADER2ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="SUBHEADER">
           <Properties>
@@ -127,9 +124,6 @@
               <Border info="null"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="SUBHEADERActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -318,9 +312,6 @@
               <Border info="null"/>
             </Property>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FOOTERActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>

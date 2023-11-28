@@ -26,6 +26,8 @@ public class Credit extends Account{
      */
     public Credit(int accountID) {
         super(accountID);
+
+        isCredit = true;
         
         db = new DatabaseConnection();
         rs = db.getQuery(String.format(GET_CREDIT + accountID));

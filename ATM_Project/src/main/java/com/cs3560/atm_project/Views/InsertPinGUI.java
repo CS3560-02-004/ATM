@@ -39,6 +39,7 @@ public class InsertPinGUI extends javax.swing.JPanel {
         HEADER = new javax.swing.JTextField();
         panel2 = new java.awt.Panel();
         InsertPinTextfield = new javax.swing.JTextField();
+        label1 = new java.awt.Label();
         label2 = new java.awt.Label();
         panel3 = new java.awt.Panel();
         InsertPinBackButton = new javax.swing.JButton();
@@ -89,11 +90,6 @@ public class InsertPinGUI extends javax.swing.JPanel {
         HEADER.setForeground(new java.awt.Color(255, 255, 255));
         HEADER.setText("MyCPP Bank");
         HEADER.setBorder(null);
-        HEADER.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HEADERActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -119,6 +115,8 @@ public class InsertPinGUI extends javax.swing.JPanel {
                 InsertPinTextfieldActionPerformed(evt);
             }
         });
+
+        label1.setText("label1");
 
         label2.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         label2.setForeground(new java.awt.Color(0, 0, 255));
@@ -215,10 +213,6 @@ public class InsertPinGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void HEADERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HEADERActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HEADERActionPerformed
-
     private void InsertPinTextfieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_InsertPinTextfieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_InsertPinTextfieldActionPerformed
@@ -269,6 +263,7 @@ public class InsertPinGUI extends javax.swing.JPanel {
     private javax.swing.JTextField InsertPinTextfield;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private java.awt.Label label1;
     private java.awt.Label label2;
     private java.awt.Label label3;
     private java.awt.Panel panel2;

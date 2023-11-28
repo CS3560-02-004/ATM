@@ -17,6 +17,7 @@ import com.cs3560.atm_project.Controllers.ATM_Project;
 import com.cs3560.atm_project.Models.Checking;
 import com.cs3560.atm_project.Models.Credit;
 import com.cs3560.atm_project.Models.DatabaseConnection;
+import com.cs3560.atm_project.Models.MachineATM;
 
 
 
@@ -56,11 +57,6 @@ public class LoginGUI extends javax.swing.JPanel {
         HEADER.setForeground(new java.awt.Color(255, 255, 255));
         HEADER.setText("MyCPP Bank");
         HEADER.setBorder(null);
-        HEADER.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HEADERActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -186,10 +182,6 @@ public class LoginGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void HEADERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HEADERActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HEADERActionPerformed
-
     private void cardNumberInputActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cardNumberInputActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cardNumberInputActionPerformed
@@ -257,15 +249,15 @@ public class LoginGUI extends javax.swing.JPanel {
                 menuGUI = ATM_Project.getMenuGUI();
                 
                 // Update account data into menuGUI so it is accessible to all features
-                if(isCredit) menuGUI.credit_account = new Credit(accountID);
-                else menuGUI.checking_account = new Checking(accountID);
+                if (isCredit) menuGUI.account = new Credit(accountID);
+                else menuGUI.account = new Checking(accountID);
                 
                 // Update GUI of getBalance
                 ATM_Project.getBalanceGUI().updateGUI(isCredit);
                 
                 // Store important data into menuGUI
-                menuGUI.storeAtmID(atmID);
-                menuGUI.storeIsCredit(isCredit);
+                MachineATM.storeAtmID(atmID);
+                MachineATM.storeIsCredit(isCredit);
                 
                 depositGUI = new DepositWindowGUI();
                 depositGUI.setAccountID(accountID);

@@ -9,6 +9,8 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import javax.crypto.Mac;
+
 import com.cs3560.atm_project.Controllers.ATM_Project;
 import com.cs3560.atm_project.Views.LoginGUI;
 
@@ -17,8 +19,11 @@ import com.cs3560.atm_project.Views.LoginGUI;
  * @author lkbao
  */
 public class MachineATM {
-    private int atmID;
+    private static MachineATM atmInstance;
+
+    private int atmID = 0;
     private String branch;
+
     // 0 -> 6: one, two, five, ten, twenty, fifty, hundred
     private String[] strQuantity = { "oneDollarQuantity", "twoDollarQuantity", "fiveDollarQuantity", "tenDollarQuantity", "twentyDollarQuantity", "fiftyDollarQuantity", "hundredDollarQuantity"};
     private int[] quantity;
@@ -27,16 +32,21 @@ public class MachineATM {
     private DatabaseConnection db;
     private ResultSet rs;
     
-    // Constructor
     public MachineATM() {
-        this.atmID = ATM_Project.getMenuGUI().getAtmID();
+        this(1);
+    }
+
+    // Constructor
+    public MachineATM(int id) {
+        atmID = id;
+
         db = new DatabaseConnection();
         rs = db.getQuery(String.format(GET_ATM_MACHINE + atmID));
         
         quantity = new int[7];
         try {
             if (rs.next() == false) {
-                System.out.println("Machine ID not found in database");
+                System.out.println("Machine ID not found in database (" + atmID + ")");
             } else {
                 do {
                     branch = rs.getString("branch");
@@ -53,6 +63,7 @@ public class MachineATM {
             Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
     /**
      * Reduce quantity of cash in the database with value from @param.
      * @param one one dollar quantity reduced.
@@ -108,6 +119,7 @@ public class MachineATM {
         
         return result;
     }
+   
     /**
      * Support method that execute the query to update database value.
      * @param reduce array of dollar to be reduced.
@@ -121,10 +133,45 @@ public class MachineATM {
         }
     }
     
+    public static MachineATM getInstance(int id) {
+        if (atmInstance == null) {
+            atmInstance = new MachineATM(id);
+        }
+
+        return atmInstance;
+    }
+
+    public static MachineATM getInstance() {
+        if (atmInstance == null) {
+            atmInstance = new MachineATM();
+        }
+
+        return atmInstance;
+    }
+
+    public static void storeAtmID(int id) {
+        System.out.println("storing atm ID: " + id);
+        
+        MachineATM instance = getInstance(id);
+        instance.atmID = id;
+    }
+
+    public static void storeIsCredit(boolean isCredit) {
+
+    }
+
     /*
     Getter for various variable
     */
     
+    /**
+     * Getter for atmID
+     * @return atm ID
+     */
+    public int getAtmID() {
+        return atmID;
+    }
+
     /**
      * Getter for branch.
      * @return branch name.

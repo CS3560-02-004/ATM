@@ -4,6 +4,7 @@
 
 package com.cs3560.atm_project.Controllers;
 
+import com.cs3560.atm_project.Models.Account;
 import com.cs3560.atm_project.Models.Checking;
 import com.cs3560.atm_project.Models.Credit;
 import com.cs3560.atm_project.Models.StackPanel;
@@ -86,15 +87,15 @@ public class ATM_Project {
     
     // Get Checking object saved in homeGui
     public static Checking getCheckingAccount(){
-        return homeGui.checking_account;
+        return (Checking)homeGui.account;
     }
     
     // Get Credit object saved in homeGui
     public static Credit getCreditAccount(){
-        return homeGui.credit_account;
+        return (Credit)homeGui.account;
     }
-    
-    public static int getATM() {
-        return homeGui.getAtmID();
+
+    public static Account getAccount() {
+        return homeGui.account;
     }
 }

@@ -3,10 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package com.cs3560.atm_project.Views;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.event.DocumentListener;
 
@@ -257,11 +253,6 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         depositWindowTitle1.setForeground(new java.awt.Color(255, 255, 255));
         depositWindowTitle1.setText("MyCPP Bank");
         depositWindowTitle1.setBorder(null);
-        depositWindowTitle1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                depositWindowTitle1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -289,11 +280,6 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         depositHeader.setForeground(new java.awt.Color(0, 0, 255));
         depositHeader.setText("DEPOSIT");
         depositHeader.setBorder(null);
-        depositHeader.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                depositHeaderActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -321,20 +307,10 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         depositAmountTitle.setForeground(new java.awt.Color(0, 0, 255));
         depositAmountTitle.setText("AMOUNT:");
         depositAmountTitle.setBorder(null);
-        depositAmountTitle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                depositAmountTitleActionPerformed(evt);
-            }
-        });
 
         depositAmount.setEditable(false);
         depositAmount.setBackground(new java.awt.Color(255, 255, 255));
         depositAmount.setText("0");
-        depositAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                depositAmountActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -402,24 +378,6 @@ public class DepositWindowGUI extends javax.swing.JPanel {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        twentyDollarAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                twentyDollarAmountActionPerformed(evt);
-            }
-        });
-
-        fiftyDollarAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fiftyDollarAmountActionPerformed(evt);
-            }
-        });
-
-        oneHundredDollarAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                oneHundredDollarAmountActionPerformed(evt);
-            }
-        });
-
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
         depositTwentyDollarTitle.setText("$20");
@@ -480,30 +438,6 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         );
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
-
-        oneDollarAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                oneDollarAmountActionPerformed(evt);
-            }
-        });
-
-        twoDollarAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                twoDollarAmountActionPerformed(evt);
-            }
-        });
-
-        fiveDollarAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fiveDollarAmountActionPerformed(evt);
-            }
-        });
-
-        tenDollarAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tenDollarAmountActionPerformed(evt);
-            }
-        });
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -601,28 +535,12 @@ public class DepositWindowGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void depositWindowTitle1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositWindowTitle1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_depositWindowTitle1ActionPerformed
-
-    private void depositHeaderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositHeaderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_depositHeaderActionPerformed
-
-    private void depositAmountTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositAmountTitleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_depositAmountTitleActionPerformed
-
-    private void depositAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositAmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_depositAmountActionPerformed
-
     private void depositButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_depositButtonActionPerformed
         System.out.println(totalDeposit);
         System.out.println(currentAccountID);
         ATM_Project.getCheckingAccount().updateCheckingBalance(totalDeposit);
         JOptionPane.showMessageDialog(this, "You have successfully deposited " + totalDeposit + " dollars.");
-        Transaction create = new Transaction(ATM_Project.getCheckingAccount().getAccountID(), ATM_Project.getATM(), "Deposit", "Sucessful");
+        Transaction create = new Transaction(ATM_Project.getCheckingAccount().getAccountID(), MachineATM.getInstance().getAtmID(), "Deposit", "Sucessful");
          
         MachineATM machine = new MachineATM();
         machine.increaseQuantity(one_denomination, two_denomination, five_denomination, ten_denomination, twenty_denomination, fifty_denomination, hundred_denomination);
@@ -648,34 +566,6 @@ public class DepositWindowGUI extends javax.swing.JPanel {
     public void setAccountID(int accountID){
         currentAccountID = accountID;
     }
-    private void twentyDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twentyDollarAmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_twentyDollarAmountActionPerformed
-
-    private void fiftyDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiftyDollarAmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fiftyDollarAmountActionPerformed
-
-    private void oneHundredDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneHundredDollarAmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_oneHundredDollarAmountActionPerformed
-
-    private void oneDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneDollarAmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_oneDollarAmountActionPerformed
-
-    private void twoDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoDollarAmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_twoDollarAmountActionPerformed
-
-    private void fiveDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveDollarAmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fiveDollarAmountActionPerformed
-
-    private void tenDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tenDollarAmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tenDollarAmountActionPerformed
-
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         totalDeposit = 0;
         one_denomination = 0;

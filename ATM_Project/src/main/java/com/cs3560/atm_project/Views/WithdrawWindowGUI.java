@@ -8,6 +8,7 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import com.cs3560.atm_project.Controllers.ATM_Project;
+import com.cs3560.atm_project.Models.Credit;
 import com.cs3560.atm_project.Models.MachineATM;
 import com.cs3560.atm_project.Models.Transaction;
 import com.cs3560.atm_project.Models.Withdraw;
@@ -68,7 +69,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
     /**
      * Initialize document listeners for all text fields.
      */
-    private void initDocumentListeners(){
+    private void initDocumentListeners() {
         oneDollarAmount.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void changedUpdate(DocumentEvent e) {
@@ -227,14 +228,6 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        DepositHeader = new javax.swing.JTextField();
-        Amount = new javax.swing.JTextField();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField5 = new javax.swing.JTextField();
-        jTextField10 = new javax.swing.JTextField();
-        jTextField13 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField20 = new javax.swing.JTextField();
         jPanel2 = new javax.swing.JPanel();
         withdrawWindowTitle = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
@@ -266,44 +259,6 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         depositFiveDollarTitle = new javax.swing.JLabel();
         depositTenDollarTitle = new javax.swing.JLabel();
 
-        DepositHeader.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        DepositHeader.setForeground(new java.awt.Color(0, 0, 255));
-        DepositHeader.setText("DEPOSIT");
-        DepositHeader.setBorder(null);
-        DepositHeader.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DepositHeaderActionPerformed(evt);
-            }
-        });
-
-        Amount.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
-        Amount.setForeground(new java.awt.Color(0, 0, 255));
-        Amount.setText("AMOUNT:");
-        Amount.setBorder(null);
-        Amount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                AmountActionPerformed(evt);
-            }
-        });
-
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
-        jTextField5.setText("$2");
-        jTextField5.setBorder(null);
-
-        jTextField10.setText("$10");
-        jTextField10.setBorder(null);
-
-        jTextField13.setText("$20");
-        jTextField13.setBorder(null);
-
-        jTextField16.setText("$50");
-        jTextField16.setBorder(null);
-
         setBackground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 255));
@@ -314,11 +269,6 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         withdrawWindowTitle.setForeground(new java.awt.Color(255, 255, 255));
         withdrawWindowTitle.setText("MyCPP Bank");
         withdrawWindowTitle.setBorder(null);
-        withdrawWindowTitle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                withdrawWindowTitleActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -346,11 +296,6 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         balanceHeader.setForeground(new java.awt.Color(0, 0, 255));
         balanceHeader.setText("Balance");
         balanceHeader.setBorder(null);
-        balanceHeader.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                balanceHeaderActionPerformed(evt);
-            }
-        });
 
         withdrawHeader1.setEditable(false);
         withdrawHeader1.setBackground(new java.awt.Color(255, 255, 255));
@@ -358,11 +303,6 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         withdrawHeader1.setForeground(new java.awt.Color(0, 0, 255));
         withdrawHeader1.setText("WITHDRAW");
         withdrawHeader1.setBorder(null);
-        withdrawHeader1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                withdrawHeader1ActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -400,29 +340,14 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         withdrawAmountTitle.setForeground(new java.awt.Color(0, 0, 255));
         withdrawAmountTitle.setText("AMOUNT:");
         withdrawAmountTitle.setBorder(null);
-        withdrawAmountTitle.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                withdrawAmountTitleActionPerformed(evt);
-            }
-        });
 
         withdrawAmount.setEditable(false);
         withdrawAmount.setBackground(new java.awt.Color(255, 255, 255));
         withdrawAmount.setText("0");
-        withdrawAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                withdrawAmountActionPerformed(evt);
-            }
-        });
 
         balanceTextField.setEditable(false);
         balanceTextField.setBackground(new java.awt.Color(255, 255, 255));
         balanceTextField.setText("0");
-        balanceTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                balanceTextFieldTextFieldActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -493,24 +418,6 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
 
         jPanel4.setBackground(new java.awt.Color(255, 255, 255));
 
-        twentyDollarAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                twentyDollarAmountActionPerformed(evt);
-            }
-        });
-
-        fiftyDollarAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fiftyDollarAmountActionPerformed(evt);
-            }
-        });
-
-        oneHundredDollarAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                oneHundredDollarAmountActionPerformed(evt);
-            }
-        });
-
         jPanel9.setBackground(new java.awt.Color(255, 255, 255));
 
         depositTwentyDollarTitle.setText("$20");
@@ -571,30 +478,6 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         );
 
         jPanel10.setBackground(new java.awt.Color(255, 255, 255));
-
-        oneDollarAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                oneDollarAmountActionPerformed(evt);
-            }
-        });
-
-        twoDollarAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                twoDollarAmountActionPerformed(evt);
-            }
-        });
-
-        fiveDollarAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fiveDollarAmountActionPerformed(evt);
-            }
-        });
-
-        tenDollarAmount.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tenDollarAmountActionPerformed(evt);
-            }
-        });
 
         jPanel11.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -695,39 +578,11 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void withdrawWindowTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawWindowTitleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_withdrawWindowTitleActionPerformed
-
-    private void DepositHeaderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DepositHeaderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_DepositHeaderActionPerformed
-
-    private void balanceHeaderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_balanceHeaderActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_balanceHeaderActionPerformed
-
-    private void AmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_AmountActionPerformed
-
-    private void withdrawAmountTitleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawAmountTitleActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_withdrawAmountTitleActionPerformed
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
-
-    private void withdrawAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawAmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_withdrawAmountActionPerformed
     /**
      * Execute when withdraw button is pressed.
      * @param evt event.
      */
     private void withdrawButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawButtonActionPerformed
-        // TODO add your handling code here:      
         System.out.println("Withdrawing: " + totalWithdraw);
         
         MachineATM machine = new MachineATM();
@@ -739,23 +594,25 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         }
         
         // withdraw based on if account type (credit or debit). return true if account have sufficient fund.
-        if(ATM_Project.getCheckingAccount() == null){
-           double remainingCredit = ATM_Project.getCreditAccount().getCreditLimit() - ATM_Project.getCreditAccount().getCreditUsed();
-           if((remainingCredit-totalWithdraw) > 0){
-               ATM_Project.getCreditAccount().updateCreditUsed(totalWithdraw);
-               JOptionPane.showMessageDialog(this, "You have successfully used " + totalWithdraw + " dollars. You have " + remainingCredit + " remaining.");  
+        // if(ATM_Project.getCheckingAccount() == null){
+        if (ATM_Project.getAccount() instanceof Credit) {
+            Credit creditAccount = ATM_Project.getCreditAccount();
+            double remainingCredit = creditAccount.getCreditLimit() - creditAccount.getCreditUsed();
+            if((remainingCredit-totalWithdraw) > 0){
+               creditAccount.updateCreditUsed(totalWithdraw);
+               JOptionPane.showMessageDialog(this, "You have successfully used " + totalWithdraw + " dollars. You have " + (remainingCredit - totalWithdraw) + " remaining.");  
                
-               Transaction create = new Transaction(ATM_Project.getCreditAccount().getAccountID(), ATM_Project.getATM(), "Credit Withdraw", "Sucessful");
-           } else {
+               Transaction create = new Transaction(creditAccount.getAccountID(), MachineATM.getInstance().getAtmID(), "Credit Withdraw", "Sucessful");
+            } else {
                JOptionPane.showMessageDialog(this, "You can not go over the limit, you have "  + remainingCredit + " credit remaining.");  
-           }
+            }
                       
-        }else {
+        } else {
             double totalAmount = ATM_Project.getCheckingAccount().getcheckingBalance();
             if((totalAmount-totalWithdraw) > 0){
                 ATM_Project.getCheckingAccount().reduceCheckingBalance(totalWithdraw);
                 JOptionPane.showMessageDialog(this, "You have successfully used " + totalWithdraw + " dollars. ");       
-                Transaction create = new Transaction(ATM_Project.getCheckingAccount().getAccountID(), ATM_Project.getATM(), "Checking Withdraw", "Sucessful");
+                Transaction create = new Transaction(ATM_Project.getCheckingAccount().getAccountID(), MachineATM.getInstance().getAtmID(), "Checking Withdraw", "Sucessful");
             } else {
                JOptionPane.showMessageDialog(this, "You can not withdraw this much, you have $"  + totalAmount + " in your balance");  
            }
@@ -803,50 +660,11 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         oneHundredDollarAmount.setText("");
         ATM_Project.goToScreen("home");
     }//GEN-LAST:event_backButtonActionPerformed
-
-    private void fiftyDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiftyDollarAmountActionPerformed
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_fiftyDollarAmountActionPerformed
-
-    private void oneDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneDollarAmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_oneDollarAmountActionPerformed
-
-    private void twoDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twoDollarAmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_twoDollarAmountActionPerformed
-
-    private void twentyDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_twentyDollarAmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_twentyDollarAmountActionPerformed
-
-    private void balanceTextFieldTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_balanceTextFieldTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_balanceTextFieldTextFieldActionPerformed
-
-    private void withdrawHeader1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawHeader1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_withdrawHeader1ActionPerformed
-
-    private void tenDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tenDollarAmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_tenDollarAmountActionPerformed
-
-    private void oneHundredDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oneHundredDollarAmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_oneHundredDollarAmountActionPerformed
-
-    private void fiveDollarAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fiveDollarAmountActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_fiveDollarAmountActionPerformed
     
 
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField Amount;
-    private javax.swing.JTextField DepositHeader;
     private javax.swing.JButton backButton;
     private javax.swing.JTextField balanceHeader;
     private javax.swing.JTextField balanceTextField;
@@ -867,12 +685,6 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel9;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField10;
-    private javax.swing.JTextField jTextField13;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField20;
-    private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField oneDollarAmount;
     private javax.swing.JTextField oneHundredDollarAmount;
     private javax.swing.JTextField tenDollarAmount;

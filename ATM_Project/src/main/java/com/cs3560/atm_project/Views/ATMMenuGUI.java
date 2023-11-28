@@ -9,18 +9,14 @@ import javax.swing.JOptionPane;
 import com.cs3560.atm_project.Controllers.ATM_Project;
 import com.cs3560.atm_project.Models.Checking;
 import com.cs3560.atm_project.Models.Credit;
+import com.cs3560.atm_project.Models.Account;
 
 /**
  *
  * @author rizen   
  */
-public class ATMMenuGUI extends javax.swing.JPanel {
-
-    private int atmID;
-    private boolean isCredit;
-    
-    public Checking checking_account;
-    public Credit credit_account;
+public class ATMMenuGUI extends javax.swing.JPanel {    
+    public Account account;
     /**
      * Creates new form HomeScreen
      */
@@ -61,22 +57,12 @@ public class ATMMenuGUI extends javax.swing.JPanel {
         HEADER2.setForeground(new java.awt.Color(255, 255, 255));
         HEADER2.setText("Welcome to MyCPP Bank");
         HEADER2.setBorder(null);
-        HEADER2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                HEADER2ActionPerformed(evt);
-            }
-        });
 
         SUBHEADER.setBackground(new java.awt.Color(0, 0, 255));
         SUBHEADER.setFont(new java.awt.Font("Trebuchet MS", 0, 18)); // NOI18N
         SUBHEADER.setForeground(new java.awt.Color(255, 255, 255));
         SUBHEADER.setText("Please Select Your Transaction");
         SUBHEADER.setBorder(null);
-        SUBHEADER.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SUBHEADERActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -199,11 +185,6 @@ public class ATMMenuGUI extends javax.swing.JPanel {
         FOOTER.setForeground(new java.awt.Color(51, 51, 255));
         FOOTER.setText("MyCPP Bank");
         FOOTER.setBorder(null);
-        FOOTER.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FOOTERActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -249,81 +230,66 @@ public class ATMMenuGUI extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void HEADER2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HEADER2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_HEADER2ActionPerformed
-
-    private void SUBHEADERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SUBHEADERActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_SUBHEADERActionPerformed
-
-    private void DEPOSITBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DEPOSITBTNActionPerformed
-        if(isCredit){
+    private void DEPOSITBTNActionPerformed(java.awt.event.ActionEvent evt) {
+        if(account.isCredit){
             JOptionPane.showMessageDialog(null, "You Cannot Deposit On a Credit Card",
            "System Message", JOptionPane.ERROR_MESSAGE);
             return;
         }
             
         ATM_Project.goToScreen("deposit");
-    }//GEN-LAST:event_DEPOSITBTNActionPerformed
+    }
 
-    private void TRANSFERBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TRANSFERBTNActionPerformed
+    private void TRANSFERBTNActionPerformed(java.awt.event.ActionEvent evt) {
         ATM_Project.goToScreen("transfer");
-    }//GEN-LAST:event_TRANSFERBTNActionPerformed
+    }
 
-    private void WITHDRAWBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_WITHDRAWBTNActionPerformed
-        if(isCredit){
+    private void WITHDRAWBTNActionPerformed(java.awt.event.ActionEvent evt) {
+        if(account.isCredit){
+            Credit credit_account = (Credit)account;
             double available_credit = credit_account.getCreditLimit() -  credit_account.getCreditUsed();
             String value = String.format("%.2f", available_credit);
             ATM_Project.getWithdrawGUI().updateBalanceText(value);
         }
         else{
+            Checking checking_account = (Checking)account;
             String value = String.format("%.2f", checking_account.getcheckingBalance());
             ATM_Project.getWithdrawGUI().updateBalanceText(value + "");
         }
-         ATM_Project.getWithdrawGUI().updateBalanceHeader(isCredit);
+         ATM_Project.getWithdrawGUI().updateBalanceHeader(account.isCredit);
         
         ATM_Project.goToScreen("withdraw");
-    }//GEN-LAST:event_WITHDRAWBTNActionPerformed
+    }
 
-    private void FOOTERActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FOOTERActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FOOTERActionPerformed
-
-    private void BALANCEBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BALANCEBTNActionPerformed
-        if(isCredit){
+    private void BALANCEBTNActionPerformed(java.awt.event.ActionEvent evt) {
+        if(account.isCredit){
+            Credit credit_account = (Credit)account;
             double available_credit = credit_account.getCreditLimit() -  credit_account.getCreditUsed();
             String value = String.format("%.2f", available_credit);
             ATM_Project.getBalanceGUI().updateDisplay(value);
         }
         else{
+            Checking checking_account = (Checking)account;
             String value = String.format("%.2f", checking_account.getcheckingBalance());
             ATM_Project.getBalanceGUI().updateDisplay(value);
         }
         ATM_Project.goToScreen("balance");
-    }//GEN-LAST:event_BALANCEBTNActionPerformed
-
-    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logoutButtonActionPerformed
-        ATM_Project.goToScreen("login");
-    }//GEN-LAST:event_logoutButtonActionPerformed
-
-    public void storeAtmID(int atmID) {
-        System.out.println("atmID:" + atmID);
-        this.atmID = atmID;
     }
+
+    private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        ATM_Project.goToScreen("login");
+    }
+
     public void storeIsCredit(boolean isCredit) {
-        this.isCredit = isCredit;
+        account.isCredit = isCredit;
     }
     
     public int getAccountID() {
-        if(isCredit) return credit_account.getAccountID();
-        else return checking_account.getAccountID();
+        return account.getAccountID();
     }
-    public int getAtmID() {
-        return atmID;
-    }
+        
     public boolean getIsCredit() {
-        return isCredit;
+        return account.isCredit;
     }
     
 

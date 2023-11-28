@@ -24,6 +24,8 @@ public abstract class Account {
     
     final String GET_ACCOUNT = "SELECT * FROM accounttable WHERE accountID = ";
     
+    public boolean isCredit;
+
     /**
      * Constructor for Account.
      * @param accountID to be retrieve from database.
