@@ -4,7 +4,6 @@
  */
 package com.cs3560.atm_project.Models;
 
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,7 +20,7 @@ public class Checking extends Account{
     
     private final String GET_CHECKING_BALANCE = "SELECT * FROM checking WHERE accountID = ";
 
-        
+    private int correctPin;    
     /**
      * Constructor for checking account.
      * @param accountID of account
@@ -45,6 +44,10 @@ public class Checking extends Account{
         } catch (SQLException ex) {
             Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void setCorrectPin(int pin) {
+        correctPin = pin;
     }
     /**
      * Reduce checkingBalance in the database.

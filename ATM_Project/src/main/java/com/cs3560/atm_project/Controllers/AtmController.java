@@ -75,10 +75,6 @@ public class AtmController {
         return pinGui;
     }
     
-    public static ATMMenuGUI getMenuGUI() {
-        return homeGui;
-    }
-    
     public static BalanceGUI getBalanceGUI() {
         return balanceGui;
     }

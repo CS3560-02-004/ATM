@@ -23,7 +23,6 @@ import com.cs3560.atm_project.Models.MachineATM;
 
 public class LoginGUI extends javax.swing.JPanel {
     int atmID = 1;
-    ATMMenuGUI menuGUI;
     InsertPinGUI pinGUI;
     DepositWindowGUI depositGUI;
     
@@ -241,12 +240,11 @@ public class LoginGUI extends javax.swing.JPanel {
                 } else {
                     pinGUI = AtmController.getInsertPinGUI();
                     pinGUI.setCorrectPIN(pin);
+                    // AtmController.getCheckingAccount().setCorrectPin(pin);
                     cardValidation = 0;
                     // Debug
                     System.out.println("It is Credit " + pin);
                 }
-                
-                menuGUI = AtmController.getMenuGUI();
                 
                 // Update account data into menuGUI so it is accessible to all features
                 if (isCredit) AtmController.setAccount(new Credit(accountID));

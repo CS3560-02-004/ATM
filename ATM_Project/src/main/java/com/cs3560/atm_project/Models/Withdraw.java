@@ -13,19 +13,14 @@ import com.cs3560.atm_project.Controllers.AtmController;
 public class Withdraw {
     private MachineATM atm;
     private Account account;
-    private boolean isCredit;
     /**
      * Constructor for withdraw.
      */
     public Withdraw() {
         atm = MachineATM.getInstance();
 
-        this.isCredit = AtmController.getMenuGUI().getIsCredit();
-        if (isCredit) {
-            account = new Credit(AtmController.getMenuGUI().getAccountID());
-        } else {
-            account = new Checking(AtmController.getMenuGUI().getAccountID());
-        }
+        account = AtmController.getAccount();
+
     }
     /**
      * Getter for ATM.
@@ -46,7 +41,7 @@ public class Withdraw {
      * @return true if it is credit card, false otherwise.
      */
     public boolean getIsCredit() {
-        return isCredit;
+        return account.isCredit;
     }
    
 }
