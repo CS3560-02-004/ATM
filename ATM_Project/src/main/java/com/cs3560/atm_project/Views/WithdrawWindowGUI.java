@@ -8,6 +8,8 @@ import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
 import com.cs3560.atm_project.Controllers.AtmController;
+import com.cs3560.atm_project.Models.Account;
+import com.cs3560.atm_project.Models.Checking;
 import com.cs3560.atm_project.Models.Credit;
 import com.cs3560.atm_project.Models.MachineATM;
 import com.cs3560.atm_project.Models.Transaction;
@@ -662,7 +664,21 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         AtmController.goToScreen("home");
     }//GEN-LAST:event_backButtonActionPerformed
     
-
+    public void update(Account account) {
+        updateBalanceHeader(account.isCredit);
+        
+        if(account.isCredit){
+            Credit credit_account = (Credit)account;
+            double available_credit = credit_account.getAvailableCredit();
+            String value = String.format("%.2f", available_credit);
+            updateBalanceText(value);
+        }
+        else{
+            Checking checking_account = (Checking)account;
+            String value = String.format("%.2f", checking_account.getcheckingBalance());
+            updateBalanceText(value);            
+        }
+    }
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -14,8 +14,6 @@ import com.cs3560.atm_project.Models.Credit;
  * @author rizen
  */
 public class BalanceGUI extends javax.swing.JPanel {
-    private Account account;
-
     /**
      * Creates new form BalanceGUI
      */
@@ -208,13 +206,7 @@ public class BalanceGUI extends javax.swing.JPanel {
         }
     }
 
-    public void setAccount(Account account) {
-        this.account = account;
-
-        updateGUI(account.isCredit);
-    }
-
-    public void update() {
+    public void update(Account account) {
         updateGUI(account.isCredit);
         if (account.isCredit) {
             double availableCredit = ((Credit)account).getAvailableCredit();

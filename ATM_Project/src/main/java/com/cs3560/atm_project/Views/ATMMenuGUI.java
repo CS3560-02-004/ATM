@@ -246,38 +246,16 @@ public class ATMMenuGUI extends javax.swing.JPanel {
     private void WITHDRAWBTNActionPerformed(java.awt.event.ActionEvent evt) {
         Account account = AtmController.getAccount();
 
-        if(account.isCredit){
-            Credit credit_account = (Credit)account;
-            double available_credit = credit_account.getCreditLimit() -  credit_account.getCreditUsed();
-            String value = String.format("%.2f", available_credit);
-            AtmController.getWithdrawGUI().updateBalanceText(value);
-        }
-        else{
-            Checking checking_account = (Checking)account;
-            String value = String.format("%.2f", checking_account.getcheckingBalance());
-            AtmController.getWithdrawGUI().updateBalanceText(value + "");
-        }
-         AtmController.getWithdrawGUI().updateBalanceHeader(account.isCredit);
-        
+        AtmController.updateWithdrawGUI(account);
+
         AtmController.goToScreen("withdraw");
     }
 
     private void BALANCEBTNActionPerformed(java.awt.event.ActionEvent evt) {
         Account account = AtmController.getAccount();
 
-        if(account.isCredit){
-            Credit credit_account = (Credit)account;
-            double available_credit = credit_account.getAvailableCredit();
-            String value = String.format("%.2f", available_credit);
-            // AtmController.updateBalanceDisplay(value);
-        }
-        else{
-            Checking checking_account = (Checking)account;
-            String value = String.format("%.2f", checking_account.getcheckingBalance());
-            // AtmController.updateBalanceDisplay(value);
-        }
+        AtmController.updateBalanceGUI(account);
         AtmController.goToScreen("balance");
-        AtmController.updateBalanceGUI();
     }
 
     private void logoutButtonActionPerformed(java.awt.event.ActionEvent evt) {

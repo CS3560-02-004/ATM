@@ -75,14 +75,14 @@ public class AtmController {
         return pinGui;
     }
 
-    public static void updateBalanceGUI() {
-        balanceGui.update();
-    }
-
-    public static WithdrawWindowGUI getWithdrawGUI(){
-        return withdrawGui;
+    public static void updateBalanceGUI(Account account) {
+        balanceGui.update(account);
     }
     
+    public static void updateWithdrawGUI(Account account) {
+        withdrawGui.update(account);
+    }
+
     // Get Checking object saved in homeGui
     public static Checking getCheckingAccount(){
         return (Checking)account;
@@ -99,7 +99,5 @@ public class AtmController {
     
     public static void setAccount(Account newAccount) {
         account = newAccount;
-
-        balanceGui.setAccount(account);
     }
 }
