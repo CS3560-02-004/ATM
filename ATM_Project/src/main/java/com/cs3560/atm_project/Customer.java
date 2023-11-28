@@ -17,7 +17,8 @@ import java.util.logging.Logger;
  */
 public class Customer {
     private int customerID;
-    private List<Integer> accountIDList;
+    private int thisAccountID;
+    private ArrayList<Integer> accountIDList;
     private DatabaseConnection db;
     private ResultSet rs;
     
@@ -25,6 +26,8 @@ public class Customer {
     private String GET_ACCOUNT_LIST = "SELECT * FROM accounttable WHERE customerID = ";
     
     public Customer(int accountID) {
+        thisAccountID = accountID;
+                
         accountIDList = new ArrayList<>();
         db = new DatabaseConnection();
         
@@ -47,43 +50,23 @@ public class Customer {
         }
     }
     
-     /**
-     * 
-     * @param accountID
-     * @param customerID 
-     */
-    public void updateComboBox(int accountID, int customerID) {
-        db = new DatabaseConnection();
-        String query = String.format("SELECT accountID FROM accounttable WHERE accountID = %d AND customerID = %f", accountID, customerID);
-        rs = db.getQuery(query);
-        
-        ArrayList<String> accounts = new ArrayList<>();
-        accounts.add("Select");
-        if (rs != null) {
-            try {
-                while (rs.next()) {
-                int value = rs.getInt(1);
-                String stringValue = String.valueOf(value);
-                accounts.add(stringValue);
-            }
-            }
-            catch (SQLException e) {
-                
-            }
-        }
-        
-//        for (String item : accounts) {
-//            accountComboBox.add(item);
-//        }
+    public ArrayList<Integer> returnAccountList(){
+        return accountIDList;
     }
+    
+    
     private void queryAccountList() {
+        int accountNumBuffer = 0;
         rs = db.getQuery(String.format(GET_ACCOUNT_LIST + customerID));
         try {
             if (rs.next() == false) {
                 System.out.println("No account Found");
             } else {
                 do {
-                    accountIDList.add(rs.getInt("accountID"));
+                    accountNumBuffer = rs.getInt("accountID");
+                    if(accountNumBuffer != thisAccountID){
+                        accountIDList.add(accountNumBuffer);
+                    }
                 } while (rs.next());
             }
         } catch (SQLException ex) {

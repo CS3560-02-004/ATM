@@ -80,6 +80,10 @@ public class ATM_Project {
         return withdrawGui;
     }
     
+    public static TransferGUI getTransferGUI() {
+        return transferGui;
+    }
+    
     // Get Checking object saved in homeGui
     public static Checking getCheckingAccount(){
         return homeGui.checking_account;

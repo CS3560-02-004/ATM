@@ -5,6 +5,7 @@
 package com.cs3560.atm_project;
 
 import javax.swing.JOptionPane;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,6 +18,7 @@ public class ATMMenuGUI extends javax.swing.JPanel {
     
     public Checking checking_account;
     public Credit credit_account;
+    public Customer customer;
     /**
      * Creates new form HomeScreen
      */
@@ -264,6 +266,14 @@ public class ATMMenuGUI extends javax.swing.JPanel {
     }//GEN-LAST:event_DEPOSITBTNActionPerformed
 
     private void TRANSFERBTNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TRANSFERBTNActionPerformed
+        TransferGUI transfer = ATM_Project.getTransferGUI();
+        ArrayList<Integer> list = customer.returnAccountList();
+        
+        transfer.resetComboBoxItems();
+        for(int i = 0; i < list.size(); i++){
+            transfer.addComboBoxItem(list.get(i).toString());
+        }
+        
         ATM_Project.goToScreen("transfer");
     }//GEN-LAST:event_TRANSFERBTNActionPerformed
 
