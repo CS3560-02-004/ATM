@@ -249,7 +249,7 @@ public class ATMMenuGUI extends javax.swing.JPanel {
         TransferGUI transfer = AtmController.getTransferGUI();
         transfer.currentChecking = AtmController.getCheckingAccount();
         
-        ArrayList<Integer> list = AtmController.returnAccountList();
+        ArrayList<Integer> list = AtmController.getCustomer().returnAccountList();
         
         transfer.resetComboBoxItems();
         for(int i = 0; i < list.size(); i++){

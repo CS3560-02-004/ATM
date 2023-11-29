@@ -96,10 +96,6 @@ public class AtmController {
         return transferGui;
     }
 
-    public static ArrayList<Integer> returnAccountList() {
-        return new ArrayList<Integer>();
-    }
-
     // Get Credit object saved in homeGui
     public static Credit getCreditAccount(){
         return (Credit)account;
