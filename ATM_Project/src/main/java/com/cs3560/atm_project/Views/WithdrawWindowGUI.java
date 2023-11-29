@@ -345,11 +345,16 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
 
         withdrawAmount.setEditable(false);
         withdrawAmount.setBackground(new java.awt.Color(255, 255, 255));
-        withdrawAmount.setText("0");
+        withdrawAmount.setText("$0");
+        withdrawAmount.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                withdrawAmountActionPerformed(evt);
+            }
+        });
 
         balanceTextField.setEditable(false);
         balanceTextField.setBackground(new java.awt.Color(255, 255, 255));
-        balanceTextField.setText("0");
+        balanceTextField.setText("$0");
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -603,21 +608,27 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
             double remainingCredit = creditAccount.getCreditLimit() - creditAccount.getCreditUsed();
             if((remainingCredit-totalWithdraw) > 0){
                creditAccount.updateCreditUsed(totalWithdraw);
-               JOptionPane.showMessageDialog(this, "You have successfully used " + totalWithdraw + " dollars. You have " + (remainingCredit - totalWithdraw) + " remaining.");  
+               String value = String.format("$%d", totalWithdraw);
+               JOptionPane.showMessageDialog(this, "You have successfully withdrew " + value + " dollars. You have " + (remainingCredit - totalWithdraw) + " remaining.");  
                
                Transaction create = new Transaction(creditAccount.getAccountID(), MachineATM.getInstance().getAtmID(), "Credit Withdraw", "Sucessful");
             } else {
-               JOptionPane.showMessageDialog(this, "You can not go over the limit, you have "  + remainingCredit + " credit remaining.");  
+               String value = String.format("$%.2f", remainingCredit);
+               JOptionPane.showMessageDialog(this, "You can not go over the limit, you have "  + value + " credit remaining.");  
+               return;
             }
                       
         } else {
             double totalAmount = AtmController.getCheckingAccount().getcheckingBalance();
             if((totalAmount-totalWithdraw) > 0){
                 AtmController.getCheckingAccount().reduceCheckingBalance(totalWithdraw);
-                JOptionPane.showMessageDialog(this, "You have successfully used " + totalWithdraw + " dollars. ");       
+                String value = String.format("$%d", totalWithdraw);
+                JOptionPane.showMessageDialog(this, "You have successfully withdrew " + value + " dollars. ");       
                 Transaction create = new Transaction(AtmController.getCheckingAccount().getAccountID(), MachineATM.getInstance().getAtmID(), "Checking Withdraw", "Sucessful");
             } else {
-               JOptionPane.showMessageDialog(this, "You can not withdraw this much, you have $"  + totalAmount + " in your balance");  
+               String value = String.format("$%.2f", totalAmount);
+               JOptionPane.showMessageDialog(this, "You can not withdraw this much, you have "  + value + " in your balance");
+               return;
            }
 
         }
@@ -631,7 +642,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         twenty_denomination = 0;
         fifty_denomination = 0;
         hundred_denomination = 0;
-        withdrawAmount.setText("0");
+        withdrawAmount.setText("$0");
         oneDollarAmount.setText("");
         twoDollarAmount.setText("");
         fiveDollarAmount.setText("");
@@ -653,7 +664,7 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         twenty_denomination = 0;
         fifty_denomination = 0;
         hundred_denomination = 0;
-        withdrawAmount.setText("0");
+        withdrawAmount.setText("$0");
         oneDollarAmount.setText("");
         twoDollarAmount.setText("");
         fiveDollarAmount.setText("");
@@ -663,6 +674,10 @@ public class WithdrawWindowGUI extends javax.swing.JPanel {
         oneHundredDollarAmount.setText("");
         AtmController.goToScreen("home");
     }//GEN-LAST:event_backButtonActionPerformed
+
+    private void withdrawAmountActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_withdrawAmountActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_withdrawAmountActionPerformed
     
     public void update(Account account) {
         updateBalanceHeader(account.isCredit);

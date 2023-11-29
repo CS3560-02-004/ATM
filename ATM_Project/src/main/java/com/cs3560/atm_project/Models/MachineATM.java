@@ -79,9 +79,11 @@ public class MachineATM {
         boolean result = true;
         int[] reduce = {one, two, five, ten, twenty, fifty, hundred};
         for (int i = 0; i < quantity.length; i++) {
-            if (quantity[i] > reduce[i]) {              
-                reduce[i] = quantity[i] - reduce[i];
-            } else {
+            if (quantity[i] > reduce[i]) {       
+                quantity[i] -= reduce[i];
+                reduce[i] = quantity[i];
+            } 
+            else {
                 System.out.println("Cannot reduce below 0");
                 result = false;
                 break;
@@ -109,9 +111,8 @@ public class MachineATM {
         boolean result = true;
         int[] increase = {one, two, five, ten, twenty, fifty, hundred};
         for (int i = 0; i < quantity.length; i++) {
-            if (quantity[i] > increase[i]) {
-                increase[i] = quantity[i] + increase[i];
-            }
+            quantity[i] += increase[i];
+            increase[i] = quantity[i];
         }
         if (result) {
             updateDatabaseQuantity(increase);

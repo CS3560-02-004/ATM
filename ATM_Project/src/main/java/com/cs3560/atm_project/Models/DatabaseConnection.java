@@ -17,8 +17,8 @@ import com.cs3560.atm_project.Views.LoginGUI;
 
 public class DatabaseConnection {
     private final String URL = "jdbc:mysql://localhost:3306/atmsystem";
-    private final String USERNAME = "user";
-    private final String PASSWORD = "password1!";
+    private final String USERNAME = "root";
+    private final String PASSWORD = "root";
     
     private Connection connection;
     private Statement statement;
