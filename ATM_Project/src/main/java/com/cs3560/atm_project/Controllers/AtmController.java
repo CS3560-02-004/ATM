@@ -4,6 +4,8 @@
 
 package com.cs3560.atm_project.Controllers;
 
+import java.util.ArrayList;
+
 import com.cs3560.atm_project.Models.Account;
 import com.cs3560.atm_project.Models.Checking;
 import com.cs3560.atm_project.Models.Credit;
@@ -86,6 +88,14 @@ public class AtmController {
     // Get Checking object saved in homeGui
     public static Checking getCheckingAccount(){
         return (Checking)account;
+    }
+
+    public static TransferGUI getTransferGUI() {
+        return transferGui;
+    }
+
+    public static ArrayList<Integer> returnAccountList() {
+        return new ArrayList<Integer>();
     }
 
     // Get Credit object saved in homeGui

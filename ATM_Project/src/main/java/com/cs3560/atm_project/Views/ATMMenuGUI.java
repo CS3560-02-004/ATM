@@ -4,6 +4,8 @@
  */
 package com.cs3560.atm_project.Views;
 
+import java.util.ArrayList;
+
 import javax.swing.JOptionPane;
 
 import com.cs3560.atm_project.Controllers.AtmController;
@@ -231,8 +233,7 @@ public class ATMMenuGUI extends javax.swing.JPanel {
 
     private void DEPOSITBTNActionPerformed(java.awt.event.ActionEvent evt) {
         if(AtmController.getAccount().isCredit){
-            JOptionPane.showMessageDialog(null, "You Cannot Deposit On a Credit Card",
-           "System Message", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(this, "Cannot Deposit with a Credit Card");
             return;
         }
             
@@ -240,6 +241,22 @@ public class ATMMenuGUI extends javax.swing.JPanel {
     }
 
     private void TRANSFERBTNActionPerformed(java.awt.event.ActionEvent evt) {
+        if (AtmController.getAccount().isCredit){
+            JOptionPane.showMessageDialog(this, "Cannot Transfer with a Credit Card");
+            return;
+        }
+
+        TransferGUI transfer = AtmController.getTransferGUI();
+        transfer.currentChecking = AtmController.getCheckingAccount();
+        
+        ArrayList<Integer> list = AtmController.returnAccountList();
+        
+        transfer.resetComboBoxItems();
+        for(int i = 0; i < list.size(); i++){
+            transfer.addComboBoxItem(list.get(i).toString());
+        }
+        
+        transfer.isListenerOn = true;
         AtmController.goToScreen("transfer");
     }
 

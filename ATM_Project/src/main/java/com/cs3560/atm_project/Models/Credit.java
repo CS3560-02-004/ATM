@@ -63,6 +63,23 @@ public class Credit extends Account{
         return result;
     }    
     
+    /**
+     * Update credit used into database.
+     * @param amount amount to be decrease to creditUsed.
+     * @return true if credit used is reduced, false if not
+     */
+    public boolean payOffCreditUsed(double amount){
+        boolean result = false;
+        creditUsed -= amount;
+        if (creditUsed > 0) {
+            String query = String.format("UPDATE credit SET creditUsed = %f WHERE accountID = %d", creditUsed, super.getAccountID());
+            db.executeUpdate(query);
+            result = true;
+        } else {
+            System.out.println("Cannot pay over credit due");
+        }
+        return result;
+    }
     
     /**
      * Getter for credit limit.

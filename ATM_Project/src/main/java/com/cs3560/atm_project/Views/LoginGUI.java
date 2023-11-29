@@ -250,6 +250,8 @@ public class LoginGUI extends javax.swing.JPanel {
                 if (isCredit) AtmController.setAccount(new Credit(accountID));
                 else AtmController.setAccount(new Checking(accountID));
                 
+                menuGUI.customer = new Customer(accountID);
+                
                 // Update GUI of getBalance
                 // AtmController.updateBalanceGUI(isCredit);
                 

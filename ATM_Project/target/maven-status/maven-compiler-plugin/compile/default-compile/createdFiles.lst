@@ -1,5 +1,6 @@
 com\cs3560\atm_project\BalanceGUI$2.class
 com\cs3560\atm_project\WithdrawWindowGUI$16.class
+com\cs3560\atm_project\TransferGUI$5.class
 com\cs3560\atm_project\WithdrawWindowGUI$1.class
 com\cs3560\atm_project\DepositWindowGUI$15.class
 com\cs3560\atm_project\InsertPinGUI.class
@@ -41,12 +42,14 @@ com\cs3560\atm_project\WithdrawWindowGUI$6.class
 com\cs3560\atm_project\BalanceGUI.class
 com\cs3560\atm_project\Withdraw.class
 com\cs3560\atm_project\Customer.class
+com\cs3560\atm_project\TransferGUI$6.class
 com\cs3560\atm_project\WithdrawWindowGUI$12.class
 com\cs3560\atm_project\WithdrawWindowGUI.class
 com\cs3560\atm_project\WithdrawWindowGUI$11.class
 com\cs3560\atm_project\Account.class
 com\cs3560\atm_project\DepositWindowGUI$13.class
 com\cs3560\atm_project\WithdrawWindowGUI$21.class
+com\cs3560\atm_project\TransferGUI$7.class
 com\cs3560\atm_project\WithdrawWindowGUI$18.class
 com\cs3560\atm_project\DepositWindowGUI$6.class
 com\cs3560\atm_project\InsertPinGUI$3.class
