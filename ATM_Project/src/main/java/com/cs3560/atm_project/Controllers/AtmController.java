@@ -106,6 +106,8 @@ public class AtmController {
     }
 
     public static Customer getCustomer() {
+        if (customer == null) customer = new Customer(account.getAccountID());
+
         return customer;
     }
 
