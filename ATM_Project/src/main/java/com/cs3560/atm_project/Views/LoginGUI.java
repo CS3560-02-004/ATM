@@ -16,6 +16,7 @@ import javax.swing.JOptionPane;
 import com.cs3560.atm_project.Controllers.AtmController;
 import com.cs3560.atm_project.Models.Checking;
 import com.cs3560.atm_project.Models.Credit;
+import com.cs3560.atm_project.Models.Customer;
 import com.cs3560.atm_project.Models.DatabaseConnection;
 import com.cs3560.atm_project.Models.MachineATM;
 
@@ -250,7 +251,7 @@ public class LoginGUI extends javax.swing.JPanel {
                 if (isCredit) AtmController.setAccount(new Credit(accountID));
                 else AtmController.setAccount(new Checking(accountID));
                 
-                menuGUI.customer = new Customer(accountID);
+                AtmController.setCustomer(new Customer(accountID));                
                 
                 // Update GUI of getBalance
                 // AtmController.updateBalanceGUI(isCredit);

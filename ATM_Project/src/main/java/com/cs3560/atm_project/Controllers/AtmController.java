@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import com.cs3560.atm_project.Models.Account;
 import com.cs3560.atm_project.Models.Checking;
 import com.cs3560.atm_project.Models.Credit;
+import com.cs3560.atm_project.Models.Customer;
 import com.cs3560.atm_project.Models.StackPanel;
 import com.cs3560.atm_project.Views.ATMMenuGUI;
 import com.cs3560.atm_project.Views.BalanceGUI;
@@ -37,6 +38,7 @@ public class AtmController {
     private static StackPanel stackPanel;
        
     private static Account account;
+    private static Customer customer;
 
     public static void main(String[] args) {
         System.out.println("HELLO");
@@ -101,6 +103,14 @@ public class AtmController {
     // Get Credit object saved in homeGui
     public static Credit getCreditAccount(){
         return (Credit)account;
+    }
+
+    public static void setCustomer(Customer customer) {
+
+    }
+
+    public static Customer getCustomer() {
+        return customer;
     }
 
     public static Account getAccount() {

@@ -4,6 +4,8 @@
  */
 package com.cs3560.atm_project.Views;
 import javax.swing.JOptionPane;
+import java.awt.event.ItemEvent;
+import java.awt.event.ItemListener;
 
 import com.cs3560.atm_project.Controllers.AtmController;
 import com.cs3560.atm_project.Models.Checking;
@@ -371,7 +373,7 @@ public class TransferGUI extends javax.swing.JPanel {
         balanceTextField.setText("");
         balanceHeader.setText("Balance");
         accountComboBox.setSelectedIndex(0);
-        ATM_Project.goToScreen("home");
+        AtmController.goToScreen("home");
     }//GEN-LAST:event_backButtonActionPerformed
 
     private void enterButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_enterButtonActionPerformed

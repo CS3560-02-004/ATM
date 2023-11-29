@@ -19,14 +19,20 @@ import com.cs3560.atm_project.Views.LoginGUI;
  */
 public class Customer {
     private int customerID;
-    private List<Integer> accountIDList;
+    private int thisAccountID;
+    private ArrayList<Integer> accountIDList;
     private DatabaseConnection db;
     private ResultSet rs;
     
-    private String GET_CUSTOMER = "SELECT * FROM accounttable WHERE accountID = ";
-    private String GET_ACCOUNT_LIST = "SELECT * FROM accounttable WHERE customerID = ";
+    private static final String GET_CUSTOMER = "SELECT * FROM accounttable WHERE accountID = ";
+    private static final String GET_ACCOUNT_LIST = "SELECT * FROM accounttable WHERE customerID = ";
+    private static final String CHECK_IF_CHECKING = "SELECT * FROM checking WHERE accountID = ";
+    private static final String CHECK_IF_CREDIT = "SELECT * FROM credit WHERE accountID = ";
+    private static final String CHECK_IF_SAVING = "SELECT * FROM saving WHERE accountID = ";
     
     public Customer(int accountID) {
+        thisAccountID = accountID;
+                
         accountIDList = new ArrayList<>();
         db = new DatabaseConnection();
         
@@ -49,52 +55,70 @@ public class Customer {
         }
     }
     
-     /**
-     * 
-     * @param accountID
-     * @param customerID 
-     */
-    public void updateComboBox(int accountID, int customerID) {
-        db = new DatabaseConnection();
-        String query = String.format("SELECT accountID FROM accounttable WHERE accountID = %d AND customerID = %f", accountID, customerID);
-        rs = db.getQuery(query);
+    public ArrayList<Integer> returnAccountList(){
+        return accountIDList;
+    }
+    
+    // Return:
+    // 0 if checking
+    // 1 if credit
+    // 2 if savings
+    // 3 if problem
+    public static int returnAccountType(int accountID){
+        DatabaseConnection db = new DatabaseConnection();
+        ResultSet rs;
         
-        ArrayList<String> accounts = new ArrayList<>();
-        accounts.add("Select");
-        if (rs != null) {
-            try {
-                while (rs.next()) {
-                int value = rs.getInt(1);
-                String stringValue = String.valueOf(value);
-                accounts.add(stringValue);
+        // Check if checking
+        rs = db.getQuery(String.format(CHECK_IF_CHECKING + accountID));
+        try {
+            if (rs.next() == true) {
+                return 0;
             }
-            }
-            catch (SQLException e) {
-                
-            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
         
-//        for (String item : accounts) {
-//            accountComboBox.add(item);
-//        }
+        // Check if credit
+        rs = db.getQuery(String.format(CHECK_IF_CREDIT + accountID));
+        try {
+            if (rs.next() == true) {
+                return 1;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        // Check if savings
+        rs = db.getQuery(String.format(CHECK_IF_SAVING + accountID));
+        try {
+            if (rs.next() == true) {
+                return 2;
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return 3;
     }
+    
+    
     private void queryAccountList() {
+        int accountNumBuffer = 0;
         rs = db.getQuery(String.format(GET_ACCOUNT_LIST + customerID));
         try {
             if (rs.next() == false) {
                 System.out.println("No account Found");
             } else {
                 do {
-                    accountIDList.add(rs.getInt("accountID"));
+                    accountNumBuffer = rs.getInt("accountID");
+                    if(accountNumBuffer != thisAccountID){
+                        accountIDList.add(accountNumBuffer);
+                    }
                 } while (rs.next());
             }
         } catch (SQLException ex) {
             Logger.getLogger(LoginGUI.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }
-    
-    public List<Integer> getListAccount() {
-        return accountIDList;
     }
     
     public int getCustomerID() {
